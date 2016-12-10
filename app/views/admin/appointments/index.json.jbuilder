@@ -1,0 +1,1 @@
+json.array! @admin_appointments, partial: 'admin_appointments/admin_appointment', as: :admin_appointment
