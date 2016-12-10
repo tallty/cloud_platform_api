@@ -1,1 +1,3 @@
-json.array! @admin_interface_documents, partial: 'admin_interface_documents/admin_interface_document', as: :admin_interface_document
+json.current_page @admin_interface_documents.current_page
+json.total_pages @admin_interface_documents.total_pages
+json.admin_interface_documents @admin_interface_documents, partial: 'admin_interface_documents/admin_interface_document', as: :admin_interface_document
