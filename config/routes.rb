@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sms_tokens
   resources :appointments, only: [:index, :show, :create]
   resources :interface_documents, only: [:index, :show]
 
