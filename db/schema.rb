@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20161210093750) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                             default: "", null: false
+    t.string   "phone",                             default: "", null: false
     t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -73,7 +74,7 @@ ActiveRecord::Schema.define(version: 20161210093750) do
     t.datetime "updated_at",                                     null: false
     t.string   "authentication_token",   limit: 30
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["phone"], name: "index_users_on_phone", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
