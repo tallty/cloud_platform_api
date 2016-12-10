@@ -1,0 +1,2 @@
+module InterfaceDocumentsHelper
+end

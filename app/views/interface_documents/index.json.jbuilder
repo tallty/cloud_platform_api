@@ -1,0 +1,1 @@
+json.array! @interface_documents, partial: 'interface_documents/interface_document', as: :interface_document

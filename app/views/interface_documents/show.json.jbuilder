@@ -1,0 +1,1 @@
+json.partial! "interface_documents/interface_document", interface_document: @interface_document
