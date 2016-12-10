@@ -1,10 +1,13 @@
 class Admin::AppointmentsController < ApplicationController
-  before_action :set_admin_appointment, only: [:show, :update, :destroy]
+  acts_as_token_authentication_handler_for Admin
+  before_action :set_admin_appointment, only: [:show, :check]
 
   respond_to :json
 
   def index
-    @admin_appointments = Admin::Appointment.all
+    page = params[:page] || 1
+    per_page = params[:per_page] || 20
+    @admin_appointments = Appointment.all.paginate(page: page, per_page: per_page)
     respond_with(@admin_appointments)
   end
 
@@ -12,28 +15,13 @@ class Admin::AppointmentsController < ApplicationController
     respond_with(@admin_appointment)
   end
 
-  def create
-    @admin_appointment = Admin::Appointment.new(admin_appointment_params)
-    @admin_appointment.save
-    respond_with(@admin_appointment)
-  end
-
-  def update
-    @admin_appointment.update(admin_appointment_params)
-    respond_with(@admin_appointment)
-  end
-
-  def destroy
-    @admin_appointment.destroy
-    respond_with(@admin_appointment)
+  def check
+    @admin_appointment.accept!
+    respond_with(@admin_appointment, template:"admin_appointments/show", status: 201)
   end
 
   private
     def set_admin_appointment
-      @admin_appointment = Admin::Appointment.find(params[:id])
-    end
-
-    def admin_appointment_params
-      params[:admin_appointment]
+      @admin_appointment = Appointment.find(params[:id])
     end
 end
