@@ -1,0 +1,1 @@
+json.array! @admin_interface_documents, partial: 'admin_interface_documents/admin_interface_document', as: :admin_interface_document
