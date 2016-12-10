@@ -1,0 +1,8 @@
+zh-CN:
+ 
+  #   attributes:
+  appointment_aasm_state:
+    unused: "未授权"
+    checking: "待审核"
+    used: "已授权"
+   
