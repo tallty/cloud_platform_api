@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210033934) do
+ActiveRecord::Schema.define(version: 20161210040024) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                             default: "", null: false
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20161210033934) do
     t.index ["authentication_token"], name: "index_admins_on_authentication_token", unique: true, using: :btree
     t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "appointments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "interface_document_id"
+    t.string   "aasm_state"
+    t.date     "start_time"
+    t.date     "end_time"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["interface_document_id"], name: "index_appointments_on_interface_document_id", using: :btree
+    t.index ["user_id"], name: "index_appointments_on_user_id", using: :btree
   end
 
   create_table "interface_documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -58,4 +70,6 @@ ActiveRecord::Schema.define(version: 20161210033934) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "appointments", "interface_documents"
+  add_foreign_key "appointments", "users"
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :appointments
   resources :interface_documents
   devise_for :admins
   devise_for :users
