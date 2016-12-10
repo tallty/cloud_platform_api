@@ -1,10 +1,13 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  acts_as_token_authentication_handler_for User
+  before_action :set_appointment, only: [:show]
 
-  respond_to :html
+  respond_to :json
 
   def index
-    @appointments = Appointment.all
+    page = params[:page] || 1
+    per_page = params[:per_page] || 20
+    @appointments = current_user.appointments.paginate(page: page, per_page: per_page)
     respond_with(@appointments)
   end
 
@@ -12,28 +15,15 @@ class AppointmentsController < ApplicationController
     respond_with(@appointment)
   end
 
-  def new
-    @appointment = Appointment.new
-    respond_with(@appointment)
-  end
-
-  def edit
-  end
-
   def create
-    @appointment = Appointment.new(appointment_params)
-    @appointment.save
-    respond_with(@appointment)
-  end
-
-  def update
-    @appointment.update(appointment_params)
-    respond_with(@appointment)
-  end
-
-  def destroy
-    @appointment.destroy
-    respond_with(@appointment)
+    @appointment = current_user.appointments.build(appointment_params)
+    @appointment.user_id = current_user.id
+    if @appointment.save
+    respond_with(@appointment, template:"appointments/show", status: 201)  
+    else
+      @error = "接口文档 申请创建 失败 ！"
+      respond_with(@error)
+    end
   end
 
   private
@@ -42,6 +32,6 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-      params.require(:appointment).permit(:user_id, :interface_document_id, :aasm_state, :start_time, :end_time)
+      params.require(:appointment).permit(:interface_document_id, :aasm_state, :start_time, :end_time)
     end
 end
