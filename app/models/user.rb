@@ -35,6 +35,8 @@ class User < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :interface_documents, through: :appointments
 
+  validate :sms_token_validate, on: :create
+
   def self.user_count#用户量
     User.count
   end

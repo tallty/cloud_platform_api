@@ -23,12 +23,12 @@ SimpleTokenAuthentication.configure do |config|
   #     `X-Admin-Auth-Token, X-SuperAdmin-Email`
   #
   config.header_names = {
-    user: { authentication_token: 'X-User-Token', email: 'X-User-Email' },
+    user: { authentication_token: 'X-User-Token', Phone: 'X-User-phone' },
     admin: { authentication_token: 'X-Admin-Token', email: 'X-Admin-Email' }
     
   }
   
-  config.identifiers = { user: :email, admin: :email}
+  config.identifiers = { user: :phone, admin: :email}
 
   
 
