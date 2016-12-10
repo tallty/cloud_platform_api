@@ -20,6 +20,8 @@
 
 FactoryGirl.define do
   factory :admin do
-    
+    email "admin@example.com"
+    password "password"
+    authentication_token "qwertyuiop1"
   end
 end
