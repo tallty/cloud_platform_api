@@ -1,1 +1,1 @@
-json.partial! "admin_appointments/admin_appointment", admin_appointment: @admin_appointment
+json.partial! "admin/appointments/admin_appointment", admin_appointment: @admin_appointment
