@@ -1,0 +1,1 @@
+admin_interface_document_spec.rb
