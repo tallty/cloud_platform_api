@@ -1,6 +1,6 @@
 class Admin::AppointmentsController < ApplicationController
   acts_as_token_authentication_handler_for Admin
-  before_action :set_admin_appointment, only: [:show, :check]
+  before_action :set_admin_appointment, only: [:show, :accept, :refuse]
 
   respond_to :json
 
@@ -15,8 +15,13 @@ class Admin::AppointmentsController < ApplicationController
     respond_with(@admin_appointment)
   end
 
-  def check
+  def accept
     @admin_appointment.accept!
+    respond_with(@admin_appointment, template:"admin_appointments/show", status: 201)
+  end
+
+  def refuse
+    @admin_appointment.refuse!
     respond_with(@admin_appointment, template:"admin_appointments/show", status: 201)
   end
 

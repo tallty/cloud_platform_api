@@ -9,7 +9,12 @@ Rails.application.routes.draw do
 
   ################### admin #########################
   namespace :admin do
-  	resources :appointments, only: [:index, :show]
+  	resources :appointments, only: [:index, :show] do
+      member do
+        post :accept
+        post :refuse
+      end
+    end
     resources :interface_documents, only: [:index, :show, :create, :update, :destroy]
   end
 
