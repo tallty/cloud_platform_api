@@ -18,7 +18,7 @@ class Admin::InterfaceDocumentsController < ApplicationController
   def create
     @admin_interface_document = InterfaceDocument.new(admin_interface_document_params)
     if @admin_interface_document.save
-      respond_with(@admin_interface_document, template:"admin_interface_documents/show", status: 201)  
+      respond_with(@admin_interface_document, template:"admin/interface_documents/show", status: 201)  
     else
       @error = "接口文档创建 失败 ！"
       respond_with(@error)
@@ -27,7 +27,7 @@ class Admin::InterfaceDocumentsController < ApplicationController
 
   def update
     @admin_interface_document.update(admin_interface_document_params)
-    respond_with(@admin_interface_document, template:"admin_interface_documents/show", status: 201)
+    respond_with(@admin_interface_document, template:"admin/interface_documents/show", status: 201)
   end
 
   def destroy

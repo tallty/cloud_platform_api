@@ -1,1 +1,1 @@
-json.partial! "admin_interface_documents/admin_interface_document", admin_interface_document: @admin_interface_document
+json.partial! "admin/interface_documents/admin_interface_document", admin_interface_document: @admin_interface_document
