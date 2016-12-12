@@ -32,6 +32,6 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-      params.require(:appointment).permit(:interface_document_id, :aasm_state, :start_time, :end_time)
+      params.require(:appointment).permit(:interface_document_id, :start_time, :end_time)
     end
 end

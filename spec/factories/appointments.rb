@@ -14,10 +14,10 @@
 
 FactoryGirl.define do
   factory :appointment do
-    user nil
-    interface_document nil
-    aasm_state "MyString"
-    start_time "2016-12-10"
-    end_time "2016-12-10"
+    user_id 1
+    interface_document_id 1
+    aasm_state "checking"
+    start_time "#{Time.zone.now + 3.day}"
+    end_time "#{Time.zone.now + 50.day}"
   end
 end

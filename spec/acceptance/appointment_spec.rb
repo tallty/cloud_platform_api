@@ -12,15 +12,14 @@ resource "用户申请 接口 相关的API " do
 
     before do
       @user = create(:user)
+      @interface_document = create(:interface_document)
     end
 
-    parameter :user_id, "申请人", require: true, scope: :appointment
     parameter :interface_document_id, "申请的接口", require: true, scope: :appointment
     parameter :start_time, "申请的开始时间", require: true, scope: :appointment
     parameter :end_time, "申请的结束时间", require: true, scope: :appointment
 
-    let(:user_id) {appointment_attrs[:user_id]}
-    let(:interface_document_id) {appointment_attrs[:interface_document_id]}
+    let(:interface_document_id) {@interface_document.id}
     let(:start_time) {appointment_attrs[:start_time]}
     let(:end_time) {appointment_attrs[:end_time]}
 
@@ -31,7 +30,8 @@ resource "用户申请 接口 相关的API " do
     end
   end
 
-  get 'appointments' do
+  ############### before_do ################################
+  describe 'syllabus condition is all correct' do
     user_attrs = FactoryGirl.attributes_for(:user)
 
     header "X-User-Token", user_attrs[:authentication_token]
@@ -39,33 +39,30 @@ resource "用户申请 接口 相关的API " do
 
     before do
       @user = create(:user)
-      @appointments = create_list(:appointment, 5, user: @user)
+      @interface_document = create(:interface_document)
+      @appointments = create_list(:appointment, 5, user: @user, interface_document: @interface_document)
+    end
+   
+    #################### index #########################
+    get 'appointments' do
+
+      example "用户获取申请列表成功" do
+        do_request
+        puts response_body
+        expect(status).to eq(200)
+      end
     end
 
-    example "用户获取申请列表成功" do
-      do_request
-      puts response_body
-      expect(status).to eq(200)
-    end
-  end
+    ##################### show ########################
+    get 'appointments/:id' do
+    
+      let(:id) { @appointments.first.id }
 
-  get 'appointments/:id' do
-    user_attrs = FactoryGirl.attributes_for(:user)
-
-    header "X-User-Token", user_attrs[:authentication_token]
-    header "X-User-Phone", user_attrs[:phone]
-
-    before do
-      @user = create(:user)
-      @appointments = create_list(:appointment, 5, user: @user)
-    end
-
-    let(:id) { @appointments.first.id }
-
-    example "用户查看指定申请详情成功" do
-      do_request
-      puts response_body
-      expect(status).to eq(200)
+      example "用户查看指定申请详情成功" do
+        do_request
+        puts response_body
+        expect(status).to eq(200)
+      end
     end
   end
 end
