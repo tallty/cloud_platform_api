@@ -12,7 +12,7 @@
 class SmsToken < ApplicationRecord
 
   def self.register phone
-  	token = (0..9).to_a.sample(4).jion
+  	token = (0..9).to_a.sample(4).join
   	sms_token = SmsToken.find_or_initialize_by(phone: phone)
 
   	if phone.present?
