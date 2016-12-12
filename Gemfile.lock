@@ -50,6 +50,7 @@ GEM
     bcrypt (3.1.11)
     builder (3.2.2)
     byebug (9.0.6)
+    china_sms (0.0.7)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -78,6 +79,8 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    faraday (0.10.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -105,6 +108,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    multipart-post (2.0.0)
     mustache (1.0.3)
     mysql2 (0.4.5)
     nio4r (1.2.1)
@@ -234,10 +238,12 @@ DEPENDENCIES
   annotate
   apitome
   byebug
+  china_sms
   coffee-rails (~> 4.2)
   devise
   devise-i18n
   factory_girl_rails
+  faraday
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
