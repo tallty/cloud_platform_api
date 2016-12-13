@@ -22,6 +22,14 @@ resource "用户查看 接口 相关的API " do
 
     ##################### show ########################
     get 'interface_documents/:id' do
+      user_attrs = FactoryGirl.attributes_for(:user)
+
+      header "X-User-Token", user_attrs[:authentication_token]
+      header "X-User-Phone", user_attrs[:phone]
+
+      before do
+        @user = create(:user)
+      end
     
       let(:id) { @interface_documents.first.id }
 

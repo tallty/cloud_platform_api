@@ -1,4 +1,5 @@
 class InterfaceDocumentsController < ApplicationController
+  acts_as_token_authentication_handler_for User, only: [:show] 
   before_action :set_interface_document, only: [:show]
 
   respond_to :json
@@ -11,7 +12,28 @@ class InterfaceDocumentsController < ApplicationController
   end
 
   def show
-    respond_with(@interface_document)
+   #访问接口的权限
+   @appointments = @interface_document.appointments.get_user(current_user.id)#获取接口对应的所以申请。
+   if @appointments.present?
+      @appointment = @appointments.range_time.first#获取接口对应 没有过期的申请。
+      if @appointment.present?
+        if @appointment.aasm_state == "used"
+          respond_with(@interface_document)
+        elsif @appointment.aasm_state == "unused"
+          @error = "您没有访问权限, 您的申请没有通过审核 ！"
+          respond_with(@error, template: "error")
+        else
+          @error = "您没有访问权限, 您的申请还在审核中 ！"
+          respond_with(@error, template: "error")
+        end
+      else
+        @error = "您没有访问权限, 您的申请已经过期,请重新申请接口审核通过之后再访问 ！"
+        respond_with(@error, template: "error")
+      end
+   else
+     @error = "您没有访问权限, 请申请接口审核通过之后再访问 ！"
+     respond_with(@error, template: "error")
+   end
   end
 
   private
