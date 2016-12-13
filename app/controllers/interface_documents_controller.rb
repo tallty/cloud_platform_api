@@ -15,9 +15,10 @@ class InterfaceDocumentsController < ApplicationController
    #访问接口的权限
    @appointments = @interface_document.appointments.get_user(current_user.id)#获取接口对应的所以申请。
    if @appointments.present?
-      @appointment = @appointments.range_time.first#获取接口对应 没有过期的申请。
+      @appointment = @appointments.avail_time.first#获取接口对应 没有过期的申请。
       if @appointment.present?
         if @appointment.aasm_state == "used"
+          @interface_document.update(frequency: @interface_document.frequency + 1) #记录访问次数
           respond_with(@interface_document)
         elsif @appointment.aasm_state == "unused"
           @error = "您没有访问权限, 您的申请没有通过审核 ！"

@@ -35,6 +35,6 @@ class Appointment < ApplicationRecord
     I18n.t :"appointment_aasm_state.#{aasm_state}"
   end
 
-  scope :range_time, -> {where("end_time >= ?", "#{Time.zone.today}")}
+  scope :avail_time, -> {where("end_time >= ?", "#{Time.zone.today}")}
   scope :get_user, -> (user_id) { where(user_id: user_id) }
 end
