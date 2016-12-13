@@ -15,11 +15,11 @@ resource "用户申请 接口 相关的API " do
       @interface_document = create(:interface_document)
     end
 
-    parameter :interface_document_id, "申请的接口", require: true, scope: :appointment
+    parameter :interface_document_id, "申请的接口集合", require: true, scope: :appointment
     parameter :start_time, "申请的开始时间", require: true, scope: :appointment
     parameter :end_time, "申请的结束时间", require: true, scope: :appointment
 
-    let(:interface_document_id) {@interface_document.id}
+    let(:interface_document_id) { 1 }
     let(:start_time) {appointment_attrs[:start_time]}
     let(:end_time) {appointment_attrs[:end_time]}
 

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20161213061839) do
 
-  create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "admins", force: :cascade do |t|
     t.string   "email",                             default: "", null: false
     t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 20161213061839) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
     t.string   "authentication_token",   limit: 30
-    t.index ["authentication_token"], name: "index_admins_on_authentication_token", unique: true, using: :btree
-    t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+    t.index ["authentication_token"], name: "index_admins_on_authentication_token", unique: true
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "appointments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "appointments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "interface_document_id"
     t.string   "aasm_state"
@@ -39,27 +39,27 @@ ActiveRecord::Schema.define(version: 20161213061839) do
     t.date     "end_time"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.index ["interface_document_id"], name: "index_appointments_on_interface_document_id", using: :btree
-    t.index ["user_id"], name: "index_appointments_on_user_id", using: :btree
+    t.index ["interface_document_id"], name: "index_appointments_on_interface_document_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
-  create_table "interface_documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "interface_documents", force: :cascade do |t|
     t.string   "title"
-    t.text     "description", limit: 65535
+    t.text     "description"
     t.string   "site"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.integer  "frequency",                 default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "frequency",   default: 0
   end
 
-  create_table "sms_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "sms_tokens", force: :cascade do |t|
     t.string   "phone"
     t.string   "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "user_infos", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "nickname"
@@ -67,10 +67,10 @@ ActiveRecord::Schema.define(version: 20161213061839) do
     t.integer  "sex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_user_infos_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_user_infos_on_user_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                             default: "", null: false
     t.string   "phone",                             default: "", null: false
     t.string   "encrypted_password",                default: "", null: false
@@ -85,12 +85,9 @@ ActiveRecord::Schema.define(version: 20161213061839) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
     t.string   "authentication_token",   limit: 30
-    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
-    t.index ["phone"], name: "index_users_on_phone", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
+    t.index ["phone"], name: "index_users_on_phone", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "appointments", "interface_documents"
-  add_foreign_key "appointments", "users"
-  add_foreign_key "user_infos", "users"
 end
