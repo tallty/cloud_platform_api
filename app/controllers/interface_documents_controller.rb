@@ -11,7 +11,7 @@ class InterfaceDocumentsController < ApplicationController
     respond_with(@interface_documents)
   end
 
-  def list
+  def list#用户申请过的接口列表
     page = params[:page] || 1
     per_page = params[:per_page] || 20
     @interface_documents = current_user.interface_documents.paginate(page: page, per_page: per_page)

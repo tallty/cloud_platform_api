@@ -20,6 +20,24 @@ resource "用户查看 接口 相关的API " do
       end
     end
 
+    #################### list #########################
+    get 'interface_documents/list' do
+      user_attrs = FactoryGirl.attributes_for(:user)
+
+      header "X-User-Token", user_attrs[:authentication_token]
+      header "X-User-Phone", user_attrs[:phone]
+
+      before do
+        @user = create(:user)
+      end
+
+      example "用户获取 申请过 接口列表成功" do
+        do_request
+        puts response_body
+        expect(status).to eq(200)
+      end
+    end
+
     ##################### show ########################
     get 'interface_documents/:id' do
       user_attrs = FactoryGirl.attributes_for(:user)
