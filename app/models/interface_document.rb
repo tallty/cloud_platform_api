@@ -14,6 +14,7 @@
 class InterfaceDocument < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :users, through: :appointments
+  has_many :statis_infos, dependent: :destroy
 
   ############### 排名情况 ###################
   def total_rank#总的排名
