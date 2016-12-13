@@ -34,7 +34,9 @@ class User < ApplicationRecord
 
   has_many :appointments, dependent: :destroy
   has_many :interface_documents, through: :appointments
-
+ 
+  validates_uniqueness_of :phone
+  validates_presence_of :phone
   validate :sms_token_validate, on: :create
 
   def self.user_count#用户量
@@ -48,6 +50,27 @@ class User < ApplicationRecord
   # user phone as the authentication key, so email is not required default
   def email_required?
     false
+  end
+
+  def self.reset_user_password params
+    phone = params[:phone]
+    password = params[:password]
+    sms_token = params[:sms_token]
+    user = User.find_by phone: phone
+
+    if user.present?
+      if SmsToken.valid? phone, sms_token
+        user.password = password
+        user.sms_token = sms_token
+        user.save
+      else
+        user.errors.add(:sms_token, "验证码不正确，请重试")
+      end
+    else
+      user = User.new
+      user.errors.add(:phone, "手机号码对应的用户不存在")
+    end
+    user
   end
 
   private
