@@ -19,6 +19,7 @@ class InterfaceDocumentsController < ApplicationController
       if @appointment.present?
         if @appointment.aasm_state == "used"
           @interface_document.update(frequency: @interface_document.frequency + 1) #记录访问次数
+          @interface_document.ceate_statis_info(current_user.id, @interface_document.id)#创建统计信息
           respond_with(@interface_document)
         elsif @appointment.aasm_state == "unused"
           @error = "您没有访问权限, 您的申请没有通过审核 ！"
