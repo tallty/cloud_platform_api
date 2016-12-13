@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213025043) do
+ActiveRecord::Schema.define(version: 20161213061839) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                             default: "", null: false
@@ -47,8 +47,9 @@ ActiveRecord::Schema.define(version: 20161213025043) do
     t.string   "title"
     t.text     "description", limit: 65535
     t.string   "site"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "frequency",                 default: 0
   end
 
   create_table "sms_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
