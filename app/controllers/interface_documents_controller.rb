@@ -1,5 +1,5 @@
 class InterfaceDocumentsController < ApplicationController
-  acts_as_token_authentication_handler_for User, only: [:show] 
+  acts_as_token_authentication_handler_for User, only: [:show, :list] 
   before_action :set_interface_document, only: [:show]
 
   respond_to :json
@@ -11,9 +11,16 @@ class InterfaceDocumentsController < ApplicationController
     respond_with(@interface_documents)
   end
 
+  def list
+    page = params[:page] || 1
+    per_page = params[:per_page] || 20
+    @interface_documents = current_user.interface_documents.paginate(page: page, per_page: per_page)
+    respond_with(@interface_documents, template: "interface_documents/index")
+  end
+
   def show
    #访问接口的权限
-   @appointments = @interface_document.appointments.get_user(current_user.id)#获取接口对应的所以申请。
+   @appointments = @interface_document.appointments.get_user(current_user.id)#获取接口对应的所有申请。
    if @appointments.present?
       @appointment = @appointments.avail_time.first#获取接口对应 没有过期的申请。
       if @appointment.present?

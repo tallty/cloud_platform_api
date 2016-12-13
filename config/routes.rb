@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   resources :appointments, only: [:index, :show, :create]
   resources :interface_documents, only: [:index, :show] do
     collection do
-      get :used_list
-      get :unused_list
+      get :list
     end
     resources :statis_infos
   end
