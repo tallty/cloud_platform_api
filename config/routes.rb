@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :user_infos
-  resources :sms_tokens
+  
   resources :appointments, only: [:index, :show, :create]
   resources :interface_documents, only: [:index, :show]
 
@@ -17,6 +16,13 @@ Rails.application.routes.draw do
       end
     end
     resources :interface_documents, only: [:index, :show, :create, :update, :destroy]
+  end
+
+  ########### UserInfo Route ################
+  resource :user_info, only: [:show, :update] do
+    member do
+      post 'reset'
+    end
   end
 
   ############ SMS Routes ###################
