@@ -39,6 +39,12 @@ class User < ApplicationRecord
   validates_presence_of :phone
   validate :sms_token_validate, on: :create
 
+  delegate :nickname, :sex, :name, to: :user_info, allow_nil: true
+
+  def info
+    self.user_info || self.create_user_info
+  end
+
   def self.user_count#用户量
     User.count
   end
