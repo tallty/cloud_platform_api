@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   
   resources :appointments, only: [:index, :show, :create]
-  resources :interface_documents, only: [:index, :show]
+  resources :interface_documents, only: [:index, :show] do
+    collection do
+      get :used_list
+      get :unused_list
+    end
+    resources :statis_infos
+  end
 
   ################### devise_for ####################
   devise_for :admins
@@ -15,7 +21,9 @@ Rails.application.routes.draw do
         post :refuse
       end
     end
-    resources :interface_documents, only: [:index, :show, :create, :update, :destroy]
+    resources :interface_documents, only: [:index, :show, :create, :update, :destroy] do
+      resources :statis_infos
+    end
   end
 
   ########### UserInfo Route ################
