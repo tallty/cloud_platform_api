@@ -31,7 +31,7 @@ resource "用户申请 接口 相关的API " do
   end
 
   ############### before_do ################################
-  describe 'syllabus condition is all correct' do
+  describe 'appointments condition is all correct' do
     user_attrs = FactoryGirl.attributes_for(:user)
 
     header "X-User-Token", user_attrs[:authentication_token]
@@ -46,7 +46,7 @@ resource "用户申请 接口 相关的API " do
     #################### index #########################
     get 'appointments' do
 
-      example "用户获取申请列表成功" do
+      example "用户 获取 申请列表成功" do
         do_request
         puts response_body
         expect(status).to eq(200)
@@ -58,7 +58,7 @@ resource "用户申请 接口 相关的API " do
     
       let(:id) { @appointments.first.id }
 
-      example "用户查看指定申请详情成功" do
+      example "用户 查看指定申请 详情成功" do
         do_request
         puts response_body
         expect(status).to eq(200)

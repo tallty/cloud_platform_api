@@ -1,6 +1,6 @@
 require 'acceptance_helper'
 
-resource "管理员对 申请 相关的API " do
+resource "管理员对 申请接口 相关的API " do
   header "Accept", "application/json"
 
   ############### before_do ################################
@@ -49,7 +49,7 @@ resource "管理员对 申请 相关的API " do
      
       let(:aasm_state) {"used"}
 
-      example "管理员 通过 申请文档 的请求" do
+      example "管理员 审批通过 申请文档 的请求" do
         do_request
         puts response_body
         expect(status).to eq(201)
@@ -66,7 +66,7 @@ resource "管理员对 申请 相关的API " do
      
       let(:aasm_state) {"unused"}
 
-      example "管理员 拒绝 申请文档 的请求" do
+      example "管理员 审批拒绝 申请文档 的请求" do
         do_request
         puts response_body
         expect(status).to eq(201)

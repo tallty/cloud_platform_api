@@ -22,7 +22,7 @@ resource "管理员对 接口 相关的API " do
     let(:description) {interface_document_attrs[:description]}
     let(:site) {interface_document_attrs[:site]}
 
-    example "管理员创建接口文档 成功" do
+    example "管理员 创建 接口文档成功" do
       do_request
       puts response_body
       expect(status).to eq(201)
@@ -30,7 +30,7 @@ resource "管理员对 接口 相关的API " do
   end
 
   ############### before_do ################################
-  describe '/admin/interface_documents condition is all correct' do
+  describe 'admin_interface_documents condition is all correct' do
     admin_attrs = FactoryGirl.attributes_for(:admin)
 
     header "X-Admin-Token", admin_attrs[:authentication_token]
@@ -44,7 +44,7 @@ resource "管理员对 接口 相关的API " do
     #################### index #########################
     get '/admin/interface_documents' do
 
-      example "管理员获取 接口文档列表成功" do
+      example "管理员 获取 接口文档 列表成功" do
         do_request
         puts response_body
         expect(status).to eq(200)

@@ -1,0 +1,83 @@
+{
+  "resource": "用户注册登录",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "/users/sign_in",
+  "description": "用户登录成功",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "user",
+      "name": "phone",
+      "description": "登录的手机号"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "password",
+      "description": "登录密码"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "id",
+      "description": "用户ID"
+    },
+    {
+      "name": "email",
+      "description": "邮箱"
+    },
+    {
+      "name": "created_at",
+      "description": "创建时间"
+    },
+    {
+      "name": "updated_at",
+      "description": "更新时间"
+    },
+    {
+      "name": "phone",
+      "description": "电话号码"
+    },
+    {
+      "name": "authentication_token",
+      "description": "鉴权Token"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/users/sign_in",
+      "request_body": "user[phone]=13813813811&user[password]=abcd.1234",
+      "request_headers": {
+        "Accept": "application/json",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"id\": 55,\n  \"authentication_token\": \"qwertyuiop\",\n  \"email\": \"\",\n  \"phone\": \"13813813811\",\n  \"created_at\": \"2016-12-13T10:27:45.000+08:00\",\n  \"updated_at\": \"2016-12-13T10:27:45.000+08:00\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Location": "/",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"db90c59b7cb94ef54ab07012dceffcdf\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "f2360872-d201-4da7-8c87-aa716ac8f3e9",
+        "X-Runtime": "0.017123",
+        "Vary": "Origin",
+        "X-Rack-CORS": "preflight-hit; no-origin",
+        "Content-Length": "168"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://smart-life.com//users/sign_in\" -d 'user[phone]=13813813811&user[password]=abcd.1234' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Content-Type: application/x-www-form-urlencoded\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

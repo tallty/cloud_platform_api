@@ -1,0 +1,173 @@
+{
+  "resources": [
+    {
+      "name": "用户查看 接口 相关的API ",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "用户查看指定接口详情成功",
+          "link": "用户查看_接口_相关的api_/用户查看指定接口详情成功.json",
+          "groups": "all",
+          "route": "interface_documents/:id",
+          "method": "get"
+        },
+        {
+          "description": "用户获取接口列表成功",
+          "link": "用户查看_接口_相关的api_/用户获取接口列表成功.json",
+          "groups": "all",
+          "route": "interface_documents",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "用户注册登录",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "发送短信验证码",
+          "link": "用户注册登录/发送短信验证码.json",
+          "groups": "all",
+          "route": "sms_tokens/register",
+          "method": "post"
+        },
+        {
+          "description": "用户注册失败（验证码未获取）",
+          "link": "用户注册登录/用户注册失败（验证码未获取）.json",
+          "groups": "all",
+          "route": "/users",
+          "method": "post"
+        },
+        {
+          "description": "用户注册失败（验证码错误）",
+          "link": "用户注册登录/用户注册失败（验证码错误）.json",
+          "groups": "all",
+          "route": "/users",
+          "method": "post"
+        },
+        {
+          "description": "用户登录成功",
+          "link": "用户注册登录/用户登录成功.json",
+          "groups": "all",
+          "route": "/users/sign_in",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "用户申请 接口 相关的API ",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "用户 查看指定申请 详情成功",
+          "link": "用户申请_接口_相关的api_/用户_查看指定申请_详情成功.json",
+          "groups": "all",
+          "route": "appointments/:id",
+          "method": "get"
+        },
+        {
+          "description": "用户 获取 申请列表成功",
+          "link": "用户申请_接口_相关的api_/用户_获取_申请列表成功.json",
+          "groups": "all",
+          "route": "appointments",
+          "method": "get"
+        },
+        {
+          "description": "用户提交申请成功",
+          "link": "用户申请_接口_相关的api_/用户提交申请成功.json",
+          "groups": "all",
+          "route": "/appointments",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "管理后台相关接口",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "管理员登录成功",
+          "link": "管理后台相关接口/管理员登录成功.json",
+          "groups": "all",
+          "route": "/admins/sign_in",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "管理员对 接口 相关的API ",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "管理员 修改 指定接口文档成功",
+          "link": "管理员对_接口_相关的api_/管理员_修改_指定接口文档成功.json",
+          "groups": "all",
+          "route": "/admin/interface_documents/:id",
+          "method": "put"
+        },
+        {
+          "description": "管理员 创建 接口文档成功",
+          "link": "管理员对_接口_相关的api_/管理员_创建_接口文档成功.json",
+          "groups": "all",
+          "route": "/admin/interface_documents",
+          "method": "post"
+        },
+        {
+          "description": "管理员 删除 指定接口文档成功",
+          "link": "管理员对_接口_相关的api_/管理员_删除_指定接口文档成功.json",
+          "groups": "all",
+          "route": "/admin/interface_documents/:id",
+          "method": "delete"
+        },
+        {
+          "description": "管理员 查看 指定接口文档 详情成功",
+          "link": "管理员对_接口_相关的api_/管理员_查看_指定接口文档_详情成功.json",
+          "groups": "all",
+          "route": "/admin/interface_documents/:id",
+          "method": "get"
+        },
+        {
+          "description": "管理员 获取 接口文档 列表成功",
+          "link": "管理员对_接口_相关的api_/管理员_获取_接口文档_列表成功.json",
+          "groups": "all",
+          "route": "/admin/interface_documents",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "管理员对 申请接口 相关的API ",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "管理员 审批拒绝 申请文档 的请求",
+          "link": "管理员对_申请接口_相关的api_/管理员_审批拒绝_申请文档_的请求.json",
+          "groups": "all",
+          "route": "/admin/appointments/:id/refuse",
+          "method": "post"
+        },
+        {
+          "description": "管理员 审批通过 申请文档 的请求",
+          "link": "管理员对_申请接口_相关的api_/管理员_审批通过_申请文档_的请求.json",
+          "groups": "all",
+          "route": "/admin/appointments/:id/accept",
+          "method": "post"
+        },
+        {
+          "description": "管理员 查看 指定申请文档 详情成功",
+          "link": "管理员对_申请接口_相关的api_/管理员_查看_指定申请文档_详情成功.json",
+          "groups": "all",
+          "route": "/admin/appointments/:id",
+          "method": "get"
+        },
+        {
+          "description": "管理员获取 申请文档列表成功",
+          "link": "管理员对_申请接口_相关的api_/管理员获取_申请文档列表成功.json",
+          "groups": "all",
+          "route": "/admin/appointments",
+          "method": "get"
+        }
+      ]
+    }
+  ]
+}

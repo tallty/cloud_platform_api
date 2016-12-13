@@ -1,0 +1,79 @@
+{
+  "resource": "管理后台相关接口",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "/admins/sign_in",
+  "description": "管理员登录成功",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "admin",
+      "name": "email",
+      "description": "登录的邮箱"
+    },
+    {
+      "required": true,
+      "scope": "admin",
+      "name": "password",
+      "description": "登录密码"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "id",
+      "description": "用户ID"
+    },
+    {
+      "name": "email",
+      "description": "邮箱"
+    },
+    {
+      "name": "created_at",
+      "description": "创建时间"
+    },
+    {
+      "name": "updated_at",
+      "description": "更新时间"
+    },
+    {
+      "name": "authentication_token",
+      "description": "鉴权Token"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/admins/sign_in",
+      "request_body": "admin[email]=admin%40example.com&admin[password]=password",
+      "request_headers": {
+        "Accept": "application/json",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"id\": 60,\n  \"email\": \"admin@example.com\",\n  \"created_at\": \"2016-12-13T10:27:45.000+08:00\",\n  \"updated_at\": \"2016-12-13T10:27:45.000+08:00\",\n  \"authentication_token\": \"qwertyuiop1\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Location": "/",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"0a7665bc8cfeea92a9b49009a045409d\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "e9484d61-aaab-4b84-a14b-8f9d1ebd4f49",
+        "X-Runtime": "0.037140",
+        "Vary": "Origin",
+        "X-Rack-CORS": "preflight-hit; no-origin",
+        "Content-Length": "164"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://smart-life.com//admins/sign_in\" -d 'admin[email]=admin%40example.com&admin[password]=password' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Content-Type: application/x-www-form-urlencoded\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

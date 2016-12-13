@@ -1,0 +1,61 @@
+{
+  "resource": "用户注册登录",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "sms_tokens/register",
+  "description": "发送短信验证码",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "sms_token",
+      "name": "phone",
+      "description": "发送手机号"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "id",
+      "description": "验证码ID"
+    },
+    {
+      "name": "phone",
+      "description": "电话号码"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "sms_tokens/register",
+      "request_body": "sms_token[phone]=13813813811",
+      "request_headers": {
+        "Accept": "application/json",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"id\": 21,\n  \"phone\": \"13813813811\",\n  \"token\": \"4125\",\n  \"created_at\": \"2016-12-13T10:27:51.000+08:00\",\n  \"updated_at\": \"2016-12-13T10:27:51.000+08:00\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Location": "http://example.org/sms_tokens/21",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"ba53532e79430a69e022b6fe8943546a\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "1f5e79f3-e71c-487c-90ca-87aadf4e4b9a",
+        "X-Runtime": "5.818343",
+        "Vary": "Origin",
+        "X-Rack-CORS": "preflight-hit; no-origin",
+        "Content-Length": "136"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://smart-life.com/sms_tokens/register\" -d 'sms_token[phone]=13813813811' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Content-Type: application/x-www-form-urlencoded\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

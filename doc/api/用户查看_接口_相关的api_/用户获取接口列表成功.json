@@ -1,0 +1,47 @@
+{
+  "resource": "用户查看 接口 相关的API ",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "interface_documents",
+  "description": "用户获取接口列表成功",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "interface_documents",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"current_page\": 1,\n  \"total_pages\": 1,\n  \"interface_documents\": [\n    {\n      \"id\": 219,\n      \"title\": \"气象云平台接口\",\n      \"description\": \"MyText\",\n      \"site\": \"MyString\",\n      \"created_at\": \"2016-12-13T10:27:51.000+08:00\",\n      \"updated_at\": \"2016-12-13T10:27:51.000+08:00\",\n      \"url\": \"http://example.org/interface_documents/219.json\"\n    },\n    {\n      \"id\": 220,\n      \"title\": \"气象云平台接口\",\n      \"description\": \"MyText\",\n      \"site\": \"MyString\",\n      \"created_at\": \"2016-12-13T10:27:51.000+08:00\",\n      \"updated_at\": \"2016-12-13T10:27:51.000+08:00\",\n      \"url\": \"http://example.org/interface_documents/220.json\"\n    },\n    {\n      \"id\": 221,\n      \"title\": \"气象云平台接口\",\n      \"description\": \"MyText\",\n      \"site\": \"MyString\",\n      \"created_at\": \"2016-12-13T10:27:51.000+08:00\",\n      \"updated_at\": \"2016-12-13T10:27:51.000+08:00\",\n      \"url\": \"http://example.org/interface_documents/221.json\"\n    },\n    {\n      \"id\": 222,\n      \"title\": \"气象云平台接口\",\n      \"description\": \"MyText\",\n      \"site\": \"MyString\",\n      \"created_at\": \"2016-12-13T10:27:51.000+08:00\",\n      \"updated_at\": \"2016-12-13T10:27:51.000+08:00\",\n      \"url\": \"http://example.org/interface_documents/222.json\"\n    },\n    {\n      \"id\": 223,\n      \"title\": \"气象云平台接口\",\n      \"description\": \"MyText\",\n      \"site\": \"MyString\",\n      \"created_at\": \"2016-12-13T10:27:51.000+08:00\",\n      \"updated_at\": \"2016-12-13T10:27:51.000+08:00\",\n      \"url\": \"http://example.org/interface_documents/223.json\"\n    }\n  ]\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"e88e7a8e4468682f9d9ab62aec0a0f57\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "0004ec00-af3a-4750-ab0d-7313fbe87b5e",
+        "X-Runtime": "0.022997",
+        "Vary": "Origin",
+        "X-Rack-CORS": "preflight-hit; no-origin",
+        "Content-Length": "1208"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://smart-life.com/interface_documents\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

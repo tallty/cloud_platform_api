@@ -64,7 +64,7 @@ class User < ApplicationRecord
         user.sms_token = sms_token
         user.save
       else
-        user.errors.add(:sms_token, "验证码不正确，请重试")
+        user.errors.add(:sms_token, "验证码不正确，请重试.....")
       end
     else
       user = User.new
