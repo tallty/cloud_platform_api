@@ -21,7 +21,7 @@ class UserInfosController < ApplicationController
 
   private
     def set_user_info
-      @user_info = current_user.infocurrent_user.info
+      @user_info = current_user.info
     end
 
     def user_info_params

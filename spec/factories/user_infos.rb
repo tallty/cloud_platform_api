@@ -18,6 +18,6 @@ FactoryGirl.define do
     name "MyString"
     nickname "MyString"
     address "MyString"
-    sex 1
+    sex "male"
   end
 end
