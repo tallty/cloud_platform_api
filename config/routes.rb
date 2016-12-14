@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :appointments, only: [:index, :show, :create]
+  resources :appointments, only: [:index, :show, :create] do
+    resources :appointment_items, only: [:index, :show]
+  end
+
   resources :interface_documents, only: [:index, :show] do
     collection do
       get :list
@@ -16,10 +19,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :manager_accounts, only: [:index, :show, :destroy]
   	resources :appointments, only: [:index, :show] do
-      member do
-        post :accept
-        post :refuse
-      end
+      resources :appointment_items, only: [:index, :show]do
+        member do
+          post :accept
+          post :refuse
+        end
     end
     resources :interface_documents, only: [:index, :show, :create, :update, :destroy] do
       resources :statis_infos

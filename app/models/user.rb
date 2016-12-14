@@ -33,7 +33,7 @@ class User < ApplicationRecord
          authentication_keys: [:phone]
 
   has_many :appointments, dependent: :destroy
-  has_many :interface_documents, through: :appointments
+  has_many :appointment_items, through: :appointments
   has_many :statis_infos, dependent: :destroy
   has_one :user_info, dependent: :destroy
  
