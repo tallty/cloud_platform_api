@@ -15,6 +15,7 @@ class Appointment < ApplicationRecord
   include AASM
   belongs_to :user
   belongs_to :interface_document
+  has_many :appointment_items, dependent: :destroy
 
   ################ aasm ####################
   aasm do
