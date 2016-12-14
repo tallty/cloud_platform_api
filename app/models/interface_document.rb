@@ -65,7 +65,7 @@ class InterfaceDocument < ApplicationRecord
 
   def day_frequency#天访问量
     if self.statis_infos.present?
-      self.statis_infos.where("created_at > ?", Time.zone.now - 1.day).count
+      self.statis_infos.where("created_at > ?", Time.zone.now.midnight).count
     else
       0
     end
@@ -73,7 +73,7 @@ class InterfaceDocument < ApplicationRecord
 
   def week_frequency#周访问量
     if self.statis_infos.present?
-      self.statis_infos.where("created_at > ?", Time.zone.now - 7.day).count
+      self.statis_infos.where("created_at > ?", Time.zone.now.midnight - 6.day).count
     else
       0
     end
@@ -81,7 +81,7 @@ class InterfaceDocument < ApplicationRecord
 
   def month_frequency#月访问量
     if self.statis_infos.present?
-      self.statis_infos.where("created_at > ?",Time.zone.now - 1.month).count
+      self.statis_infos.where("created_at > ?",Time.zone.now.midnight - 1.month).count
     else
       0
     end
@@ -89,7 +89,7 @@ class InterfaceDocument < ApplicationRecord
 
   def year_frequency#年访问量
     if self.statis_infos.present?
-      self.statis_infos.where("created_at > ?", Time.zone.now - 1.year).count    
+      self.statis_infos.where("created_at > ?", Time.zone.now.midnight - 1.year).count    
     else
       0
     end
