@@ -79,7 +79,7 @@ class InterfaceDocument < ApplicationRecord
     end
   end
 
-  def month_frequency#月访问量
+  def month_frequency#月访问量55
     if self.statis_infos.present?
       self.statis_infos.where("created_at > ?",Time.zone.now.midnight - 1.month).count
     else

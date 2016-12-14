@@ -1,11 +1,11 @@
 require 'acceptance_helper'
 
-resource "管理后台相关接口" do
+resource "管理员 帐号管理 相关接口" do
   header "Accept", "application/json"
 
   post "/admins" do
     admin_attrs = FactoryGirl.attributes_for :admin
-    
+
     parameter :email, "管理员注册的邮箱号", required: true, scope: :admin
     parameter :password, "管理员注册的密码", required: true, scope: :admin
 
