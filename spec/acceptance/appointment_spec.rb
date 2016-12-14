@@ -15,7 +15,7 @@ resource "用户申请 接口 相关的API " do
       @interface_document = create(:interface_document)
     end
 
-    parameter :interface_document_id, "申请的接口集合", require: true, scope: :appointment
+    parameter :interface_document_ids, "申请的接口集合", require: true, scope: :appointment
     parameter :range, "申请使用的时限{one_month: 0,
                                     two_month: 1,
                                     three_month: 3,
@@ -26,7 +26,7 @@ resource "用户申请 接口 相关的API " do
                                     }", require: true, scope: :appointment
     
 
-    let(:interface_document_id) { 1 }
+    let(:interface_document_ids) { [1, 2, 3] }
     let(:range) {appointment_attrs[:range]}
 
     example "用户提交申请成功" do
