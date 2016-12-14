@@ -1,9 +1,9 @@
 {
-  "resource": "用户查看 接口 相关的API ",
+  "resource": "用户信息相关接口api",
   "resource_explanation": null,
   "http_method": "GET",
-  "route": "interface_documents/:id",
-  "description": "用户查看指定接口详情成功",
+  "route": "user_info",
+  "description": "用户查询自己的信息成功",
   "explanation": null,
   "parameters": [
 
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "interface_documents/1",
+      "request_path": "user_info",
       "request_body": null,
       "request_headers": {
         "Accept": "application/json",
@@ -28,22 +28,22 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"error\": \"您没有访问权限, 请申请接口审核通过之后再访问 ！\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"name\": \"张三丰\",\n  \"nickname\": \"上海气象下属公司\",\n  \"address\": \"上海松江区XX路XX号\",\n  \"sex_alias\": \"男\",\n  \"created_at\": \"2016-12-14T14:42:03.209+08:00\",\n  \"updated_at\": \"2016-12-14T14:42:03.211+08:00\",\n  \"phone\": \"13813813811\",\n  \"email\": \"13813813811@example.com\",\n  \"url\": \"http://example.org/user_info.json\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"96992145ba527579aff628b0e8138731\"",
+        "ETag": "W/\"bb3ff1a2154797b0a691d06397cf0f82\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "fd148d0d-643b-44c7-b767-9e6e4cc76417",
-        "X-Runtime": "0.011781",
+        "X-Request-Id": "c154b86a-bb68-4080-9254-b0e3825c118c",
+        "X-Runtime": "0.016973",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "81"
+        "Content-Length": "309"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://smart-life.com/interface_documents/1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: qwertyuiop\" \\\n\t-H \"X-User-Phone: 13813813811\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://smart-life.com/user_info\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: qwertyuiop\" \\\n\t-H \"X-User-Phone: 13813813811\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

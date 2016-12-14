@@ -124,12 +124,12 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET appointments/182</pre>
+          <pre class="request route highlight">GET appointments/1</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com/appointments/182&quot; -X GET \
+            <pre class="request curl">curl &quot;http://smart-life.com/appointments/1&quot; -X GET \
 	-H &quot;Accept: application/json&quot; \
 	-H &quot;X-User-Token: qwertyuiop&quot; \
 	-H &quot;X-User-Phone: 13813813811&quot; \
@@ -142,27 +142,28 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;ba5be387aaa6d2743f224e45f5cd671d&quot;
+ETag: W/&quot;3f8cecdac73f2c2bd5443bdbe66d36d8&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: a681a583-2427-4e37-b84b-99c3c09d2b52
-X-Runtime: 0.016804
+X-Request-Id: 12c003e7-f5fb-4b9c-87eb-184ead8ab351
+X-Runtime: 0.016315
 Vary: Origin
 X-Rack-CORS: preflight-hit; no-origin
-Content-Length: 298</pre>
+Content-Length: 317</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 182,
-  &quot;user_id&quot;: 54,
-  &quot;interface_document_id&quot;: 218,
+  &quot;id&quot;: 1,
   &quot;state&quot;: &quot;待审核&quot;,
-  &quot;start_time&quot;: &quot;2016-12-16&quot;,
-  &quot;end_time&quot;: &quot;2017-02-01&quot;,
-  &quot;created_at&quot;: &quot;2016-12-13T10:27:45.000+08:00&quot;,
-  &quot;updated_at&quot;: &quot;2016-12-13T10:27:45.000+08:00&quot;,
+  &quot;range_alias&quot;: &quot;一个月&quot;,
+  &quot;start_time&quot;: &quot;2016-12-14&quot;,
+  &quot;end_time&quot;: &quot;2017-01-14&quot;,
+  &quot;is_available&quot;: false,
+  &quot;created_at&quot;: &quot;2016-12-14T14:41:57.450+08:00&quot;,
+  &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.450+08:00&quot;,
+  &quot;user_name&quot;: null,
   &quot;interface_document_title&quot;: &quot;MyString&quot;,
-  &quot;url&quot;: &quot;http://example.org/appointments/182.json&quot;
+  &quot;url&quot;: &quot;http://example.org/appointments/1.json&quot;
 }</pre>
       </div>
     </div>

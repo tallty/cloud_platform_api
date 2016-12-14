@@ -1,9 +1,9 @@
 {
-  "resource": "管理员对 申请接口 相关的API ",
+  "resource": "管理员对 申请 相关的API ",
   "resource_explanation": null,
   "http_method": "POST",
   "route": "/admin/appointments/:id/accept",
-  "description": "管理员 审批通过 申请文档 的请求",
+  "description": "管理员 审批通过 申请 的请求",
   "explanation": null,
   "parameters": [
     {
@@ -19,7 +19,7 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "/admin/appointments/166/accept",
+      "request_path": "/admin/appointments/1/accept",
       "request_body": "appointment[aasm_state]=used",
       "request_headers": {
         "Accept": "application/json",
@@ -34,22 +34,22 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 166,\n  \"user_id\": 50,\n  \"interface_document_id\": 193,\n  \"state\": \"已授权\",\n  \"start_time\": \"2016-12-16\",\n  \"end_time\": \"2017-02-01\",\n  \"created_at\": \"2016-12-13T10:27:44.000+08:00\",\n  \"updated_at\": \"2016-12-13T10:27:44.000+08:00\",\n  \"interface_document_title\": \"MyString\",\n  \"url\": \"http://example.org/admin/appointments/166.json\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"state\": \"已授权\",\n  \"range_alias\": \"一个月\",\n  \"start_time\": \"2016-12-14\",\n  \"end_time\": \"2017-01-14\",\n  \"created_at\": \"2016-12-14T14:41:56.903+08:00\",\n  \"updated_at\": \"2016-12-14T14:41:56.925+08:00\",\n  \"user_name\": null,\n  \"interface_document_title\": \"MyString\",\n  \"url\": \"http://example.org/admin/appointments/1.json\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"ea52f2c7f09b984035a2e5edad72b53e\"",
+        "ETag": "W/\"7b8a4ec60290e7acd97a5efe2b28ec8a\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "bdd1ac72-b830-4b3b-ad04-74f55283c825",
-        "X-Runtime": "0.031035",
+        "X-Request-Id": "3c5f1e35-2d7a-4c62-adf1-3381dd84370e",
+        "X-Runtime": "0.024157",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "304"
+        "Content-Length": "302"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://smart-life.com//admin/appointments/166/accept\" -d 'appointment[aasm_state]=used' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Admin-Token: qwertyuiop1\" \\\n\t-H \"X-Admin-Email: admin@example.com\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Content-Type: application/x-www-form-urlencoded\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://smart-life.com//admin/appointments/1/accept\" -d 'appointment[aasm_state]=used' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Admin-Token: qwertyuiop1\" \\\n\t-H \"X-Admin-Email: admin@example.com\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Content-Type: application/x-www-form-urlencoded\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

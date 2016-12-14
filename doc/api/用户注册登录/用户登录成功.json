@@ -61,20 +61,20 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 55,\n  \"authentication_token\": \"qwertyuiop\",\n  \"email\": \"\",\n  \"phone\": \"13813813811\",\n  \"created_at\": \"2016-12-13T10:27:45.000+08:00\",\n  \"updated_at\": \"2016-12-13T10:27:45.000+08:00\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"authentication_token\": \"qwertyuiop\",\n  \"email\": \"13813813811@example.com\",\n  \"phone\": \"13813813811\",\n  \"created_at\": \"2016-12-14T14:41:57.553+08:00\",\n  \"updated_at\": \"2016-12-14T14:41:57.563+08:00\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Location": "/",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"db90c59b7cb94ef54ab07012dceffcdf\"",
+        "ETag": "W/\"9ff6bfc7b52d20a28a624445a1e9d046\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "f2360872-d201-4da7-8c87-aa716ac8f3e9",
-        "X-Runtime": "0.017123",
+        "X-Request-Id": "d8a150ec-00df-414b-b35c-ba39305b117c",
+        "X-Runtime": "0.013767",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "168"
+        "Content-Length": "190"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": "curl \"http://smart-life.com//users/sign_in\" -d 'user[phone]=13813813811&user[password]=abcd.1234' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Content-Type: application/x-www-form-urlencoded\" \\\n\t-H \"Cookie: \""

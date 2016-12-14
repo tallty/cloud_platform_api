@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>管理员对 申请接口 相关的API  API</title>
+    <title>用户信息相关接口api API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>管理员对 申请接口 相关的API  API</h1>
+      <h1>用户信息相关接口api API</h1>
 
       <div class="article">
-        <h2>管理员 查看 指定申请文档 详情成功</h2>
-        <h3>GET /admin/appointments/:id</h3>
+        <h2>用户查询自己的信息成功</h2>
+        <h3>GET user_info</h3>
 
 
 
@@ -118,21 +118,21 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Accept: application/json
-X-Admin-Token: qwertyuiop1
-X-Admin-Email: admin@example.com
+X-User-Token: qwertyuiop
+X-User-Phone: 13813813811
 Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /admin/appointments/161</pre>
+          <pre class="request route highlight">GET user_info</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com//admin/appointments/161&quot; -X GET \
+            <pre class="request curl">curl &quot;http://smart-life.com/user_info&quot; -X GET \
 	-H &quot;Accept: application/json&quot; \
-	-H &quot;X-Admin-Token: qwertyuiop1&quot; \
-	-H &quot;X-Admin-Email: admin@example.com&quot; \
+	-H &quot;X-User-Token: qwertyuiop&quot; \
+	-H &quot;X-User-Phone: 13813813811&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
 
@@ -142,27 +142,27 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;1ca9f12265f95b5ebfd8a1d24c84bdf9&quot;
+ETag: W/&quot;bb3ff1a2154797b0a691d06397cf0f82&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 54d7a932-21fa-4a79-b95a-b8ce80c32a57
-X-Runtime: 0.023783
+X-Request-Id: c154b86a-bb68-4080-9254-b0e3825c118c
+X-Runtime: 0.016973
 Vary: Origin
 X-Rack-CORS: preflight-hit; no-origin
-Content-Length: 304</pre>
+Content-Length: 309</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 161,
-  &quot;user_id&quot;: 49,
-  &quot;interface_document_id&quot;: 192,
-  &quot;state&quot;: &quot;待审核&quot;,
-  &quot;start_time&quot;: &quot;2016-12-16&quot;,
-  &quot;end_time&quot;: &quot;2017-02-01&quot;,
-  &quot;created_at&quot;: &quot;2016-12-13T10:27:44.000+08:00&quot;,
-  &quot;updated_at&quot;: &quot;2016-12-13T10:27:44.000+08:00&quot;,
-  &quot;interface_document_title&quot;: &quot;MyString&quot;,
-  &quot;url&quot;: &quot;http://example.org/admin/appointments/161.json&quot;
+  &quot;id&quot;: 1,
+  &quot;name&quot;: &quot;张三丰&quot;,
+  &quot;nickname&quot;: &quot;上海气象下属公司&quot;,
+  &quot;address&quot;: &quot;上海松江区XX路XX号&quot;,
+  &quot;sex_alias&quot;: &quot;男&quot;,
+  &quot;created_at&quot;: &quot;2016-12-14T14:42:03.209+08:00&quot;,
+  &quot;updated_at&quot;: &quot;2016-12-14T14:42:03.211+08:00&quot;,
+  &quot;phone&quot;: &quot;13813813811&quot;,
+  &quot;email&quot;: &quot;13813813811@example.com&quot;,
+  &quot;url&quot;: &quot;http://example.org/user_info.json&quot;
 }</pre>
       </div>
     </div>

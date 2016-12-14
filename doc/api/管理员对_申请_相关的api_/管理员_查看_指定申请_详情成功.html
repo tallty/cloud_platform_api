@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>管理员对 接口 相关的API  API</title>
+    <title>管理员对 申请 相关的API  API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>管理员对 接口 相关的API  API</h1>
+      <h1>管理员对 申请 相关的API  API</h1>
 
       <div class="article">
-        <h2>管理员 删除 指定接口文档成功</h2>
-        <h3>DELETE /admin/interface_documents/:id</h3>
+        <h2>管理员 查看 指定申请 详情成功</h2>
+        <h3>GET /admin/appointments/:id</h3>
 
 
 
@@ -121,21 +121,19 @@ table th, table td {
 X-Admin-Token: qwertyuiop1
 X-Admin-Email: admin@example.com
 Host: example.org
-Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE /admin/interface_documents/1</pre>
+          <pre class="request route highlight">GET /admin/appointments/1</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com//admin/interface_documents/1&quot; -d &#39;&#39; -X DELETE \
+            <pre class="request curl">curl &quot;http://smart-life.com//admin/appointments/1&quot; -X GET \
 	-H &quot;Accept: application/json&quot; \
 	-H &quot;X-Admin-Token: qwertyuiop1&quot; \
 	-H &quot;X-Admin-Email: admin@example.com&quot; \
 	-H &quot;Host: example.org&quot; \
-	-H &quot;Content-Type: application/x-www-form-urlencoded&quot; \
 	-H &quot;Cookie: &quot;</pre>
 
             <h3>Response</h3>
@@ -143,13 +141,29 @@ Cookie: </pre>
               <pre class="response headers">X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
-Cache-Control: no-cache
-X-Request-Id: ca89c3ef-e15c-4408-bb86-3b87490be8b4
-X-Runtime: 0.018189
+Content-Type: application/json; charset=utf-8
+ETag: W/&quot;8094ede8f421e76c7b0197abcfff7a9d&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: b8995a16-42f2-4be0-8ec2-cf055484ba2c
+X-Runtime: 0.015323
 Vary: Origin
-X-Rack-CORS: preflight-hit; no-origin</pre>
+X-Rack-CORS: preflight-hit; no-origin
+Content-Length: 302</pre>
             <h4>Status</h4>
-            <pre class="response status">204 No Content</pre>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;id&quot;: 1,
+  &quot;state&quot;: &quot;待审核&quot;,
+  &quot;range_alias&quot;: &quot;一个月&quot;,
+  &quot;start_time&quot;: &quot;2016-12-14&quot;,
+  &quot;end_time&quot;: &quot;2017-01-14&quot;,
+  &quot;created_at&quot;: &quot;2016-12-14T14:41:56.854+08:00&quot;,
+  &quot;updated_at&quot;: &quot;2016-12-14T14:41:56.854+08:00&quot;,
+  &quot;user_name&quot;: null,
+  &quot;interface_document_title&quot;: &quot;MyString&quot;,
+  &quot;url&quot;: &quot;http://example.org/admin/appointments/1.json&quot;
+}</pre>
       </div>
     </div>
   </body>

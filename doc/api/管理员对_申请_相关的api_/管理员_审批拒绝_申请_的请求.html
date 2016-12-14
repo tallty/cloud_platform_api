@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>管理员对 申请接口 相关的API  API</title>
+    <title>管理员对 申请 相关的API  API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>管理员对 申请接口 相关的API  API</h1>
+      <h1>管理员对 申请 相关的API  API</h1>
 
       <div class="article">
-        <h2>管理员 审批通过 申请文档 的请求</h2>
-        <h3>POST /admin/appointments/:id/accept</h3>
+        <h2>管理员 审批拒绝 申请 的请求</h2>
+        <h3>POST /admin/appointments/:id/refuse</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -144,14 +144,14 @@ Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /admin/appointments/166/accept</pre>
+          <pre class="request route highlight">POST /admin/appointments/1/refuse</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">appointment[aasm_state]=used</pre>
+            <pre class="request body">appointment[aasm_state]=unused</pre>
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com//admin/appointments/166/accept&quot; -d &#39;appointment[aasm_state]=used&#39; -X POST \
+            <pre class="request curl">curl &quot;http://smart-life.com//admin/appointments/1/refuse&quot; -d &#39;appointment[aasm_state]=unused&#39; -X POST \
 	-H &quot;Accept: application/json&quot; \
 	-H &quot;X-Admin-Token: qwertyuiop1&quot; \
 	-H &quot;X-Admin-Email: admin@example.com&quot; \
@@ -165,27 +165,27 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;ea52f2c7f09b984035a2e5edad72b53e&quot;
+ETag: W/&quot;c80fc04619d3dc6a27360431a6d288ae&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: bdd1ac72-b830-4b3b-ad04-74f55283c825
-X-Runtime: 0.031035
+X-Request-Id: 446f2a17-0ca5-4b68-9dfe-80b4d1b28be4
+X-Runtime: 0.018755
 Vary: Origin
 X-Rack-CORS: preflight-hit; no-origin
-Content-Length: 304</pre>
+Content-Length: 302</pre>
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 166,
-  &quot;user_id&quot;: 50,
-  &quot;interface_document_id&quot;: 193,
-  &quot;state&quot;: &quot;已授权&quot;,
-  &quot;start_time&quot;: &quot;2016-12-16&quot;,
-  &quot;end_time&quot;: &quot;2017-02-01&quot;,
-  &quot;created_at&quot;: &quot;2016-12-13T10:27:44.000+08:00&quot;,
-  &quot;updated_at&quot;: &quot;2016-12-13T10:27:44.000+08:00&quot;,
+  &quot;id&quot;: 1,
+  &quot;state&quot;: &quot;未授权&quot;,
+  &quot;range_alias&quot;: &quot;一个月&quot;,
+  &quot;start_time&quot;: &quot;2016-12-14&quot;,
+  &quot;end_time&quot;: &quot;2017-01-14&quot;,
+  &quot;created_at&quot;: &quot;2016-12-14T14:41:56.959+08:00&quot;,
+  &quot;updated_at&quot;: &quot;2016-12-14T14:41:56.978+08:00&quot;,
+  &quot;user_name&quot;: null,
   &quot;interface_document_title&quot;: &quot;MyString&quot;,
-  &quot;url&quot;: &quot;http://example.org/admin/appointments/166.json&quot;
+  &quot;url&quot;: &quot;http://example.org/admin/appointments/1.json&quot;
 }</pre>
       </div>
     </div>

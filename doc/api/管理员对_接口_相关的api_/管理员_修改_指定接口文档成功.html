@@ -160,14 +160,14 @@ Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT /admin/interface_documents/206</pre>
+          <pre class="request route highlight">PUT /admin/interface_documents/1</pre>
 
 
             <h4>Body</h4>
             <pre class="request body">interface_document[title]=MyString&interface_document[description]=MyText&interface_document[site]=MyString</pre>
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com//admin/interface_documents/206&quot; -d &#39;interface_document[title]=MyString&amp;interface_document[description]=MyText&amp;interface_document[site]=MyString&#39; -X PUT \
+            <pre class="request curl">curl &quot;http://smart-life.com//admin/interface_documents/1&quot; -d &#39;interface_document[title]=MyString&amp;interface_document[description]=MyText&amp;interface_document[site]=MyString&#39; -X PUT \
 	-H &quot;Accept: application/json&quot; \
 	-H &quot;X-Admin-Token: qwertyuiop1&quot; \
 	-H &quot;X-Admin-Email: admin@example.com&quot; \
@@ -181,24 +181,36 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;d13fb996e3e44e6c85eb2d305d961f84&quot;
+ETag: W/&quot;7378e78929d304c6e5cab3fafacc4133&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 5741329f-62fe-49e4-bfd5-50d69c9c5bd5
-X-Runtime: 0.017630
+X-Request-Id: 2a63483a-bf1a-434f-8fe7-2abdba38c04e
+X-Runtime: 0.033132
 Vary: Origin
 X-Rack-CORS: preflight-hit; no-origin
-Content-Length: 222</pre>
+Content-Length: 418</pre>
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 206,
+  &quot;id&quot;: 1,
   &quot;title&quot;: &quot;MyString&quot;,
   &quot;description&quot;: &quot;MyText&quot;,
   &quot;site&quot;: &quot;MyString&quot;,
-  &quot;created_at&quot;: &quot;2016-12-13T10:27:44.000+08:00&quot;,
-  &quot;updated_at&quot;: &quot;2016-12-13T10:27:45.000+08:00&quot;,
-  &quot;url&quot;: &quot;http://example.org/admin/interface_documents/206.json&quot;
+  &quot;total_frequency&quot;: 0,
+  &quot;total_rank&quot;: 1,
+  &quot;created_at&quot;: &quot;2016-12-14T14:41:57.208+08:00&quot;,
+  &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.236+08:00&quot;,
+  &quot;hour_frequency&quot;: 5,
+  &quot;day_frequency&quot;: 5,
+  &quot;week_frequency&quot;: 5,
+  &quot;month_frequency&quot;: 5,
+  &quot;year_frequency&quot;: 5,
+  &quot;year_rank&quot;: 1,
+  &quot;month_rank&quot;: 1,
+  &quot;week_rank&quot;: 1,
+  &quot;day_rank&quot;: 1,
+  &quot;hour_rank&quot;: 1,
+  &quot;url&quot;: &quot;http://example.org/admin/interface_documents/1.json&quot;
 }</pre>
       </div>
     </div>

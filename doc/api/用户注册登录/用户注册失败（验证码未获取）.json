@@ -51,8 +51,8 @@
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
         "Cache-Control": "no-cache",
-        "X-Request-Id": "8830cbe2-eefe-480c-af2a-17066b1ecc26",
-        "X-Runtime": "0.012206",
+        "X-Request-Id": "2b82047a-d597-4430-a2aa-89d930a06a22",
+        "X-Runtime": "0.007480",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
         "Content-Length": "62"

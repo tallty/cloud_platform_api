@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/admin/interface_documents/211",
+      "request_path": "/admin/interface_documents/1",
       "request_body": null,
       "request_headers": {
         "Accept": "application/json",
@@ -35,13 +35,13 @@
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "no-cache",
-        "X-Request-Id": "9f3dba3a-04c5-42f5-a679-9d283a400040",
-        "X-Runtime": "0.023645",
+        "X-Request-Id": "ca89c3ef-e15c-4408-bb86-3b87490be8b4",
+        "X-Runtime": "0.018189",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin"
       },
       "response_content_type": null,
-      "curl": "curl \"http://smart-life.com//admin/interface_documents/211\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Admin-Token: qwertyuiop1\" \\\n\t-H \"X-Admin-Email: admin@example.com\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Content-Type: application/x-www-form-urlencoded\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://smart-life.com//admin/interface_documents/1\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Admin-Token: qwertyuiop1\" \\\n\t-H \"X-Admin-Email: admin@example.com\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Content-Type: application/x-www-form-urlencoded\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>管理员对 接口 相关的API  API</title>
+    <title>用户查看 接口 相关的API  API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>管理员对 接口 相关的API  API</h1>
+      <h1>用户查看 接口 相关的API  API</h1>
 
       <div class="article">
-        <h2>管理员 删除 指定接口文档成功</h2>
-        <h3>DELETE /admin/interface_documents/:id</h3>
+        <h2>用户获取 申请过 接口列表成功</h2>
+        <h3>GET interface_documents/list</h3>
 
 
 
@@ -118,24 +118,22 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Accept: application/json
-X-Admin-Token: qwertyuiop1
-X-Admin-Email: admin@example.com
+X-User-Token: qwertyuiop
+X-User-Phone: 13813813811
 Host: example.org
-Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE /admin/interface_documents/1</pre>
+          <pre class="request route highlight">GET interface_documents/list</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com//admin/interface_documents/1&quot; -d &#39;&#39; -X DELETE \
+            <pre class="request curl">curl &quot;http://smart-life.com/interface_documents/list&quot; -X GET \
 	-H &quot;Accept: application/json&quot; \
-	-H &quot;X-Admin-Token: qwertyuiop1&quot; \
-	-H &quot;X-Admin-Email: admin@example.com&quot; \
+	-H &quot;X-User-Token: qwertyuiop&quot; \
+	-H &quot;X-User-Phone: 13813813811&quot; \
 	-H &quot;Host: example.org&quot; \
-	-H &quot;Content-Type: application/x-www-form-urlencoded&quot; \
 	-H &quot;Cookie: &quot;</pre>
 
             <h3>Response</h3>
@@ -143,13 +141,24 @@ Cookie: </pre>
               <pre class="response headers">X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
-Cache-Control: no-cache
-X-Request-Id: ca89c3ef-e15c-4408-bb86-3b87490be8b4
-X-Runtime: 0.018189
+Content-Type: application/json; charset=utf-8
+ETag: W/&quot;ce260f7ae5cd966a57cc216df79d2cf7&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: e8ac2956-22b5-4682-8e10-42294fb25074
+X-Runtime: 0.019444
 Vary: Origin
-X-Rack-CORS: preflight-hit; no-origin</pre>
+X-Rack-CORS: preflight-hit; no-origin
+Content-Length: 59</pre>
             <h4>Status</h4>
-            <pre class="response status">204 No Content</pre>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;current_page&quot;: 1,
+  &quot;total_pages&quot;: 1,
+  &quot;interface_documents&quot;: [
+
+  ]
+}</pre>
       </div>
     </div>
   </body>

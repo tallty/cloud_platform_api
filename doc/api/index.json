@@ -1,6 +1,26 @@
 {
   "resources": [
     {
+      "name": "用户信息相关接口api",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "用户修改自己的信息成功",
+          "link": "用户信息相关接口api/用户修改自己的信息成功.json",
+          "groups": "all",
+          "route": "user_info",
+          "method": "put"
+        },
+        {
+          "description": "用户查询自己的信息成功",
+          "link": "用户信息相关接口api/用户查询自己的信息成功.json",
+          "groups": "all",
+          "route": "user_info",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "用户查看 接口 相关的API ",
       "explanation": null,
       "examples": [
@@ -9,6 +29,13 @@
           "link": "用户查看_接口_相关的api_/用户查看指定接口详情成功.json",
           "groups": "all",
           "route": "interface_documents/:id",
+          "method": "get"
+        },
+        {
+          "description": "用户获取 申请过 接口列表成功",
+          "link": "用户查看_接口_相关的api_/用户获取_申请过_接口列表成功.json",
+          "groups": "all",
+          "route": "interface_documents/list",
           "method": "get"
         },
         {
@@ -136,33 +163,33 @@
       ]
     },
     {
-      "name": "管理员对 申请接口 相关的API ",
+      "name": "管理员对 申请 相关的API ",
       "explanation": null,
       "examples": [
         {
-          "description": "管理员 审批拒绝 申请文档 的请求",
-          "link": "管理员对_申请接口_相关的api_/管理员_审批拒绝_申请文档_的请求.json",
+          "description": "管理员 审批拒绝 申请 的请求",
+          "link": "管理员对_申请_相关的api_/管理员_审批拒绝_申请_的请求.json",
           "groups": "all",
           "route": "/admin/appointments/:id/refuse",
           "method": "post"
         },
         {
-          "description": "管理员 审批通过 申请文档 的请求",
-          "link": "管理员对_申请接口_相关的api_/管理员_审批通过_申请文档_的请求.json",
+          "description": "管理员 审批通过 申请 的请求",
+          "link": "管理员对_申请_相关的api_/管理员_审批通过_申请_的请求.json",
           "groups": "all",
           "route": "/admin/appointments/:id/accept",
           "method": "post"
         },
         {
-          "description": "管理员 查看 指定申请文档 详情成功",
-          "link": "管理员对_申请接口_相关的api_/管理员_查看_指定申请文档_详情成功.json",
+          "description": "管理员 查看 指定申请 详情成功",
+          "link": "管理员对_申请_相关的api_/管理员_查看_指定申请_详情成功.json",
           "groups": "all",
           "route": "/admin/appointments/:id",
           "method": "get"
         },
         {
-          "description": "管理员获取 申请文档列表成功",
-          "link": "管理员对_申请接口_相关的api_/管理员获取_申请文档列表成功.json",
+          "description": "管理员获取 申请 列表成功",
+          "link": "管理员对_申请_相关的api_/管理员获取_申请_列表成功.json",
           "groups": "all",
           "route": "/admin/appointments",
           "method": "get"

@@ -2,8 +2,8 @@
   "resource": "用户查看 接口 相关的API ",
   "resource_explanation": null,
   "http_method": "GET",
-  "route": "interface_documents/:id",
-  "description": "用户查看指定接口详情成功",
+  "route": "interface_documents/list",
+  "description": "用户获取 申请过 接口列表成功",
   "explanation": null,
   "parameters": [
 
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "interface_documents/1",
+      "request_path": "interface_documents/list",
       "request_body": null,
       "request_headers": {
         "Accept": "application/json",
@@ -28,22 +28,22 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"error\": \"您没有访问权限, 请申请接口审核通过之后再访问 ！\"\n}",
+      "response_body": "{\n  \"current_page\": 1,\n  \"total_pages\": 1,\n  \"interface_documents\": [\n\n  ]\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"96992145ba527579aff628b0e8138731\"",
+        "ETag": "W/\"ce260f7ae5cd966a57cc216df79d2cf7\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "fd148d0d-643b-44c7-b767-9e6e4cc76417",
-        "X-Runtime": "0.011781",
+        "X-Request-Id": "e8ac2956-22b5-4682-8e10-42294fb25074",
+        "X-Runtime": "0.019444",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "81"
+        "Content-Length": "59"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://smart-life.com/interface_documents/1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: qwertyuiop\" \\\n\t-H \"X-User-Phone: 13813813811\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://smart-life.com/interface_documents/list\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: qwertyuiop\" \\\n\t-H \"X-User-Phone: 13813813811\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

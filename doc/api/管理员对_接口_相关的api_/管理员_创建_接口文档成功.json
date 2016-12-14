@@ -46,19 +46,19 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 195,\n  \"title\": \"MyString\",\n  \"description\": \"MyText\",\n  \"site\": \"MyString\",\n  \"created_at\": \"2016-12-13T10:27:44.000+08:00\",\n  \"updated_at\": \"2016-12-13T10:27:44.000+08:00\",\n  \"url\": \"http://example.org/admin/interface_documents/195.json\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"title\": \"MyString\",\n  \"description\": \"MyText\",\n  \"site\": \"MyString\",\n  \"total_frequency\": 0,\n  \"total_rank\": 1,\n  \"created_at\": \"2016-12-14T14:41:57.021+08:00\",\n  \"updated_at\": \"2016-12-14T14:41:57.021+08:00\",\n  \"hour_frequency\": 0,\n  \"day_frequency\": 0,\n  \"week_frequency\": 0,\n  \"month_frequency\": 0,\n  \"year_frequency\": 0,\n  \"year_rank\": 1,\n  \"month_rank\": 1,\n  \"week_rank\": 1,\n  \"day_rank\": 1,\n  \"hour_rank\": 1,\n  \"url\": \"http://example.org/admin/interface_documents/1.json\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"abcea0c78b3d32850d996fccc9118463\"",
+        "ETag": "W/\"9bb1b58010036a99444d5948cacc72a1\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "c85c4439-4130-40c2-9492-bb570d4748a7",
-        "X-Runtime": "0.029715",
+        "X-Request-Id": "62f661d9-558e-4c02-9e24-9aebf86457d6",
+        "X-Runtime": "0.032418",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "222"
+        "Content-Length": "418"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": "curl \"http://smart-life.com//admin/interface_documents\" -d 'interface_document[title]=MyString&interface_document[description]=MyText&interface_document[site]=MyString' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Admin-Token: qwertyuiop1\" \\\n\t-H \"X-Admin-Email: admin@example.com\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Content-Type: application/x-www-form-urlencoded\" \\\n\t-H \"Cookie: \""

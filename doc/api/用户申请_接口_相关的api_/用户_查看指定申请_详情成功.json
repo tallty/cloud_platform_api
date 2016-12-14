@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "appointments/182",
+      "request_path": "appointments/1",
       "request_body": null,
       "request_headers": {
         "Accept": "application/json",
@@ -28,22 +28,22 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 182,\n  \"user_id\": 54,\n  \"interface_document_id\": 218,\n  \"state\": \"待审核\",\n  \"start_time\": \"2016-12-16\",\n  \"end_time\": \"2017-02-01\",\n  \"created_at\": \"2016-12-13T10:27:45.000+08:00\",\n  \"updated_at\": \"2016-12-13T10:27:45.000+08:00\",\n  \"interface_document_title\": \"MyString\",\n  \"url\": \"http://example.org/appointments/182.json\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"state\": \"待审核\",\n  \"range_alias\": \"一个月\",\n  \"start_time\": \"2016-12-14\",\n  \"end_time\": \"2017-01-14\",\n  \"is_available\": false,\n  \"created_at\": \"2016-12-14T14:41:57.450+08:00\",\n  \"updated_at\": \"2016-12-14T14:41:57.450+08:00\",\n  \"user_name\": null,\n  \"interface_document_title\": \"MyString\",\n  \"url\": \"http://example.org/appointments/1.json\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"ba5be387aaa6d2743f224e45f5cd671d\"",
+        "ETag": "W/\"3f8cecdac73f2c2bd5443bdbe66d36d8\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "a681a583-2427-4e37-b84b-99c3c09d2b52",
-        "X-Runtime": "0.016804",
+        "X-Request-Id": "12c003e7-f5fb-4b9c-87eb-184ead8ab351",
+        "X-Runtime": "0.016315",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "298"
+        "Content-Length": "317"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://smart-life.com/appointments/182\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: qwertyuiop\" \\\n\t-H \"X-User-Phone: 13813813811\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://smart-life.com/appointments/1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: qwertyuiop\" \\\n\t-H \"X-User-Phone: 13813813811\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }
