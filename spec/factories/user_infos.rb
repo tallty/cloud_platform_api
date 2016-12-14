@@ -14,10 +14,10 @@
 
 FactoryGirl.define do
   factory :user_info do
-    user nil
-    name "MyString"
-    nickname "MyString"
-    address "MyString"
+    user_id 1
+    name "张三丰"
+    nickname "上海气象下属公司"
+    address "上海松江区XX路XX号"
     sex "male"
   end
 end
