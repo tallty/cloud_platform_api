@@ -1,2 +1,3 @@
-json.extract! admin_manager_account, :id, :created_at, :updated_at
-json.url admin_manager_account_url(admin_manager_account, format: :json)
+json.extract! admin, :id, :email, :authentication_token, :encrypted_password, :reset_password_token, 
+                     :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, 
+                     :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :created_at, :updated_at

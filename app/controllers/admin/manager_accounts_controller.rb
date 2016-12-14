@@ -1,5 +1,5 @@
 class Admin::ManagerAccountsController < ApplicationController
-  acts_as_token_authentication_handler_for Admin
+  # acts_as_token_authentication_handler_for Admin, only: [:destroy]
   before_action :set_admin, only: [:show, :destroy]
 
   respond_to :json

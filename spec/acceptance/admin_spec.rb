@@ -53,4 +53,54 @@ resource "管理员 帐号管理 相关接口" do
       expect(status).to eq(201)
     end
   end
+
+   
+  #################### index #########################
+  get '/admin/manager_accounts' do
+    before do
+      @admins = create_list(:admin, 1)
+    end
+
+    example "管理员获取 管理员账户列表成功" do
+      do_request
+      puts response_body
+      expect(status).to eq(200)
+    end
+  end
+
+  ##################### show ########################
+  get '/admin/manager_accounts/:id' do
+    before do
+      @admins = create_list(:admin, 1)
+    end
+    
+    let(:id) { @admins.first.id }
+
+    example "管理员 查看指定管理员账户 详情成功" do
+      do_request
+      puts response_body
+      expect(status).to eq(200)
+    end
+  end
+
+  ##################### delete ########################
+  delete '/admin/manager_accounts/:id' do
+    # admin_attrs = FactoryGirl.attributes_for(:admin)
+
+    # header "X-Admin-Token", admin_attrs[:authentication_token]
+    # header "X-Admin-Phone", admin_attrs[:email]
+
+    before do
+      # @admin = create(:admin)
+      @admins = create_list(:admin, 1)
+    end
+    
+    let(:id) { @admins.first.id }
+
+    example "管理员 删除指定管理员账户 详情成功" do
+      do_request
+      puts response_body
+      expect(status).to eq(204)
+    end
+  end
 end

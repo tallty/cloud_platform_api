@@ -1,1 +1,1 @@
-json.partial! "admin_manager_accounts/admin_manager_account", admin_manager_account: @admin_manager_account
+json.partial! "admin/manager_accounts/admin_manager_account", admin: @admin
