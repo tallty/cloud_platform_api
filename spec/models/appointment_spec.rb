@@ -6,10 +6,9 @@
 #  user_id               :integer
 #  interface_document_id :integer
 #  aasm_state            :string
-#  start_time            :date
-#  end_time              :date
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  limit_time            :string
 #
 
 require 'rails_helper'
