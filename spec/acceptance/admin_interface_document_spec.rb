@@ -39,6 +39,7 @@ resource "管理员对 接口 相关的API " do
     before do
       @admin = create(:admin)
       @interface_documents = create_list(:interface_document, 5, title: "XX接口")
+      @statis_infos = create_list(:statis_info, 5, interface_document_id: @interface_documents.first.id)
     end
    
     #################### index #########################

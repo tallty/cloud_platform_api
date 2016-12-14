@@ -24,17 +24,10 @@ class InterfaceDocument < ApplicationRecord
   	)
   	_statis_info.save!
   end
-
-  ############### scope ####################
-  scope :year_screen_at, ->(year) { where("created_at.year = ?", year) }
-  scope :month_screen_at, ->(month) { where("created_at.month = ?", month) }
-  scope :day_screen_at, ->(day) { where("created_at.day = ?", day) }
-  scope :hour_screen_at, ->(hour) { where("created_at.hour = ?", hour) }
-  scope :week_screen_at, ->(week) { where("created_at > ?", week) }
  
   ############### 排名情况 ###################
   def total_rank#总的排名
-  	self.class.where("frequency > :frequency", frequency: frequency).count + 1
+  	self.class.where("frequency > ?", self.frequency).count + 1
   end
 
   def year_rank#年排名
@@ -63,22 +56,42 @@ class InterfaceDocument < ApplicationRecord
   end
 
   def hour_frequency#时访问量
-  	self.statis_infos.hour_screen_at(Time.zone.now.hour).count
+    if self.statis_infos.present?
+      self.statis_infos.where("created_at > ?", Time.zone.now - 1.hour).count
+    else
+      0
+    end
   end
 
   def day_frequency#天访问量
-  	self.statis_infos.day_screen_at(Time.zone.now.day).count
+    if self.statis_infos.present?
+      self.statis_infos.where("created_at > ?", Time.zone.now - 1.day).count
+    else
+      0
+    end
   end
 
   def week_frequency#周访问量
-  	self.statis_infos.screen_at(Time.zone.now - 7.day).count
+    if self.statis_infos.present?
+      self.statis_infos.where("created_at > ?", Time.zone.now - 7.day).count
+    else
+      0
+    end
   end
 
   def month_frequency#月访问量
-  	self.statis_infos.month_screen_at(Time.zone.now.month).count
+    if self.statis_infos.present?
+      self.statis_infos.where("created_at > ?",Time.zone.now - 1.month).count
+    else
+      0
+    end
   end
 
   def year_frequency#年访问量
-  	self.statis_infos.year_screen_at(Time.zone.now.year).count
+    if self.statis_infos.present?
+      self.statis_infos.where("created_at > ?", Time.zone.now - 1.year).count    
+    else
+      0
+    end
   end
 end
