@@ -1,6 +1,6 @@
 require 'acceptance_helper'
 
-resource "管理员对 申请接口 相关的API " do
+resource "管理员对 申请 相关的API " do
   header "Accept", "application/json"
 
   ############### before_do ################################
@@ -20,7 +20,7 @@ resource "管理员对 申请接口 相关的API " do
     #################### index #########################
     get '/admin/appointments' do
 
-      example "管理员获取 申请文档列表成功" do
+      example "管理员获取 申请 列表成功" do
         do_request
         puts response_body
         expect(status).to eq(200)
@@ -32,7 +32,7 @@ resource "管理员对 申请接口 相关的API " do
     
       let(:id) { @admin_appointments.first.id }
 
-      example "管理员 查看 指定申请文档 详情成功" do
+      example "管理员 查看 指定申请 详情成功" do
         do_request
         puts response_body
         expect(status).to eq(200)
@@ -49,7 +49,7 @@ resource "管理员对 申请接口 相关的API " do
      
       let(:aasm_state) {"used"}
 
-      example "管理员 审批通过 申请文档 的请求" do
+      example "管理员 审批通过 申请 的请求" do
         do_request
         puts response_body
         expect(status).to eq(201)
@@ -66,7 +66,7 @@ resource "管理员对 申请接口 相关的API " do
      
       let(:aasm_state) {"unused"}
 
-      example "管理员 审批拒绝 申请文档 的请求" do
+      example "管理员 审批拒绝 申请 的请求" do
         do_request
         puts response_body
         expect(status).to eq(201)

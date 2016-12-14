@@ -16,7 +16,6 @@ FactoryGirl.define do
     user_id 1
     interface_document_id 1
     aasm_state "checking"
-    start_time "#{Time.zone.now + 3.day}"
-    end_time "#{Time.zone.now + 50.day}"
+    range "one_month"
   end
 end

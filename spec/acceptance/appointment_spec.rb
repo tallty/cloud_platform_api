@@ -16,12 +16,18 @@ resource "用户申请 接口 相关的API " do
     end
 
     parameter :interface_document_id, "申请的接口集合", require: true, scope: :appointment
-    parameter :start_time, "申请的开始时间", require: true, scope: :appointment
-    parameter :end_time, "申请的结束时间", require: true, scope: :appointment
+    parameter :range, "申请使用的时限{one_month: 0,
+                                    two_month: 1,
+                                    three_month: 3,
+                                    six_month: 4,
+                                    one_year: 5,
+                                    two_year: 6,
+                                    three_year: 7
+                                    }", require: true, scope: :appointment
+    
 
     let(:interface_document_id) { 1 }
-    let(:start_time) {appointment_attrs[:start_time]}
-    let(:end_time) {appointment_attrs[:end_time]}
+    let(:range) {appointment_attrs[:range]}
 
     example "用户提交申请成功" do
       do_request

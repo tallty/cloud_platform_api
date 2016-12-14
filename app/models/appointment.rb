@@ -36,7 +36,7 @@ class Appointment < ApplicationRecord
   end
   
   ################## scope ###################
-  scope :avail_time, -> {where(" end_time >= ?", "#{Time.zone.today}")}
+  scope :avail_time, -> {where(" slef.end_time >= ?", "#{Time.zone.today}")}
   scope :get_user, -> (user_id) { where(user_id: user_id) }
 
   def is_available#是否可用
@@ -63,6 +63,10 @@ class Appointment < ApplicationRecord
     two_year: "两年",
     three_year: "三年"
   }
+
+  def range_alias
+    I18n.t :"appointment_range.#{range}"
+  end
 
   def start_time#开始时间
     self.updated_at.to_date
