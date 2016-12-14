@@ -23,7 +23,8 @@ Rails.application.routes.draw do
         member do
           post :accept
           post :refuse
-        end
+        end  
+      end
     end
     resources :interface_documents, only: [:index, :show, :create, :update, :destroy] do
       resources :statis_infos
