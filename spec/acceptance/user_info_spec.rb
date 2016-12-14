@@ -34,10 +34,10 @@ resource "用户信息相关接口api" do
       @user = create(:user)
     end
 
-    parameter :nickname, "昵称", require: false, scope: :user_info
+    parameter :nickname, "公司名称", require: false, scope: :user_info
     parameter :sex, "性别【男: male, 女: female】", require: false, scope: :user_info
-    parameter :name, "姓名", require: false, scope: :user_info
-    parameter :address, "地址", require: false, scope: :user_info
+    parameter :name, "联系人姓名", require: false, scope: :user_info
+    parameter :address, "联系地址", require: false, scope: :user_info
 
 
     let(:nickname) { user_info_attrs[:nickname] }
