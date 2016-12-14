@@ -39,38 +39,38 @@ resource "管理员对 申请 相关的API " do
       end
     end
 
-    ##################### check ########################
-    post '/admin/appointments/:id/accept' do
-      appointment_attrs = FactoryGirl.attributes_for(:appointment)
+    # ##################### check ########################
+    # post '/admin/appointments/:id/accept' do
+    #   appointment_attrs = FactoryGirl.attributes_for(:appointment)
     
-      let(:id) { @admin_appointments.first.id }
+    #   let(:id) { @admin_appointments.first.id }
 
-      parameter :aasm_state, "申请状态", require: true, scope: :appointment
+    #   parameter :aasm_state, "申请状态", require: true, scope: :appointment
      
-      let(:aasm_state) {"used"}
+    #   let(:aasm_state) {"used"}
 
-      example "管理员 审批通过 申请 的请求" do
-        do_request
-        puts response_body
-        expect(status).to eq(201)
-      end
-    end
+    #   example "管理员 审批通过 申请 的请求" do
+    #     do_request
+    #     puts response_body
+    #     expect(status).to eq(201)
+    #   end
+    # end
 
-    ##################### refuse ########################
-    post '/admin/appointments/:id/refuse' do
-      appointment_attrs = FactoryGirl.attributes_for(:appointment)
+    # ##################### refuse ########################
+    # post '/admin/appointments/:id/refuse' do
+    #   appointment_attrs = FactoryGirl.attributes_for(:appointment)
     
-      let(:id) { @admin_appointments.first.id }
+    #   let(:id) { @admin_appointments.first.id }
 
-      parameter :aasm_state, "申请状态", require: true, scope: :appointment
+    #   parameter :aasm_state, "申请状态", require: true, scope: :appointment
      
-      let(:aasm_state) {"unused"}
+    #   let(:aasm_state) {"unused"}
 
-      example "管理员 审批拒绝 申请 的请求" do
-        do_request
-        puts response_body
-        expect(status).to eq(201)
-      end
-    end
+    #   example "管理员 审批拒绝 申请 的请求" do
+    #     do_request
+    #     puts response_body
+    #     expect(status).to eq(201)
+    #   end
+    # end
   end
 end
