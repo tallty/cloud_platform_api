@@ -8,7 +8,7 @@
 #  aasm_state            :string
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
-#  limit_time            :string
+#  range                 :integer
 #
 
 require 'rails_helper'
