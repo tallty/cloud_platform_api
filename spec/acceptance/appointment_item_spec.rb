@@ -14,11 +14,14 @@ resource "用户 对接口申请项 相关的API " do
       @user = create(:user)
       @interface_document = create(:interface_document)
       @appointments = create_list(:appointment, 5, user: @user)
-      @appointment_items = create_list(:appointment_item, 5, appointment: @appointment, interface_document: @interface_document)
+      @appointments.each do |appointment|
+        @appointment_items = create_list(:appointment_item, 2, appointment: appointment, interface_document: @interface_document)
+      end
     end
    
     #################### index #########################
     get '/appointments/:appointment_id/appointment_items' do
+      let(:appointment_id) { @appointments.first.id }
 
       example "用户 获取 申请项 列表成功" do
         do_request
@@ -33,6 +36,16 @@ resource "用户 对接口申请项 相关的API " do
       let(:id) { @appointment_items.first.id }
 
       example "用户 查看指定申请项 详情成功" do
+        do_request
+        puts response_body
+        expect(status).to eq(200)
+      end
+    end
+
+    ##################### show ########################
+    get '/appointment_items/list' do
+
+      example "用户 查看申请过(包括'可用true'和'不可用false',is_available=?)的接口列表 成功" do
         do_request
         puts response_body
         expect(status).to eq(200)

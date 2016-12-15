@@ -5,10 +5,10 @@ class AppointmentItemsController < ApplicationController
   respond_to :json
 
   def index
-    page = params[:page] || 1
-    per_page = params[:per_page] || 20
-    # @appointment = current_user.appointments.find(params[appointment_id])
-    @appointment_items = current_user.appointment_items.paginate(page: page, per_page: per_page)
+    page = params[:page] || 1 
+    per_page = params[:per_page] || 20       
+    @appointment = current_user.appointments.find(params[:appointment_id])
+    @appointment_items = @appointment.appointment_items.paginate(page: page, per_page: per_page)
     respond_with(@appointment_items)
   end
 

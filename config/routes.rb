@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   
+  resources :appointment_items, only: [:index, :show] do 
+    collection do
+      get :list
+    end
+  end
   resources :appointments, only: [:index, :show, :create] do
     resources :appointment_items, only: [:index, :show]
   end
 
   resources :interface_documents, only: [:index, :show] do
-    collection do
-      get :list
-    end
     resources :statis_infos
   end
 

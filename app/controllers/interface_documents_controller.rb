@@ -11,13 +11,6 @@ class InterfaceDocumentsController < ApplicationController
     respond_with(@interface_documents)
   end
 
-  def list#用户申请过的接口列表
-    page = params[:page] || 1
-    per_page = params[:per_page] || 20
-    @interface_documents = current_user.interface_documents.paginate(page: page, per_page: per_page)
-    respond_with(@interface_documents, template: "interface_documents/index")
-  end
-
   def show
    #访问接口的权限
    @appointments = @interface_document.appointments.get_user(current_user.id)#获取接口对应的所有申请。
