@@ -12,8 +12,8 @@
 
 FactoryGirl.define do
   factory :appointment_item do
-    interface_document nil
-    appointment nil
-    aasm_state "MyString"
+  	sequence(:interface_document_id) { |n| "#{n}" }
+  	sequence(:appointment_id) { |n| "#{n}" }
+    aasm_state "checking"
   end
 end
