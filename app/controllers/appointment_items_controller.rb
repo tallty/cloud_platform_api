@@ -7,9 +7,17 @@ class AppointmentItemsController < ApplicationController
   def index
     page = params[:page] || 1
     per_page = params[:per_page] || 20
-    @appointment = current_user.appointments.find(params[appointment_id])
-    @appointment_items = @appointment.appointment_items.paginate(page: page, per_page: per_page)
+    # @appointment = current_user.appointments.find(params[appointment_id])
+    @appointment_items = current_user.appointment_items.paginate(page: page, per_page: per_page)
     respond_with(@appointment_items)
+  end
+
+  def list#用户申请过的接口列表
+    page = params[:page] || 1
+    per_page = params[:per_page] || 20
+    _state = params[:state].present?? params[:state] : " " 
+    @appointment_items = current_user.appointment_items.scope_state(_state).paginate(page: page, per_page: per_page)
+    respond_with(@appointment_items, template:"appointment_items/index", status: 200)
   end
 
   def show
