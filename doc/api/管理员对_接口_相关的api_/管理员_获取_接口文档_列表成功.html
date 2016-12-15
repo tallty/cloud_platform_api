@@ -112,6 +112,33 @@ table th, table td {
         <h2>管理员 获取 接口文档 列表成功</h2>
         <h3>GET /admin/interface_documents</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">page</span>
+                </td>
+                <td>
+                  <span class="description">当前页</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">per_page</span>
+                </td>
+                <td>
+                  <span class="description">每页的数量</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
@@ -124,12 +151,15 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /admin/interface_documents</pre>
+          <pre class="request route highlight">GET /admin/interface_documents?page=1&amp;per_page=15</pre>
 
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">page: 1
+per_page: 15</pre>
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com//admin/interface_documents&quot; -X GET \
+            <pre class="request curl">curl &quot;http://smart-life.com//admin/interface_documents?page=1&amp;per_page=15&quot; -X GET \
 	-H &quot;Accept: application/json&quot; \
 	-H &quot;X-Admin-Token: qwertyuiop1&quot; \
 	-H &quot;X-Admin-Email: admin@example.com&quot; \
@@ -142,13 +172,13 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;37aa4b584ac273f01848a5a4559d26db&quot;
+ETag: W/&quot;3c4069f9f1ddd3720d26e922c047815b&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: ee04f79a-6aa3-4eed-b56c-5de7ae431836
-X-Runtime: 0.053103
+X-Request-Id: 478a9c3e-db69-4355-a82c-30c64392751e
+X-Runtime: 0.040666
 Vary: Origin
 X-Rack-CORS: preflight-hit; no-origin
-Content-Length: 2159</pre>
+Content-Length: 1028</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
@@ -159,17 +189,17 @@ Content-Length: 2159</pre>
     {
       &quot;id&quot;: 1,
       &quot;title&quot;: &quot;XX接口&quot;,
-      &quot;description&quot;: &quot;MyText&quot;,
-      &quot;site&quot;: &quot;MyString&quot;,
+      &quot;description&quot;: &quot;气象云接口...&quot;,
+      &quot;site&quot;: &quot;https:/home/mc/tallty/cloud_platform_api/doc/api/index.html&quot;,
       &quot;total_frequency&quot;: 0,
       &quot;total_rank&quot;: 1,
-      &quot;created_at&quot;: &quot;2016-12-14T14:41:57.055+08:00&quot;,
-      &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.055+08:00&quot;,
-      &quot;hour_frequency&quot;: 5,
-      &quot;day_frequency&quot;: 5,
-      &quot;week_frequency&quot;: 5,
-      &quot;month_frequency&quot;: 5,
-      &quot;year_frequency&quot;: 5,
+      &quot;created_at&quot;: &quot;2016-12-15T18:45:53.100+08:00&quot;,
+      &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.100+08:00&quot;,
+      &quot;hour_frequency&quot;: 2,
+      &quot;day_frequency&quot;: 2,
+      &quot;week_frequency&quot;: 2,
+      &quot;month_frequency&quot;: 2,
+      &quot;year_frequency&quot;: 2,
       &quot;year_rank&quot;: 1,
       &quot;month_rank&quot;: 1,
       &quot;week_rank&quot;: 1,
@@ -180,12 +210,12 @@ Content-Length: 2159</pre>
     {
       &quot;id&quot;: 2,
       &quot;title&quot;: &quot;XX接口&quot;,
-      &quot;description&quot;: &quot;MyText&quot;,
-      &quot;site&quot;: &quot;MyString&quot;,
+      &quot;description&quot;: &quot;气象云接口...&quot;,
+      &quot;site&quot;: &quot;https:/home/mc/tallty/cloud_platform_api/doc/api/index.html&quot;,
       &quot;total_frequency&quot;: 0,
       &quot;total_rank&quot;: 1,
-      &quot;created_at&quot;: &quot;2016-12-14T14:41:57.057+08:00&quot;,
-      &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.057+08:00&quot;,
+      &quot;created_at&quot;: &quot;2016-12-15T18:45:53.102+08:00&quot;,
+      &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.102+08:00&quot;,
       &quot;hour_frequency&quot;: 0,
       &quot;day_frequency&quot;: 0,
       &quot;week_frequency&quot;: 0,
@@ -197,69 +227,6 @@ Content-Length: 2159</pre>
       &quot;day_rank&quot;: 1,
       &quot;hour_rank&quot;: 1,
       &quot;url&quot;: &quot;http://example.org/admin/interface_documents/2.json&quot;
-    },
-    {
-      &quot;id&quot;: 3,
-      &quot;title&quot;: &quot;XX接口&quot;,
-      &quot;description&quot;: &quot;MyText&quot;,
-      &quot;site&quot;: &quot;MyString&quot;,
-      &quot;total_frequency&quot;: 0,
-      &quot;total_rank&quot;: 1,
-      &quot;created_at&quot;: &quot;2016-12-14T14:41:57.059+08:00&quot;,
-      &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.059+08:00&quot;,
-      &quot;hour_frequency&quot;: 0,
-      &quot;day_frequency&quot;: 0,
-      &quot;week_frequency&quot;: 0,
-      &quot;month_frequency&quot;: 0,
-      &quot;year_frequency&quot;: 0,
-      &quot;year_rank&quot;: 1,
-      &quot;month_rank&quot;: 1,
-      &quot;week_rank&quot;: 1,
-      &quot;day_rank&quot;: 1,
-      &quot;hour_rank&quot;: 1,
-      &quot;url&quot;: &quot;http://example.org/admin/interface_documents/3.json&quot;
-    },
-    {
-      &quot;id&quot;: 4,
-      &quot;title&quot;: &quot;XX接口&quot;,
-      &quot;description&quot;: &quot;MyText&quot;,
-      &quot;site&quot;: &quot;MyString&quot;,
-      &quot;total_frequency&quot;: 0,
-      &quot;total_rank&quot;: 1,
-      &quot;created_at&quot;: &quot;2016-12-14T14:41:57.061+08:00&quot;,
-      &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.061+08:00&quot;,
-      &quot;hour_frequency&quot;: 0,
-      &quot;day_frequency&quot;: 0,
-      &quot;week_frequency&quot;: 0,
-      &quot;month_frequency&quot;: 0,
-      &quot;year_frequency&quot;: 0,
-      &quot;year_rank&quot;: 1,
-      &quot;month_rank&quot;: 1,
-      &quot;week_rank&quot;: 1,
-      &quot;day_rank&quot;: 1,
-      &quot;hour_rank&quot;: 1,
-      &quot;url&quot;: &quot;http://example.org/admin/interface_documents/4.json&quot;
-    },
-    {
-      &quot;id&quot;: 5,
-      &quot;title&quot;: &quot;XX接口&quot;,
-      &quot;description&quot;: &quot;MyText&quot;,
-      &quot;site&quot;: &quot;MyString&quot;,
-      &quot;total_frequency&quot;: 0,
-      &quot;total_rank&quot;: 1,
-      &quot;created_at&quot;: &quot;2016-12-14T14:41:57.064+08:00&quot;,
-      &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.064+08:00&quot;,
-      &quot;hour_frequency&quot;: 0,
-      &quot;day_frequency&quot;: 0,
-      &quot;week_frequency&quot;: 0,
-      &quot;month_frequency&quot;: 0,
-      &quot;year_frequency&quot;: 0,
-      &quot;year_rank&quot;: 1,
-      &quot;month_rank&quot;: 1,
-      &quot;week_rank&quot;: 1,
-      &quot;day_rank&quot;: 1,
-      &quot;hour_rank&quot;: 1,
-      &quot;url&quot;: &quot;http://example.org/admin/interface_documents/5.json&quot;
     }
   ]
 }</pre>

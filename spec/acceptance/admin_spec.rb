@@ -61,6 +61,12 @@ resource "管理员 帐号管理 相关接口" do
       @admins = create_list(:admin, 1)
     end
 
+    parameter :page, "当前页", required: false
+    parameter :per_page, "每页的数量", required: false
+
+    let(:page) {1}
+    let(:per_page) {15}
+
     example "管理员获取 管理员账户列表成功" do
       do_request
       puts response_body

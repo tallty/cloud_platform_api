@@ -112,6 +112,33 @@ table th, table td {
         <h2>用户 获取 申请列表成功</h2>
         <h3>GET appointments</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">page</span>
+                </td>
+                <td>
+                  <span class="description">当前页</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">per_page</span>
+                </td>
+                <td>
+                  <span class="description">每页的数量</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
@@ -124,12 +151,15 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET appointments</pre>
+          <pre class="request route highlight">GET appointments?page=1&amp;per_page=15</pre>
 
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">page: 1
+per_page: 15</pre>
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com/appointments&quot; -X GET \
+            <pre class="request curl">curl &quot;http://smart-life.com/appointments?page=1&amp;per_page=15&quot; -X GET \
 	-H &quot;Accept: application/json&quot; \
 	-H &quot;X-User-Token: qwertyuiop&quot; \
 	-H &quot;X-User-Phone: 13813813811&quot; \
@@ -142,13 +172,13 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;25d896784d19826f50b29dcbdf3c209d&quot;
+ETag: W/&quot;fb29c9ab7ef9ff7c462df56f6766fdac&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 7f7ca073-cc95-4ec9-a96d-12389caac56c
-X-Runtime: 0.024448
+X-Request-Id: cea612ed-2992-4ad1-a8c9-43fd8c0c2670
+X-Runtime: 0.019511
 Vary: Origin
 X-Rack-CORS: preflight-hit; no-origin
-Content-Length: 1641</pre>
+Content-Length: 657</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
@@ -160,66 +190,31 @@ Content-Length: 1641</pre>
       &quot;id&quot;: 1,
       &quot;state&quot;: &quot;待审核&quot;,
       &quot;range_alias&quot;: &quot;一个月&quot;,
-      &quot;start_time&quot;: &quot;2016-12-14&quot;,
-      &quot;end_time&quot;: &quot;2017-01-14&quot;,
+      &quot;start_time&quot;: &quot;2016-12-15&quot;,
+      &quot;end_time&quot;: &quot;2017-01-15&quot;,
       &quot;is_available&quot;: false,
-      &quot;created_at&quot;: &quot;2016-12-14T14:41:57.397+08:00&quot;,
-      &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.397+08:00&quot;,
+      &quot;created_at&quot;: &quot;2016-12-15T18:45:53.712+08:00&quot;,
+      &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.712+08:00&quot;,
       &quot;user_name&quot;: null,
-      &quot;interface_document_title&quot;: &quot;MyString&quot;,
+      &quot;appointment_items&quot;: [
+
+      ],
       &quot;url&quot;: &quot;http://example.org/appointments/1.json&quot;
     },
     {
       &quot;id&quot;: 2,
       &quot;state&quot;: &quot;待审核&quot;,
       &quot;range_alias&quot;: &quot;一个月&quot;,
-      &quot;start_time&quot;: &quot;2016-12-14&quot;,
-      &quot;end_time&quot;: &quot;2017-01-14&quot;,
+      &quot;start_time&quot;: &quot;2016-12-15&quot;,
+      &quot;end_time&quot;: &quot;2017-01-15&quot;,
       &quot;is_available&quot;: false,
-      &quot;created_at&quot;: &quot;2016-12-14T14:41:57.401+08:00&quot;,
-      &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.401+08:00&quot;,
+      &quot;created_at&quot;: &quot;2016-12-15T18:45:53.715+08:00&quot;,
+      &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.715+08:00&quot;,
       &quot;user_name&quot;: null,
-      &quot;interface_document_title&quot;: &quot;MyString&quot;,
+      &quot;appointment_items&quot;: [
+
+      ],
       &quot;url&quot;: &quot;http://example.org/appointments/2.json&quot;
-    },
-    {
-      &quot;id&quot;: 3,
-      &quot;state&quot;: &quot;待审核&quot;,
-      &quot;range_alias&quot;: &quot;一个月&quot;,
-      &quot;start_time&quot;: &quot;2016-12-14&quot;,
-      &quot;end_time&quot;: &quot;2017-01-14&quot;,
-      &quot;is_available&quot;: false,
-      &quot;created_at&quot;: &quot;2016-12-14T14:41:57.404+08:00&quot;,
-      &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.404+08:00&quot;,
-      &quot;user_name&quot;: null,
-      &quot;interface_document_title&quot;: &quot;MyString&quot;,
-      &quot;url&quot;: &quot;http://example.org/appointments/3.json&quot;
-    },
-    {
-      &quot;id&quot;: 4,
-      &quot;state&quot;: &quot;待审核&quot;,
-      &quot;range_alias&quot;: &quot;一个月&quot;,
-      &quot;start_time&quot;: &quot;2016-12-14&quot;,
-      &quot;end_time&quot;: &quot;2017-01-14&quot;,
-      &quot;is_available&quot;: false,
-      &quot;created_at&quot;: &quot;2016-12-14T14:41:57.407+08:00&quot;,
-      &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.407+08:00&quot;,
-      &quot;user_name&quot;: null,
-      &quot;interface_document_title&quot;: &quot;MyString&quot;,
-      &quot;url&quot;: &quot;http://example.org/appointments/4.json&quot;
-    },
-    {
-      &quot;id&quot;: 5,
-      &quot;state&quot;: &quot;待审核&quot;,
-      &quot;range_alias&quot;: &quot;一个月&quot;,
-      &quot;start_time&quot;: &quot;2016-12-14&quot;,
-      &quot;end_time&quot;: &quot;2017-01-14&quot;,
-      &quot;is_available&quot;: false,
-      &quot;created_at&quot;: &quot;2016-12-14T14:41:57.409+08:00&quot;,
-      &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.409+08:00&quot;,
-      &quot;user_name&quot;: null,
-      &quot;interface_document_title&quot;: &quot;MyString&quot;,
-      &quot;url&quot;: &quot;http://example.org/appointments/5.json&quot;
     }
   ]
 }</pre>

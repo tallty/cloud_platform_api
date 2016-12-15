@@ -32,7 +32,7 @@
     {
       "request_method": "POST",
       "request_path": "/admin/interface_documents",
-      "request_body": "interface_document[title]=MyString&interface_document[description]=MyText&interface_document[site]=MyString",
+      "request_body": "interface_document[title]=%E6%B0%94%E8%B1%A1%E4%BA%91&interface_document[description]=%E6%B0%94%E8%B1%A1%E4%BA%91%E6%8E%A5%E5%8F%A3...&interface_document[site]=https%3A%2Fhome%2Fmc%2Ftallty%2Fcloud_platform_api%2Fdoc%2Fapi%2Findex.html",
       "request_headers": {
         "Accept": "application/json",
         "X-Admin-Token": "qwertyuiop1",
@@ -46,22 +46,22 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 1,\n  \"title\": \"MyString\",\n  \"description\": \"MyText\",\n  \"site\": \"MyString\",\n  \"total_frequency\": 0,\n  \"total_rank\": 1,\n  \"created_at\": \"2016-12-14T14:41:57.021+08:00\",\n  \"updated_at\": \"2016-12-14T14:41:57.021+08:00\",\n  \"hour_frequency\": 0,\n  \"day_frequency\": 0,\n  \"week_frequency\": 0,\n  \"month_frequency\": 0,\n  \"year_frequency\": 0,\n  \"year_rank\": 1,\n  \"month_rank\": 1,\n  \"week_rank\": 1,\n  \"day_rank\": 1,\n  \"hour_rank\": 1,\n  \"url\": \"http://example.org/admin/interface_documents/1.json\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"title\": \"气象云\",\n  \"description\": \"气象云接口...\",\n  \"site\": \"https:/home/mc/tallty/cloud_platform_api/doc/api/index.html\",\n  \"total_frequency\": 0,\n  \"total_rank\": 1,\n  \"created_at\": \"2016-12-15T18:45:53.068+08:00\",\n  \"updated_at\": \"2016-12-15T18:45:53.068+08:00\",\n  \"hour_frequency\": 0,\n  \"day_frequency\": 0,\n  \"week_frequency\": 0,\n  \"month_frequency\": 0,\n  \"year_frequency\": 0,\n  \"year_rank\": 1,\n  \"month_rank\": 1,\n  \"week_rank\": 1,\n  \"day_rank\": 1,\n  \"hour_rank\": 1,\n  \"url\": \"http://example.org/admin/interface_documents/1.json\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"9bb1b58010036a99444d5948cacc72a1\"",
+        "ETag": "W/\"af451e119c95125de8d77aee6b705ed6\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "62f661d9-558e-4c02-9e24-9aebf86457d6",
-        "X-Runtime": "0.032418",
+        "X-Request-Id": "5c1310ac-4b1d-47c6-8ba6-205f05eadadb",
+        "X-Runtime": "0.039068",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "418"
+        "Content-Length": "482"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://smart-life.com//admin/interface_documents\" -d 'interface_document[title]=MyString&interface_document[description]=MyText&interface_document[site]=MyString' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Admin-Token: qwertyuiop1\" \\\n\t-H \"X-Admin-Email: admin@example.com\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Content-Type: application/x-www-form-urlencoded\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://smart-life.com//admin/interface_documents\" -d 'interface_document[title]=%E6%B0%94%E8%B1%A1%E4%BA%91&interface_document[description]=%E6%B0%94%E8%B1%A1%E4%BA%91%E6%8E%A5%E5%8F%A3...&interface_document[site]=https%3A%2Fhome%2Fmc%2Ftallty%2Fcloud_platform_api%2Fdoc%2Fapi%2Findex.html' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Admin-Token: qwertyuiop1\" \\\n\t-H \"X-Admin-Email: admin@example.com\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Content-Type: application/x-www-form-urlencoded\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

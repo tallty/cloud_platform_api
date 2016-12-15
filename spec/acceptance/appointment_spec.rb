@@ -51,6 +51,11 @@ resource "用户申请 接口 相关的API " do
    
     #################### index #########################
     get 'appointments' do
+      parameter :page, "当前页", required: false
+      parameter :per_page, "每页的数量", required: false
+
+      let(:page) {1}
+      let(:per_page) {15}
 
       example "用户 获取 申请列表成功" do
         do_request

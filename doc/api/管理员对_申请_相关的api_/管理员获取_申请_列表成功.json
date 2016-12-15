@@ -6,7 +6,16 @@
   "description": "管理员获取 申请 列表成功",
   "explanation": null,
   "parameters": [
-
+    {
+      "required": false,
+      "name": "page",
+      "description": "当前页"
+    },
+    {
+      "required": false,
+      "name": "per_page",
+      "description": "每页的数量"
+    }
   ],
   "response_fields": [
 
@@ -14,7 +23,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/admin/appointments",
+      "request_path": "/admin/appointments?page=1&per_page=15",
       "request_body": null,
       "request_headers": {
         "Accept": "application/json",
@@ -24,26 +33,28 @@
         "Cookie": ""
       },
       "request_query_parameters": {
+        "page": "1",
+        "per_page": "15"
       },
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"current_page\": 1,\n  \"total_pages\": 1,\n  \"admin_appointments\": [\n    {\n      \"id\": 1,\n      \"state\": \"待审核\",\n      \"range_alias\": \"一个月\",\n      \"start_time\": \"2016-12-14\",\n      \"end_time\": \"2017-01-14\",\n      \"created_at\": \"2016-12-14T14:41:56.218+08:00\",\n      \"updated_at\": \"2016-12-14T14:41:56.218+08:00\",\n      \"user_name\": null,\n      \"interface_document_title\": \"MyString\",\n      \"url\": \"http://example.org/admin/appointments/1.json\"\n    },\n    {\n      \"id\": 2,\n      \"state\": \"待审核\",\n      \"range_alias\": \"一个月\",\n      \"start_time\": \"2016-12-14\",\n      \"end_time\": \"2017-01-14\",\n      \"created_at\": \"2016-12-14T14:41:56.221+08:00\",\n      \"updated_at\": \"2016-12-14T14:41:56.221+08:00\",\n      \"user_name\": null,\n      \"interface_document_title\": \"MyString\",\n      \"url\": \"http://example.org/admin/appointments/2.json\"\n    },\n    {\n      \"id\": 3,\n      \"state\": \"待审核\",\n      \"range_alias\": \"一个月\",\n      \"start_time\": \"2016-12-14\",\n      \"end_time\": \"2017-01-14\",\n      \"created_at\": \"2016-12-14T14:41:56.223+08:00\",\n      \"updated_at\": \"2016-12-14T14:41:56.223+08:00\",\n      \"user_name\": null,\n      \"interface_document_title\": \"MyString\",\n      \"url\": \"http://example.org/admin/appointments/3.json\"\n    },\n    {\n      \"id\": 4,\n      \"state\": \"待审核\",\n      \"range_alias\": \"一个月\",\n      \"start_time\": \"2016-12-14\",\n      \"end_time\": \"2017-01-14\",\n      \"created_at\": \"2016-12-14T14:41:56.226+08:00\",\n      \"updated_at\": \"2016-12-14T14:41:56.226+08:00\",\n      \"user_name\": null,\n      \"interface_document_title\": \"MyString\",\n      \"url\": \"http://example.org/admin/appointments/4.json\"\n    },\n    {\n      \"id\": 5,\n      \"state\": \"待审核\",\n      \"range_alias\": \"一个月\",\n      \"start_time\": \"2016-12-14\",\n      \"end_time\": \"2017-01-14\",\n      \"created_at\": \"2016-12-14T14:41:56.228+08:00\",\n      \"updated_at\": \"2016-12-14T14:41:56.228+08:00\",\n      \"user_name\": null,\n      \"interface_document_title\": \"MyString\",\n      \"url\": \"http://example.org/admin/appointments/5.json\"\n    }\n  ]\n}",
+      "response_body": "{\n  \"current_page\": 1,\n  \"total_pages\": 1,\n  \"admin_appointments\": [\n    {\n      \"id\": 1,\n      \"state\": \"待审核\",\n      \"range_alias\": \"一个月\",\n      \"start_time\": \"2016-12-15\",\n      \"end_time\": \"2017-01-15\",\n      \"created_at\": \"2016-12-15T18:45:52.788+08:00\",\n      \"updated_at\": \"2016-12-15T18:45:52.788+08:00\",\n      \"user_name\": null,\n      \"appointment_items\": [\n        {\n          \"id\": 1,\n          \"state\": \"待审核\",\n          \"range_alias\": \"一个月\",\n          \"start_time\": \"2016-12-15\",\n          \"end_time\": \"2017-01-15\",\n          \"is_available\": false,\n          \"created_at\": \"2016-12-15T18:45:52.793+08:00\",\n          \"updated_at\": \"2016-12-15T18:45:52.793+08:00\",\n          \"interface_document_title\": null\n        },\n        {\n          \"id\": 2,\n          \"state\": \"待审核\",\n          \"range_alias\": \"一个月\",\n          \"start_time\": \"2016-12-15\",\n          \"end_time\": \"2017-01-15\",\n          \"is_available\": false,\n          \"created_at\": \"2016-12-15T18:45:52.796+08:00\",\n          \"updated_at\": \"2016-12-15T18:45:52.796+08:00\",\n          \"interface_document_title\": null\n        }\n      ],\n      \"url\": \"http://example.org/admin/appointments/1.json\"\n    },\n    {\n      \"id\": 2,\n      \"state\": \"待审核\",\n      \"range_alias\": \"一个月\",\n      \"start_time\": \"2016-12-15\",\n      \"end_time\": \"2017-01-15\",\n      \"created_at\": \"2016-12-15T18:45:52.791+08:00\",\n      \"updated_at\": \"2016-12-15T18:45:52.791+08:00\",\n      \"user_name\": null,\n      \"appointment_items\": [\n        {\n          \"id\": 3,\n          \"state\": \"待审核\",\n          \"range_alias\": \"一个月\",\n          \"start_time\": \"2016-12-15\",\n          \"end_time\": \"2017-01-15\",\n          \"is_available\": false,\n          \"created_at\": \"2016-12-15T18:45:52.798+08:00\",\n          \"updated_at\": \"2016-12-15T18:45:52.798+08:00\",\n          \"interface_document_title\": null\n        },\n        {\n          \"id\": 4,\n          \"state\": \"待审核\",\n          \"range_alias\": \"一个月\",\n          \"start_time\": \"2016-12-15\",\n          \"end_time\": \"2017-01-15\",\n          \"is_available\": false,\n          \"created_at\": \"2016-12-15T18:45:52.800+08:00\",\n          \"updated_at\": \"2016-12-15T18:45:52.800+08:00\",\n          \"interface_document_title\": null\n        }\n      ],\n      \"url\": \"http://example.org/admin/appointments/2.json\"\n    }\n  ]\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"5028f35502c8d5c6f07e2fc5a36fe3d8\"",
+        "ETag": "W/\"f0c332bd6e86823135192328a69e92ae\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "31243284-2d39-4042-8db3-7445e2db5ea8",
-        "X-Runtime": "0.587122",
+        "X-Request-Id": "da0607d4-61ba-46f4-b949-5d99d7a4f411",
+        "X-Runtime": "0.041411",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "1572"
+        "Content-Length": "1623"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://smart-life.com//admin/appointments\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Admin-Token: qwertyuiop1\" \\\n\t-H \"X-Admin-Email: admin@example.com\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://smart-life.com//admin/appointments?page=1&per_page=15\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Admin-Token: qwertyuiop1\" \\\n\t-H \"X-Admin-Email: admin@example.com\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

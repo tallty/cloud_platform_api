@@ -20,6 +20,12 @@ resource "管理员对 申请项 相关的API " do
     get '/admin/appointments/:appointment_id/appointment_items' do
       let(:appointment_id) { @admin_appointment.id }
 
+      parameter :page, "当前页", required: false
+      parameter :per_page, "每页的数量", required: false
+
+      let(:page) {1}
+      let(:per_page) {15}
+
       example "管理员获取 申请项 列表成功" do
         do_request
         puts response_body

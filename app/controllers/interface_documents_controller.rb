@@ -12,6 +12,7 @@ class InterfaceDocumentsController < ApplicationController
   end
 
   def show
+    @interface_document.update(frequency: @interface_document.frequency + 1) #记录访问次数
     respond_with(@interface_document)
   end
 

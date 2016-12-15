@@ -1,6 +1,33 @@
 {
   "resources": [
     {
+      "name": "用户 对接口申请项 相关的API ",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "用户 查看指定申请项 详情成功",
+          "link": "用户_对接口申请项_相关的api_/用户_查看指定申请项_详情成功.json",
+          "groups": "all",
+          "route": "/appointments/:appointment_id/appointment_items/:id",
+          "method": "get"
+        },
+        {
+          "description": "用户 查看申请过(包括'可用true'和'不可用false',is_available=?)的接口列表 成功",
+          "link": "用户_对接口申请项_相关的api_/用户_查看申请过(包括'可用true'和'不可用false',is_available=?)的接口列表_成功.json",
+          "groups": "all",
+          "route": "/appointment_items/list",
+          "method": "get"
+        },
+        {
+          "description": "用户 获取 申请项 列表成功",
+          "link": "用户_对接口申请项_相关的api_/用户_获取_申请项_列表成功.json",
+          "groups": "all",
+          "route": "/appointments/:appointment_id/appointment_items",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "用户信息相关接口api",
       "explanation": null,
       "examples": [
@@ -29,13 +56,6 @@
           "link": "用户查看_接口_相关的api_/用户查看指定接口详情成功.json",
           "groups": "all",
           "route": "interface_documents/:id",
-          "method": "get"
-        },
-        {
-          "description": "用户获取 申请过 接口列表成功",
-          "link": "用户查看_接口_相关的api_/用户获取_申请过_接口列表成功.json",
-          "groups": "all",
-          "route": "interface_documents/list",
           "method": "get"
         },
         {
@@ -109,15 +129,43 @@
       ]
     },
     {
-      "name": "管理后台相关接口",
+      "name": "管理员 帐号管理 相关接口",
       "explanation": null,
       "examples": [
         {
+          "description": "管理员 删除指定管理员账户 详情成功",
+          "link": "管理员_帐号管理_相关接口/管理员_删除指定管理员账户_详情成功.json",
+          "groups": "all",
+          "route": "/admin/manager_accounts/:id",
+          "method": "delete"
+        },
+        {
+          "description": "管理员 查看指定管理员账户 详情成功",
+          "link": "管理员_帐号管理_相关接口/管理员_查看指定管理员账户_详情成功.json",
+          "groups": "all",
+          "route": "/admin/manager_accounts/:id",
+          "method": "get"
+        },
+        {
+          "description": "管理员注册成功",
+          "link": "管理员_帐号管理_相关接口/管理员注册成功.json",
+          "groups": "all",
+          "route": "/admins",
+          "method": "post"
+        },
+        {
           "description": "管理员登录成功",
-          "link": "管理后台相关接口/管理员登录成功.json",
+          "link": "管理员_帐号管理_相关接口/管理员登录成功.json",
           "groups": "all",
           "route": "/admins/sign_in",
           "method": "post"
+        },
+        {
+          "description": "管理员获取 管理员账户列表成功",
+          "link": "管理员_帐号管理_相关接口/管理员获取_管理员账户列表成功.json",
+          "groups": "all",
+          "route": "/admin/manager_accounts",
+          "method": "get"
         }
       ]
     },
@@ -192,6 +240,40 @@
           "link": "管理员对_申请_相关的api_/管理员获取_申请_列表成功.json",
           "groups": "all",
           "route": "/admin/appointments",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "管理员对 申请项 相关的API ",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "管理员 审批拒绝 申请项 的请求",
+          "link": "管理员对_申请项_相关的api_/管理员_审批拒绝_申请项_的请求.json",
+          "groups": "all",
+          "route": "/admin/appointments/:appointment_id/appointment_items/:id/refuse",
+          "method": "post"
+        },
+        {
+          "description": "管理员 审批通过 申请项 的请求",
+          "link": "管理员对_申请项_相关的api_/管理员_审批通过_申请项_的请求.json",
+          "groups": "all",
+          "route": "/admin/appointments/:appointment_id/appointment_items/:id/accept",
+          "method": "post"
+        },
+        {
+          "description": "管理员 查看 指定申请项 详情成功",
+          "link": "管理员对_申请项_相关的api_/管理员_查看_指定申请项_详情成功.json",
+          "groups": "all",
+          "route": "/admin/appointments/:appointment_id/appointment_items/:id",
+          "method": "get"
+        },
+        {
+          "description": "管理员获取 申请项 列表成功",
+          "link": "管理员对_申请项_相关的api_/管理员获取_申请项_列表成功.json",
+          "groups": "all",
+          "route": "/admin/appointments/:appointment_id/appointment_items",
           "method": "get"
         }
       ]

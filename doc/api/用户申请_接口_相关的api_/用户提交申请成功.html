@@ -123,7 +123,7 @@ table th, table td {
             <tbody>
               <tr>
                 <td>
-                    <span class="name">appointment[interface_document_id]</span>
+                    <span class="name">appointment[interface_document_ids]</span>
                 </td>
                 <td>
                   <span class="description">申请的接口集合</span>
@@ -163,10 +163,10 @@ Cookie: </pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">appointment[interface_document_id]=1&appointment[range]=one_month</pre>
+            <pre class="request body">appointment[interface_document_ids][]=1&appointment[interface_document_ids][]=2&appointment[interface_document_ids][]=3&appointment[range]=one_month</pre>
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com//appointments&quot; -d &#39;appointment[interface_document_id]=1&amp;appointment[range]=one_month&#39; -X POST \
+            <pre class="request curl">curl &quot;http://smart-life.com//appointments&quot; -d &#39;appointment[interface_document_ids][]=1&amp;appointment[interface_document_ids][]=2&amp;appointment[interface_document_ids][]=3&amp;appointment[range]=one_month&#39; -X POST \
 	-H &quot;Accept: application/json&quot; \
 	-H &quot;X-User-Token: qwertyuiop&quot; \
 	-H &quot;X-User-Phone: 13813813811&quot; \
@@ -180,13 +180,13 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;d7ce56da546add4bc23edd5ebd8b3690&quot;
+ETag: W/&quot;7977e2db968f6027b2a55bbeb59826c6&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: db67732c-6a87-4edc-9455-e6bf58031c89
-X-Runtime: 0.022398
+X-Request-Id: 2a7c6fb6-092f-43a3-a16b-2cdd2ad4c03f
+X-Runtime: 0.044365
 Vary: Origin
 X-Rack-CORS: preflight-hit; no-origin
-Content-Length: 311</pre>
+Content-Length: 1208</pre>
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
@@ -194,13 +194,50 @@ Content-Length: 311</pre>
   &quot;id&quot;: 1,
   &quot;state&quot;: &quot;待审核&quot;,
   &quot;range_alias&quot;: &quot;一个月&quot;,
-  &quot;start_time&quot;: &quot;2016-12-14&quot;,
-  &quot;end_time&quot;: &quot;2017-01-14&quot;,
+  &quot;start_time&quot;: &quot;2016-12-15&quot;,
+  &quot;end_time&quot;: &quot;2017-01-15&quot;,
   &quot;is_available&quot;: false,
-  &quot;created_at&quot;: &quot;2016-12-14T14:41:57.372+08:00&quot;,
-  &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.372+08:00&quot;,
+  &quot;created_at&quot;: &quot;2016-12-15T18:45:53.643+08:00&quot;,
+  &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.643+08:00&quot;,
   &quot;user_name&quot;: null,
-  &quot;interface_document_title&quot;: null,
+  &quot;appointment_items&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;state&quot;: &quot;待审核&quot;,
+      &quot;range_alias&quot;: &quot;一个月&quot;,
+      &quot;start_time&quot;: &quot;2016-12-15&quot;,
+      &quot;end_time&quot;: &quot;2017-01-15&quot;,
+      &quot;is_available&quot;: false,
+      &quot;created_at&quot;: &quot;2016-12-15T18:45:53.648+08:00&quot;,
+      &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.648+08:00&quot;,
+      &quot;interface_document_title&quot;: &quot;气象云&quot;,
+      &quot;url&quot;: &quot;http://example.org/appointment_items/1.json&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;state&quot;: &quot;待审核&quot;,
+      &quot;range_alias&quot;: &quot;一个月&quot;,
+      &quot;start_time&quot;: &quot;2016-12-15&quot;,
+      &quot;end_time&quot;: &quot;2017-01-15&quot;,
+      &quot;is_available&quot;: false,
+      &quot;created_at&quot;: &quot;2016-12-15T18:45:53.651+08:00&quot;,
+      &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.651+08:00&quot;,
+      &quot;interface_document_title&quot;: null,
+      &quot;url&quot;: &quot;http://example.org/appointment_items/2.json&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;state&quot;: &quot;待审核&quot;,
+      &quot;range_alias&quot;: &quot;一个月&quot;,
+      &quot;start_time&quot;: &quot;2016-12-15&quot;,
+      &quot;end_time&quot;: &quot;2017-01-15&quot;,
+      &quot;is_available&quot;: false,
+      &quot;created_at&quot;: &quot;2016-12-15T18:45:53.654+08:00&quot;,
+      &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.654+08:00&quot;,
+      &quot;interface_document_title&quot;: null,
+      &quot;url&quot;: &quot;http://example.org/appointment_items/3.json&quot;
+    }
+  ],
   &quot;url&quot;: &quot;http://example.org/appointments/1.json&quot;
 }</pre>
       </div>

@@ -28,19 +28,19 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 1,\n  \"state\": \"待审核\",\n  \"range_alias\": \"一个月\",\n  \"start_time\": \"2016-12-14\",\n  \"end_time\": \"2017-01-14\",\n  \"is_available\": false,\n  \"created_at\": \"2016-12-14T14:41:57.450+08:00\",\n  \"updated_at\": \"2016-12-14T14:41:57.450+08:00\",\n  \"user_name\": null,\n  \"interface_document_title\": \"MyString\",\n  \"url\": \"http://example.org/appointments/1.json\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"state\": \"待审核\",\n  \"range_alias\": \"一个月\",\n  \"start_time\": \"2016-12-15\",\n  \"end_time\": \"2017-01-15\",\n  \"is_available\": false,\n  \"created_at\": \"2016-12-15T18:45:53.750+08:00\",\n  \"updated_at\": \"2016-12-15T18:45:53.750+08:00\",\n  \"user_name\": null,\n  \"appointment_items\": [\n\n  ],\n  \"url\": \"http://example.org/appointments/1.json\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"3f8cecdac73f2c2bd5443bdbe66d36d8\"",
+        "ETag": "W/\"f367f5067c6469d39d650aeef34bc389\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "12c003e7-f5fb-4b9c-87eb-184ead8ab351",
-        "X-Runtime": "0.016315",
+        "X-Request-Id": "bf0c6324-6db0-4bf7-b467-8eba2eab3cad",
+        "X-Runtime": "0.016025",
         "Vary": "Origin",
         "X-Rack-CORS": "preflight-hit; no-origin",
-        "Content-Length": "317"
+        "Content-Length": "302"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": "curl \"http://smart-life.com/appointments/1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: qwertyuiop\" \\\n\t-H \"X-User-Phone: 13813813811\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""

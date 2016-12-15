@@ -164,10 +164,10 @@ Cookie: </pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">interface_document[title]=MyString&interface_document[description]=MyText&interface_document[site]=MyString</pre>
+            <pre class="request body">interface_document[title]=%E6%B0%94%E8%B1%A1%E4%BA%91&interface_document[description]=%E6%B0%94%E8%B1%A1%E4%BA%91%E6%8E%A5%E5%8F%A3...&interface_document[site]=https%3A%2Fhome%2Fmc%2Ftallty%2Fcloud_platform_api%2Fdoc%2Fapi%2Findex.html</pre>
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com//admin/interface_documents/1&quot; -d &#39;interface_document[title]=MyString&amp;interface_document[description]=MyText&amp;interface_document[site]=MyString&#39; -X PUT \
+            <pre class="request curl">curl &quot;http://smart-life.com//admin/interface_documents/1&quot; -d &#39;interface_document[title]=%E6%B0%94%E8%B1%A1%E4%BA%91&amp;interface_document[description]=%E6%B0%94%E8%B1%A1%E4%BA%91%E6%8E%A5%E5%8F%A3...&amp;interface_document[site]=https%3A%2Fhome%2Fmc%2Ftallty%2Fcloud_platform_api%2Fdoc%2Fapi%2Findex.html&#39; -X PUT \
 	-H &quot;Accept: application/json&quot; \
 	-H &quot;X-Admin-Token: qwertyuiop1&quot; \
 	-H &quot;X-Admin-Email: admin@example.com&quot; \
@@ -181,30 +181,30 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;7378e78929d304c6e5cab3fafacc4133&quot;
+ETag: W/&quot;8a54a388729676876f7390a3b6816c2b&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 2a63483a-bf1a-434f-8fe7-2abdba38c04e
-X-Runtime: 0.033132
+X-Request-Id: f054deff-fbd3-4862-a04a-c2b9c98381c2
+X-Runtime: 0.035225
 Vary: Origin
 X-Rack-CORS: preflight-hit; no-origin
-Content-Length: 418</pre>
+Content-Length: 482</pre>
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;id&quot;: 1,
-  &quot;title&quot;: &quot;MyString&quot;,
-  &quot;description&quot;: &quot;MyText&quot;,
-  &quot;site&quot;: &quot;MyString&quot;,
+  &quot;title&quot;: &quot;气象云&quot;,
+  &quot;description&quot;: &quot;气象云接口...&quot;,
+  &quot;site&quot;: &quot;https:/home/mc/tallty/cloud_platform_api/doc/api/index.html&quot;,
   &quot;total_frequency&quot;: 0,
   &quot;total_rank&quot;: 1,
-  &quot;created_at&quot;: &quot;2016-12-14T14:41:57.208+08:00&quot;,
-  &quot;updated_at&quot;: &quot;2016-12-14T14:41:57.236+08:00&quot;,
-  &quot;hour_frequency&quot;: 5,
-  &quot;day_frequency&quot;: 5,
-  &quot;week_frequency&quot;: 5,
-  &quot;month_frequency&quot;: 5,
-  &quot;year_frequency&quot;: 5,
+  &quot;created_at&quot;: &quot;2016-12-15T18:45:53.220+08:00&quot;,
+  &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.236+08:00&quot;,
+  &quot;hour_frequency&quot;: 2,
+  &quot;day_frequency&quot;: 2,
+  &quot;week_frequency&quot;: 2,
+  &quot;month_frequency&quot;: 2,
+  &quot;year_frequency&quot;: 2,
   &quot;year_rank&quot;: 1,
   &quot;month_rank&quot;: 1,
   &quot;week_rank&quot;: 1,

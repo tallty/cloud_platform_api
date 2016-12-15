@@ -22,6 +22,12 @@ resource "用户 对接口申请项 相关的API " do
     #################### index #########################
     get '/appointments/:appointment_id/appointment_items' do
       let(:appointment_id) { @appointments.first.id }
+      
+      parameter :page, "当前页", required: false
+      parameter :per_page, "每页的数量", required: false
+
+      let(:page) {1}
+      let(:per_page) {15}
 
       example "用户 获取 申请项 列表成功" do
         do_request
@@ -45,6 +51,12 @@ resource "用户 对接口申请项 相关的API " do
     ##################### show ########################
     get '/appointment_items/list' do
 
+      parameter :page, "当前页", required: false
+      parameter :per_page, "每页的数量", required: false
+
+      let(:page) {1}
+      let(:per_page) {15}
+      
       example "用户 查看申请过(包括'可用true'和'不可用false',is_available=?)的接口列表 成功" do
         do_request
         puts response_body

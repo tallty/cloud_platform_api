@@ -112,25 +112,6 @@ table th, table td {
         <h2>管理员 审批通过 申请 的请求</h2>
         <h3>POST /admin/appointments/:id/accept</h3>
 
-          <h3>Parameters</h3>
-          <table class="parameters table table-striped table-bordered table-condensed">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                    <span class="name">appointment[aasm_state]</span>
-                </td>
-                <td>
-                  <span class="description">申请状态</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
 
           <h3>Request</h3>
@@ -147,11 +128,9 @@ Cookie: </pre>
           <pre class="request route highlight">POST /admin/appointments/1/accept</pre>
 
 
-            <h4>Body</h4>
-            <pre class="request body">appointment[aasm_state]=used</pre>
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com//admin/appointments/1/accept&quot; -d &#39;appointment[aasm_state]=used&#39; -X POST \
+            <pre class="request curl">curl &quot;http://smart-life.com//admin/appointments/1/accept&quot; -d &#39;&#39; -X POST \
 	-H &quot;Accept: application/json&quot; \
 	-H &quot;X-Admin-Token: qwertyuiop1&quot; \
 	-H &quot;X-Admin-Email: admin@example.com&quot; \
@@ -165,13 +144,13 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;7b8a4ec60290e7acd97a5efe2b28ec8a&quot;
+ETag: W/&quot;77e9982fce9a24df5a8d25029136d483&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 3c5f1e35-2d7a-4c62-adf1-3381dd84370e
-X-Runtime: 0.024157
+X-Request-Id: 178a57f8-2f0f-46ec-a353-9f50c1b6b31d
+X-Runtime: 0.043963
 Vary: Origin
 X-Rack-CORS: preflight-hit; no-origin
-Content-Length: 302</pre>
+Content-Length: 780</pre>
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
@@ -179,12 +158,35 @@ Content-Length: 302</pre>
   &quot;id&quot;: 1,
   &quot;state&quot;: &quot;已授权&quot;,
   &quot;range_alias&quot;: &quot;一个月&quot;,
-  &quot;start_time&quot;: &quot;2016-12-14&quot;,
-  &quot;end_time&quot;: &quot;2017-01-14&quot;,
-  &quot;created_at&quot;: &quot;2016-12-14T14:41:56.903+08:00&quot;,
-  &quot;updated_at&quot;: &quot;2016-12-14T14:41:56.925+08:00&quot;,
+  &quot;start_time&quot;: &quot;2016-12-15&quot;,
+  &quot;end_time&quot;: &quot;2017-01-15&quot;,
+  &quot;created_at&quot;: &quot;2016-12-15T18:45:52.915+08:00&quot;,
+  &quot;updated_at&quot;: &quot;2016-12-15T18:45:52.959+08:00&quot;,
   &quot;user_name&quot;: null,
-  &quot;interface_document_title&quot;: &quot;MyString&quot;,
+  &quot;appointment_items&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;state&quot;: &quot;已授权&quot;,
+      &quot;range_alias&quot;: &quot;一个月&quot;,
+      &quot;start_time&quot;: &quot;2016-12-15&quot;,
+      &quot;end_time&quot;: &quot;2017-01-15&quot;,
+      &quot;is_available&quot;: true,
+      &quot;created_at&quot;: &quot;2016-12-15T18:45:52.921+08:00&quot;,
+      &quot;updated_at&quot;: &quot;2016-12-15T18:45:52.952+08:00&quot;,
+      &quot;interface_document_title&quot;: null
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;state&quot;: &quot;已授权&quot;,
+      &quot;range_alias&quot;: &quot;一个月&quot;,
+      &quot;start_time&quot;: &quot;2016-12-15&quot;,
+      &quot;end_time&quot;: &quot;2017-01-15&quot;,
+      &quot;is_available&quot;: true,
+      &quot;created_at&quot;: &quot;2016-12-15T18:45:52.924+08:00&quot;,
+      &quot;updated_at&quot;: &quot;2016-12-15T18:45:52.956+08:00&quot;,
+      &quot;interface_document_title&quot;: null
+    }
+  ],
   &quot;url&quot;: &quot;http://example.org/admin/appointments/1.json&quot;
 }</pre>
       </div>

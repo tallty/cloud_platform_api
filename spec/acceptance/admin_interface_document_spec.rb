@@ -44,6 +44,11 @@ resource "管理员对 接口 相关的API " do
    
     #################### index #########################
     get '/admin/interface_documents' do
+      parameter :page, "当前页", required: false
+      parameter :per_page, "每页的数量", required: false
+
+      let(:page) {1}
+      let(:per_page) {15}
 
       example "管理员 获取 接口文档 列表成功" do
         do_request

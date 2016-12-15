@@ -112,25 +112,6 @@ table th, table td {
         <h2>管理员 审批拒绝 申请 的请求</h2>
         <h3>POST /admin/appointments/:id/refuse</h3>
 
-          <h3>Parameters</h3>
-          <table class="parameters table table-striped table-bordered table-condensed">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                    <span class="name">appointment[aasm_state]</span>
-                </td>
-                <td>
-                  <span class="description">申请状态</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
 
           <h3>Request</h3>
@@ -144,14 +125,12 @@ Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /admin/appointments/1/refuse</pre>
+          <pre class="request route highlight">POST /admin/appointments/2/refuse</pre>
 
 
-            <h4>Body</h4>
-            <pre class="request body">appointment[aasm_state]=unused</pre>
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://smart-life.com//admin/appointments/1/refuse&quot; -d &#39;appointment[aasm_state]=unused&#39; -X POST \
+            <pre class="request curl">curl &quot;http://smart-life.com//admin/appointments/2/refuse&quot; -d &#39;&#39; -X POST \
 	-H &quot;Accept: application/json&quot; \
 	-H &quot;X-Admin-Token: qwertyuiop1&quot; \
 	-H &quot;X-Admin-Email: admin@example.com&quot; \
@@ -165,27 +144,50 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;c80fc04619d3dc6a27360431a6d288ae&quot;
+ETag: W/&quot;f049c62a4e6dbe8589e2f1cbc923de63&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 446f2a17-0ca5-4b68-9dfe-80b4d1b28be4
-X-Runtime: 0.018755
+X-Request-Id: d381f989-4be0-4393-8b2d-7df2173c2a05
+X-Runtime: 0.030188
 Vary: Origin
 X-Rack-CORS: preflight-hit; no-origin
-Content-Length: 302</pre>
+Content-Length: 782</pre>
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 1,
+  &quot;id&quot;: 2,
   &quot;state&quot;: &quot;未授权&quot;,
   &quot;range_alias&quot;: &quot;一个月&quot;,
-  &quot;start_time&quot;: &quot;2016-12-14&quot;,
-  &quot;end_time&quot;: &quot;2017-01-14&quot;,
-  &quot;created_at&quot;: &quot;2016-12-14T14:41:56.959+08:00&quot;,
-  &quot;updated_at&quot;: &quot;2016-12-14T14:41:56.978+08:00&quot;,
+  &quot;start_time&quot;: &quot;2016-12-15&quot;,
+  &quot;end_time&quot;: &quot;2017-01-15&quot;,
+  &quot;created_at&quot;: &quot;2016-12-15T18:45:52.996+08:00&quot;,
+  &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.023+08:00&quot;,
   &quot;user_name&quot;: null,
-  &quot;interface_document_title&quot;: &quot;MyString&quot;,
-  &quot;url&quot;: &quot;http://example.org/admin/appointments/1.json&quot;
+  &quot;appointment_items&quot;: [
+    {
+      &quot;id&quot;: 3,
+      &quot;state&quot;: &quot;未授权&quot;,
+      &quot;range_alias&quot;: &quot;一个月&quot;,
+      &quot;start_time&quot;: &quot;2016-12-15&quot;,
+      &quot;end_time&quot;: &quot;2017-01-15&quot;,
+      &quot;is_available&quot;: false,
+      &quot;created_at&quot;: &quot;2016-12-15T18:45:53.004+08:00&quot;,
+      &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.017+08:00&quot;,
+      &quot;interface_document_title&quot;: null
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;state&quot;: &quot;未授权&quot;,
+      &quot;range_alias&quot;: &quot;一个月&quot;,
+      &quot;start_time&quot;: &quot;2016-12-15&quot;,
+      &quot;end_time&quot;: &quot;2017-01-15&quot;,
+      &quot;is_available&quot;: false,
+      &quot;created_at&quot;: &quot;2016-12-15T18:45:53.007+08:00&quot;,
+      &quot;updated_at&quot;: &quot;2016-12-15T18:45:53.020+08:00&quot;,
+      &quot;interface_document_title&quot;: null
+    }
+  ],
+  &quot;url&quot;: &quot;http://example.org/admin/appointments/2.json&quot;
 }</pre>
       </div>
     </div>
