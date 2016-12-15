@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :manager_accounts, only: [:index, :show, :destroy]
   	resources :appointments, only: [:index, :show] do
+      member do
+        post :accept
+        post :refuse
+      end 
       resources :appointment_items, only: [:index, :show]do
         member do
           post :accept
