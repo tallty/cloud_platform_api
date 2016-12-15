@@ -13,5 +13,6 @@
 require 'rails_helper'
 
 RSpec.describe AppointmentItem, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:appointment) }
+  it { should belong_to(:interface_document) }
 end
