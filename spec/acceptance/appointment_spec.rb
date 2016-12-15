@@ -46,7 +46,7 @@ resource "用户申请 接口 相关的API " do
     before do
       @user = create(:user)
       @interface_document = create(:interface_document)
-      @appointments = create_list(:appointment, 5, user: @user, interface_document: @interface_document)
+      @appointments = create_list(:appointment, 2, user: @user)
     end
    
     #################### index #########################
@@ -61,7 +61,6 @@ resource "用户申请 接口 相关的API " do
 
     ##################### show ########################
     get 'appointments/:id' do
-    
       let(:id) { @appointments.first.id }
 
       example "用户 查看指定申请 详情成功" do

@@ -12,8 +12,7 @@
 #
 
 class InterfaceDocument < ApplicationRecord
-  has_many :appointments, dependent: :destroy
-  has_many :users, through: :appointments
+  has_many :appointment_items, dependent: :destroy
   has_many :statis_infos, dependent: :destroy
 
   ############# 创建统计信息 #################

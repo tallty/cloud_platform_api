@@ -7,7 +7,7 @@ resource "用户查看 接口 相关的API " do
   describe 'interface_documents condition is all correct' do
 
     before do
-      @interface_documents = create_list(:interface_document, 5, title: "气象云平台接口")
+      @interface_documents = create_list(:interface_document, 2, title: "气象云平台接口")
     end
    
     #################### index #########################

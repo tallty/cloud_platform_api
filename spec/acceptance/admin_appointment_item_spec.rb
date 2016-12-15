@@ -13,7 +13,7 @@ resource "管理员对 申请项 相关的API " do
     before do
       @admin = create(:admin)
       @admin_appointment = create(:appointment) 
-      @admin_appointment_items = create_list(:appointment_item, 5, appointment: @admin_appointment)
+      @admin_appointment_items = create_list(:appointment_item, 2, appointment: @admin_appointment)
     end
    
     #################### index #########################

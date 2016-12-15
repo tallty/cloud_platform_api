@@ -13,7 +13,7 @@ resource "用户 对接口申请项 相关的API " do
     before do
       @user = create(:user)
       @interface_document = create(:interface_document)
-      @appointments = create_list(:appointment, 5, user: @user)
+      @appointments = create_list(:appointment, 2, user: @user)
       @appointments.each do |appointment|
         @appointment_items = create_list(:appointment_item, 2, appointment: appointment, interface_document: @interface_document)
       end
