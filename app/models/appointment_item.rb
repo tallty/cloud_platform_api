@@ -11,6 +11,34 @@
 #
 
 class AppointmentItem < ApplicationRecord
+  include AASM
   belongs_to :interface_document
   belongs_to :appointment
+
+  ################ aasm ####################
+  aasm do
+  	state :unused
+  	state :checking, initial: true
+  	state :used
+
+  	event :accept do
+      transitions from: :checking, to: :used
+    end
+
+    event :refuse do
+      transitions from: :checking, to: :unused
+    end
+  end
+
+  def state
+    I18n.t :"appointment_aasm_state.#{aasm_state}"
+  end
+
+  def start_time
+  	self.appointment.start_time
+  end
+
+  def end_time
+  	self.appointment.end_time
+  end
 end

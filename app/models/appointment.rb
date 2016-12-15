@@ -24,18 +24,31 @@ class Appointment < ApplicationRecord
   	state :used
 
   	event :accept do
-      transitions from: :checking, to: :used
+      transitions from: :checking, to: :used, :after => :update_appointment_items_state_accept
     end
 
     event :refuse do
-      transitions from: :checking, to: :unused
+      transitions from: :checking, to: :unused, :after => :update_appointment_items_state_refuse
     end
   end
-
+  
   def state
     I18n.t :"appointment_aasm_state.#{aasm_state}"
   end
-  
+
+  #通过对应的所有申请项
+  def update_appointment_items_state_accept
+    self.appointment_items.each do |item|
+      item.accept!
+    end
+  end
+  #拒绝对应的所有申请项
+  def update_appointment_items_state_refuse
+    self.appointment_items.each do |item|
+      item.refuse!
+    end
+  end
+
   ################## scope ###################
   scope :avail_time, -> {where(" slef.end_time >= ?", "#{Time.zone.today}")}
   scope :get_user, -> (user_id) { where(user_id: user_id) }
