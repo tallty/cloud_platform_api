@@ -13,8 +13,14 @@ resource "管理员对 申请 相关的API " do
     before do
       @admin = create(:admin)
       @user = create(:user)
-      @interface_document = create(:interface_document)
-      @admin_appointments = create_list(:appointment, 5, user: @user, interface_document: @interface_document)
+      @admin_appointments = create_list(:appointment, 5, user: @user) 
+      @admin_appointments.each do |appointment|
+        @items = create_list(:appointment_item, 5, appointment: appointment)
+      end
+      @admin_appointment = @admin_appointments.first
+      @accept_admin_appointment = @admin_appointment.accept!
+      @admin_appointment = @admin_appointments.last
+      @refuse_admin_appointment = @admin_appointment.refuse!
     end
    
     #################### index #########################
@@ -39,38 +45,38 @@ resource "管理员对 申请 相关的API " do
       end
     end
 
-    # ##################### check ########################
-    # post '/admin/appointments/:id/accept' do
-    #   appointment_attrs = FactoryGirl.attributes_for(:appointment)
+    ##################### check ########################
+    post '/admin/appointments/:id/accept' do
+      appointment_attrs = FactoryGirl.attributes_for(:appointment)
     
-    #   let(:id) { @admin_appointments.first.id }
+      let(:id) { @accept_admin_appointment.id }
 
-    #   parameter :aasm_state, "申请状态", require: true, scope: :appointment
+      # parameter :aasm_state, "申请状态", require: true, scope: :appointment
      
-    #   let(:aasm_state) {"used"}
+      # let(:aasm_state) {"used"}
 
-    #   example "管理员 审批通过 申请 的请求" do
-    #     do_request
-    #     puts response_body
-    #     expect(status).to eq(201)
-    #   end
-    # end
+      example "管理员 审批通过 申请 的请求" do
+        do_request
+        puts response_body
+        expect(status).to eq(201)
+      end
+    end
 
-    # ##################### refuse ########################
-    # post '/admin/appointments/:id/refuse' do
-    #   appointment_attrs = FactoryGirl.attributes_for(:appointment)
+    ##################### refuse ########################
+    post '/admin/appointments/:id/refuse' do
+      appointment_attrs = FactoryGirl.attributes_for(:appointment)
     
-    #   let(:id) { @admin_appointments.first.id }
+      let(:id) { @refuse_admin_appointment.id }
 
-    #   parameter :aasm_state, "申请状态", require: true, scope: :appointment
+      # parameter :aasm_state, "申请状态", require: true, scope: :appointment
      
-    #   let(:aasm_state) {"unused"}
+      # let(:aasm_state) {"unused"}
 
-    #   example "管理员 审批拒绝 申请 的请求" do
-    #     do_request
-    #     puts response_body
-    #     expect(status).to eq(201)
-    #   end
-    # end
+      example "管理员 审批拒绝 申请 的请求" do
+        do_request
+        puts response_body
+        expect(status).to eq(201)
+      end
+    end
   end
 end
