@@ -1,5 +1,5 @@
 class Admin::AppointmentItemsController < ApplicationController
-  # acts_as_token_authentication_handler_for Admin, only: [:accept, :refuse]
+  acts_as_token_authentication_handler_for Admin, only: [:accept, :refuse]
   before_action :set_admin_appointment_item, only: [:show, :update, :destroy]
 
   respond_to :json
@@ -16,15 +16,15 @@ class Admin::AppointmentItemsController < ApplicationController
     respond_with(@admin_appointment_item)
   end
 
-  # def accept
-  #   @admin_appointment_item.accept!
-  #   respond_with(@admin_appointment_item, template:"admin/appointment_items/show", status: 201)
-  # end
+  def accept
+    @admin_appointment_item.accept!
+    respond_with(@admin_appointment_item, template:"admin/appointment_items/show", status: 201)
+  end
 
-  # def refuse
-  #   @admin_appointment_item.refuse!
-  #   respond_with(@admin_appointment_item, template:"admin/appointment_items/show", status: 201)
-  # end
+  def refuse
+    @admin_appointment_item.refuse!
+    respond_with(@admin_appointment_item, template:"admin/appointment_items/show", status: 201)
+  end
 
   private
     def set_admin_appointment_item
