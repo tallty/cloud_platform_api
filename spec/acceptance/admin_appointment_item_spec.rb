@@ -18,6 +18,7 @@ resource "管理员对 申请项 相关的API " do
    
     #################### index #########################
     get '/admin/appointments/:appointment_id/appointment_items' do
+      let(:appointment_id) { @admin_appointment.id }
 
       example "管理员获取 申请项 列表成功" do
         do_request

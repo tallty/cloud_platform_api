@@ -7,8 +7,8 @@ class Admin::AppointmentItemsController < ApplicationController
   def index
     page = params[:page] || 1
     per_page = params[:per_page] || 20
-  # p  @appointment = Appointment.find(params[appointment_id])
-    @admin_appointment_items = AppointmentItem.all.paginate(page: page, per_page: per_page)
+    @appointment = Appointment.find(params[:appointment_id])
+    @admin_appointment_items = @appointment.appointment_items.paginate(page: page, per_page: per_page)
     respond_with(@admin_appointment_items)
   end
 
