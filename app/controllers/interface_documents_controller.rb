@@ -13,6 +13,7 @@ class InterfaceDocumentsController < ApplicationController
 
   def show
     @interface_document.update(frequency: @interface_document.frequency + 1) #记录访问次数
+    @interface_document.ceate_statis_info(current_user.id, @interface_document.id)#创建统计信息
     respond_with(@interface_document)
   end
 
