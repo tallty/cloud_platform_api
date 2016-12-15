@@ -12,7 +12,6 @@ resource "用户申请 接口 相关的API " do
 
     before do
       @user = create(:user)
-      @interface_document = create(:interface_document)
     end
 
     parameter :interface_document_ids, "申请的接口集合", require: true, scope: :appointment
@@ -47,6 +46,10 @@ resource "用户申请 接口 相关的API " do
       @user = create(:user)
       @interface_document = create(:interface_document)
       @appointments = create_list(:appointment, 2, user: @user)
+      @appointments.each do |appointment|
+        @items = create_list(:appointment_item, 2, appointment: appointment,
+                              interface_document: @interface_document)
+      end
     end
    
     #################### index #########################

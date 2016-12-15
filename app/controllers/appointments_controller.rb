@@ -28,7 +28,7 @@ class AppointmentsController < ApplicationController
           @item.interface_document_id = _id
           @item.save
         end 
-        respond_with(@appointment, template:"appointments/show", status: 201)
+        respond_with(@appointment)
       else
         @error = "请选择 要申请 的接口文档 ！"
         respond_with(@error, template: "error")

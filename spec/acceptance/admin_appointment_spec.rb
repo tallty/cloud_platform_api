@@ -13,9 +13,11 @@ resource "管理员对 申请 相关的API " do
     before do
       @admin = create(:admin)
       @user = create(:user)
+      @interface_document = create(:interface_document)
       @admin_appointments = create_list(:appointment, 2, user: @user) 
       @admin_appointments.each do |appointment|
-        @items = create_list(:appointment_item, 2, appointment: appointment)
+        @items = create_list(:appointment_item, 2, appointment: appointment,
+                              interface_document: @interface_document)
       end
     end
    
