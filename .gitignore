@@ -18,6 +18,7 @@
 
 # Ignore folder & files by project
 /doc/*
+doc/*
 /public/system/*
 /public/*
 /solr/
