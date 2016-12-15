@@ -41,4 +41,12 @@ class AppointmentItem < ApplicationRecord
   def end_time
   	self.appointment.end_time
   end
+
+  def range_alias #申请使用时限
+  	self.appointment.range_alias
+  end
+
+  def is_available#是否可用
+    self.aasm_state == "used" && self.end_time >= Time.zone.today
+  end
 end
