@@ -12,8 +12,10 @@ resource "管理员对 申请项 相关的API " do
 
     before do
       @admin = create(:admin)
+      @interface_document = create(:interface_document)
       @admin_appointment = create(:appointment) 
-      @admin_appointment_items = create_list(:appointment_item, 2, appointment: @admin_appointment)
+      @admin_appointment_items = create_list(:appointment_item, 2, appointment: @admin_appointment, 
+                                              interface_document: @interface_document)
     end
    
     #################### index #########################
