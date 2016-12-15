@@ -13,8 +13,7 @@
 
 FactoryGirl.define do
   factory :appointment do
-    user_id 1
-    interface_document_id 1
+    sequence(:user_id) { |n| "#{n}" }
     aasm_state "checking"
     range "one_month"
   end
