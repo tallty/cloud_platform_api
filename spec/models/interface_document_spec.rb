@@ -14,7 +14,7 @@
 require 'rails_helper'
 
 RSpec.describe InterfaceDocument, type: :model do
-  it { should have_many(:appointments) }
+  it { should have_many(:appointment_items) }
   it { should have_many(:statis_infos) }
 end
   

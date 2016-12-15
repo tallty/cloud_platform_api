@@ -11,7 +11,7 @@
 
 FactoryGirl.define do
   factory :statis_info do
-    user nil
-    interface_document nil
+    sequence(:user_id) { |n| "#{n}" }
+    sequence(:interface_document_id) { |n| "#{n}" }
   end
 end

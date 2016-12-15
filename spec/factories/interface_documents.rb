@@ -13,8 +13,8 @@
 
 FactoryGirl.define do
   factory :interface_document do
-    title "MyString"
-    description "MyText"
-    site "MyString"
+    title "气象云"
+    description "气象云接口..."
+    site "https:/home/mc/tallty/cloud_platform_api/doc/api/index.html"
   end
 end
