@@ -1,6 +1,6 @@
 require 'acceptance_helper'
 
-resource "用户申请 接口 相关的API " do
+resource "用户申请 接口文档 相关的API " do
   header "Accept", "application/json"
 
   post '/appointments' do
@@ -12,6 +12,7 @@ resource "用户申请 接口 相关的API " do
 
     before do
       @user = create(:user)
+      @interface_documents = create_list(:interface_document, 3)
     end
 
     parameter :interface_document_ids, "申请的接口集合", require: true, scope: :appointment
@@ -25,7 +26,9 @@ resource "用户申请 接口 相关的API " do
                                     }", require: true, scope: :appointment
     
 
-    let(:interface_document_ids) { [1, 2, 3] }
+    let(:interface_document_ids) { [@interface_documents.first.id, 
+                                    @interface_documents.last.id] 
+                                  }
     let(:range) {appointment_attrs[:range]}
 
     example "用户提交申请成功" do

@@ -1,6 +1,6 @@
 require 'acceptance_helper'
 
-resource "用户查看 接口 相关的API " do
+resource "用户查看 接口文档 相关的API " do
   header "Accept", "application/json"
 
   ############### before_do ################################

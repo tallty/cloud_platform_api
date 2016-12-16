@@ -19,8 +19,8 @@ class AppointmentsController < ApplicationController
     @appointment = current_user.appointments.build(appointment_params)
     @appointment.user_id = current_user.id
     if @appointment.save
-      _ids = [1, 2, 3]
-      # _ids = params[:interface_document_ids]#接收接口集合
+      # _ids = appointment_params[:interface_document_ids].split(",")#接收接口集合
+      _ids = [1, 2, 3]#测试
       if _ids.present?
         _ids.each do |_id|
           @item = @appointment.appointment_items.new
@@ -46,6 +46,6 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-      params.require(:appointment).permit(:range)
+      params.require(:appointment).permit(:user_id, :range, :interface_document_ids)
     end
 end

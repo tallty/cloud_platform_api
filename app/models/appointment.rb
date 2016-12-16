@@ -15,6 +15,8 @@ class Appointment < ApplicationRecord
   belongs_to :user
   has_many :appointment_items, dependent: :destroy
 
+  attr_accessor :interface_document_ids
+
   ################ aasm ####################
   aasm do
   	state :unused

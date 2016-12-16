@@ -1,6 +1,6 @@
 require 'acceptance_helper'
 
-resource "管理员对 接口 相关的API " do
+resource "管理员对 接口文档 相关的API " do
   header "Accept", "application/json"
 
   post '/admin/interface_documents' do
