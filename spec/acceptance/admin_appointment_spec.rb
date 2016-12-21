@@ -47,29 +47,5 @@ resource "管理员对 用户申请 相关的API " do
         expect(status).to eq(200)
       end
     end
-
-    ##################### check ########################
-    post '/admin/appointments/:id/accept' do
-    
-      let(:id) { @admin_appointments.first.id }
-
-      example "管理员 审批通过 用户申请 的请求" do
-        do_request
-        puts response_body
-        expect(status).to eq(201)
-      end
-    end
-
-    ##################### refuse ########################
-    post '/admin/appointments/:id/refuse' do
-    
-      let(:id) { @admin_appointments.last.id }
-
-      example "管理员 审批拒绝 用户申请 的请求" do
-        do_request
-        puts response_body
-        expect(status).to eq(201)
-      end
-    end
   end
 end

@@ -16,5 +16,6 @@ FactoryGirl.define do
     sequence(:user_id) { |n| "#{n}" }
     aasm_state "checking"
     range "one_month"
+    checke_at "#{Time.zone.now}"
   end
 end
