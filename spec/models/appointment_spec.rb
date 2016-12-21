@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  range      :integer
+#  checke_at  :date
 #
 
 require 'rails_helper'
