@@ -7,7 +7,8 @@ class AppointmentsController < ApplicationController
   def index
     page = params[:page] || 1
     per_page = params[:per_page] || 20
-    @appointments = current_user.appointments.paginate(page: page, per_page: per_page)
+    _keyword = params[:keyword]
+    @appointments = current_user.appointments.keyword(_keyword).paginate(page: page, per_page: per_page)
     respond_with(@appointments)
   end
 

@@ -17,7 +17,7 @@ class Appointment < ApplicationRecord
   has_many :appointment_items, dependent: :destroy
 
   # virtual attribute
-  attr_accessor :interface_document_ids
+  attr_accessor :interface_document_ids, :keyword
 
   ################ aasm ####################
   aasm do
@@ -33,21 +33,40 @@ class Appointment < ApplicationRecord
     I18n.t :"appointment_aasm_state.#{aasm_state}"
   end
 
+  #当申请的所有接口 审核过了改变状态
+  def update_appointment_state
+    _items = self.appointment_items.where(aasm_state: 'checking')
+    self.accept! if _items.nil?
+  end
+
   #通过对应的所有申请项
   def update_appointment_checke_at
     self.update(checke_at: Time.zone.today)
   end
 
+  #搜索
+  scope :keyword, -> (keyword) {
+    return all if keyword.nil?
+    Appointment.all.where( aasm_state: keyword)
+  }
+
   ################## scope ###################
   scope :avail_time, -> {where(" slef.end_time >= ?", "#{Time.zone.today}")}
   scope :get_user, -> (user_id) { where(user_id: user_id) }
+  # scope :item_state, -> {where(aasm_state: 'checking')}
 
   def is_available#是否可用
     self.aasm_state == "used" && self.end_time >= Time.zone.today
   end
 
+  #待审核的数量
+  def checke_count
+    self.appointment_items.where(aasm_state: 'checking').count
+  end
+
   ################ enum ######################
-  enum range: {#申请使用时限
+  #申请使用时限
+  enum range: {
     one_month: 0,
     two_month: 1,
     three_month: 3,
@@ -67,6 +86,7 @@ class Appointment < ApplicationRecord
     three_year: "三年"
   }
 
+  #时间期限的别名
   def range_alias
     I18n.t :"appointment_range.#{range}"
   end

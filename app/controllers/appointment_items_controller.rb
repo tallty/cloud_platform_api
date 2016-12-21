@@ -6,9 +6,10 @@ class AppointmentItemsController < ApplicationController
 
   def index
     page = params[:page] || 1 
-    per_page = params[:per_page] || 20       
+    per_page = params[:per_page] || 20   
+    _keyword = params[:keyword]    
     @appointment = current_user.appointments.find(params[:appointment_id])
-    @appointment_items = @appointment.appointment_items.paginate(page: page, per_page: per_page)
+    @appointment_items = @appointment.appointment_items.keyword(_keyword).paginate(page: page, per_page: per_page)
     respond_with(@appointment_items)
   end
 

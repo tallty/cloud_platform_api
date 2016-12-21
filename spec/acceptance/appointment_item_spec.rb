@@ -22,6 +22,10 @@ resource "用户 对接口申请项 相关的API " do
     #################### index #########################
     get '/appointments/:appointment_id/appointment_items' do
       let(:appointment_id) { @appointments.first.id }
+
+      parameter :keyword, "申请的状态：(‘checking’待审核，‘used’已授权，‘unused’未授权)", required: false
+
+      let(:keyword) {"checking"}
       
       parameter :page, "当前页", required: false
       parameter :per_page, "每页的数量", required: false

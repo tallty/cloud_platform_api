@@ -22,6 +22,10 @@ resource "管理员对 申请项 相关的API " do
     get '/admin/appointments/:appointment_id/appointment_items' do
       let(:appointment_id) { @admin_appointment.id }
 
+      parameter :keyword, "申请的状态：(‘checking’待审核，‘used’已授权，‘unused’未授权)", required: false
+
+      let(:keyword) {"checking"}
+
       parameter :page, "当前页", required: false
       parameter :per_page, "每页的数量", required: false
 
@@ -49,8 +53,10 @@ resource "管理员对 申请项 相关的API " do
 
     ##################### check ########################
     post '/admin/appointments/:appointment_id/appointment_items/:id/accept' do
-    
-      let(:id) { @admin_appointment_items.first.id }
+      parameter :appointment_item_ids, "审核的id数组", required: false
+
+      let(:appointment_item_ids) { [@admin_appointment_items.first.id, 
+                                    @admin_appointment_items.last.id] }
 
       example "管理员 审批通过 申请项 的请求" do
         do_request
@@ -61,8 +67,10 @@ resource "管理员对 申请项 相关的API " do
 
     ##################### refuse ########################
     post '/admin/appointments/:appointment_id/appointment_items/:id/refuse' do
-    
-      let(:id) { @admin_appointment_items.last.id }
+      parameter :appointment_item_ids, "审核的id数组", required: false
+
+      let(:appointment_item_ids) { [@admin_appointment_items.first.id, 
+                                    @admin_appointment_items.last.id] }  
 
       example "管理员 审批拒绝 申请项 的请求" do
         do_request
