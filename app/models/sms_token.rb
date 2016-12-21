@@ -20,7 +20,7 @@ class SmsToken < ApplicationRecord
     if phone.present?
       tpl_id = 1497512
       sms_hash = {code: token}
-      ChinaSMS.use :yunpian, password: "20846dadd786980de1e0170d8a045cf1"
+      ChinaSMS.use :yunpian, password: "69225d5cde3b1ad55b8ec145814659c9 "
       result = ChinaSMS.to phone, sms_hash, {tpl_id: tpl_id}
       sms_token.token = token
       sms_token.save
@@ -31,7 +31,7 @@ class SmsToken < ApplicationRecord
   def self.password_notify phone, password
     tpl_id = 1506682
     sms_hash = {password: password}
-    ChinaSMS.use :yunpian, password: "20846dadd786980de1e0170d8a045cf1"
+    ChinaSMS.use :yunpian, password: "69225d5cde3b1ad55b8ec145814659c9 "
     result = ChinaSMS.to phone, sms_hash, {tpl_id: tpl_id}
   end
 
