@@ -20,16 +20,11 @@ class Appointment < ApplicationRecord
 
   ################ aasm ####################
   aasm do
-  	state :unused
   	state :checking, initial: true
   	state :used
 
   	event :accept do
-      transitions from: :checking, to: :used, :after => :update_appointment_items_state_accept
-    end
-
-    event :refuse do
-      transitions from: :checking, to: :unused, :after => :update_appointment_items_state_refuse
+      transitions from: :checking, to: :used, :after => :update_appointment_checke_at
     end
   end
   
@@ -38,16 +33,8 @@ class Appointment < ApplicationRecord
   end
 
   #通过对应的所有申请项
-  def update_appointment_items_state_accept
-    self.appointment_items.each do |item|
-      item.accept!
-    end
-  end
-  #拒绝对应的所有申请项
-  def update_appointment_items_state_refuse
-    self.appointment_items.each do |item|
-      item.refuse!
-    end
+  def update_appointment_checke_at
+    self.update(checke_at: Time.zone.today)
   end
 
   ################## scope ###################
@@ -84,7 +71,7 @@ class Appointment < ApplicationRecord
   end
 
   def start_time#开始时间
-    self.updated_at.to_date
+    self.checke_at
   end
 
   def end_time#结束时间
