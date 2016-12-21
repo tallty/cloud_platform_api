@@ -48,10 +48,6 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-<<<<<<< cf0dfc5bbf2c4d66ea309921e638244821eb0596
-      params.require(:appointment).permit(:user_id, :range, :interface_document_ids)
-=======
       params.require(:appointment).permit(:user_id, :checke_at, :interface_document_ids, :range)
->>>>>>> edit appointment # aasm_state and checke_at
     end
 end

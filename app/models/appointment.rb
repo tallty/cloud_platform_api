@@ -92,7 +92,7 @@ class Appointment < ApplicationRecord
   end
 
   def start_time#开始时间
-    self.checke_at
+    self.checke_at || Time.zone.today
   end
 
   def end_time#结束时间
