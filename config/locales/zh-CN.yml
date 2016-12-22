@@ -5,7 +5,8 @@ zh-CN:
     unused: "未授权"
     checking: "待审核"
     used: "已授权"
-
+    expiring: "快过期"
+    expired: "已经过期"
   appointment_range:
     one_month: "一个月"
     two_month: "两个月"

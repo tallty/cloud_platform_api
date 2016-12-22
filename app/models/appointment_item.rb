@@ -20,11 +20,21 @@ class AppointmentItem < ApplicationRecord
   # virtual attribute
   attr_accessor :keyword, :item_ids
 
+  ################# validate ##############
+  validates_presence_of :range, on: :create, message: "range不能为空"
+  validates_presence_of :appointment_id, on: :create, message: "appointment_id不能为空"
+  validates_presence_of :interface_document_id, on: :create, message: "interface_document_id不能为空"
+  validate :is_expiring
+  validate :is_expired
+
   ################ aasm ####################
   aasm do
   	state :unused
   	state :checking, initial: true
   	state :used
+    state :expiring
+    state :expired
+
 
   	event :accept do
       transitions from: :checking, to: :used, :after => :update_item_checke_at
@@ -33,8 +43,17 @@ class AppointmentItem < ApplicationRecord
     event :refuse do
       transitions from: :checking, to: :unused
     end
+
+    event :expiring do
+      transitions from: :used, to: :expiring
+    end
+
+    event :expired do
+      transitions from: :expiring, to: :expired
+    end
   end
 
+  #获取审核通过的时间
   def update_item_checke_at
     self.update(checke_at: Time.zone.today)
   end
@@ -49,10 +68,7 @@ class AppointmentItem < ApplicationRecord
     return all if keyword.nil?
     AppointmentItem.all.where( aasm_state: keyword)
   }
-
-  #到期
-  scope :expire_list, ->{ where("self.end_time + 7.day >= ?",Time.zone.today)}
-
+       
   ################ enum ######################
   #申请使用时限
   enum range: {
@@ -77,12 +93,12 @@ class AppointmentItem < ApplicationRecord
 
   #申请使用时限
   def range_alias 
-  	self.appointment.range_alias
+  	I18n.t :"appointment_range.#{range}"
   end
 
   #接口是否有效
   def is_available
-    self.aasm_state == "used" && self.end_time >= Time.zone.today
+    self.aasm_state == "used" && self.end_time.present? && Time.zone.today - 1.day < self.end_time 
   end
 
   def start_time#开始时间
@@ -90,7 +106,8 @@ class AppointmentItem < ApplicationRecord
   end
 
   def end_time#结束时间
-    case range
+    self.start_time + 1.month if self.range.nil?
+    case self.range
     when "one_month"
       self.start_time + 1.month
     when "two_month"
@@ -106,5 +123,15 @@ class AppointmentItem < ApplicationRecord
     when "three_year"
       self.start_time + 3.year
     end
+  end
+
+   #是否 快过期
+  def is_expiring
+    self.expiring! if self.end_time.present? && Time.zone.today + 7.day > self.end_time
+  end
+  
+  #是否 已经过期
+  def is_expired
+    self.expired! if self.end_time.present? && Time.zone.today > self.end_time 
   end
 end

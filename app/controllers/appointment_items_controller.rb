@@ -24,7 +24,7 @@ class AppointmentItemsController < ApplicationController
   def expire_list
     page = params[:page] || 1
     per_page = params[:per_page] || 20
-    @appointment_items = current_user.appointment_items.paginate(page: page, per_page: per_page)
+    @appointment_items = current_user.appointment_items.keyword("expiring").paginate(page: page, per_page: per_page)
     respond_with(@appointment_items, template:"appointment_items/index", status: 200)
   end
 

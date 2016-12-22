@@ -19,6 +19,11 @@ class Appointment < ApplicationRecord
   # virtual attribute
   attr_accessor :interface_document_ids, :keyword
 
+  ################ validates ###############
+  validate :update_appointment_state
+  validates_presence_of :user_id, on: :create, message: "user_id不能为空"
+  validates_presence_of :range, on: :create, message: "range不能为空"
+
   ################ aasm ####################
   aasm do
   	state :checking, initial: true

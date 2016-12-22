@@ -70,6 +70,9 @@ resource "用户 对接口申请项 相关的API " do
 
     ##################### expire_list ########################
     get '/appointment_items/expire_list' do
+      before do
+        @appointment_items << create_list(:appointment_item, 2, appointment: @appointments.first, interface_document: @interface_document, aasm_state: "expiring")
+      end
 
       parameter :page, "当前页", required: false
       parameter :per_page, "每页的数量", required: false
