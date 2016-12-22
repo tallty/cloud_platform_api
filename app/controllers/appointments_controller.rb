@@ -41,6 +41,26 @@ class AppointmentsController < ApplicationController
       respond_with(@error, template: "error")
     end
   end
+
+
+
+  # def delay
+  #   @appointment = current_user.appointments.build(delay_appointment_params)
+  #   @appointment.user_id = current_user.id
+  #   @appointment.checke_at = Time.zone.today
+  #   _ids = params[:interface_document_ids]
+  #   if _ids.present?
+  #     _ids.each do |item_id|
+  #       @admin_appointment_item = AppointmentItem.find_by(id: item_id)
+  #       @admin_appointment_item.update(aasm_state: "checking")
+  #     end
+  #     #返回最后一个对象，用于测试看结果
+  #     respond_with(@admin_appointment_item, template:"admin/appointment_items/show", status: 201)
+  #   else
+  #     @error = "没有需要审核的 申请项 !"
+  #     respond_with(@error) 
+  #   end
+  # end
       
   private
     def set_appointment
@@ -50,4 +70,8 @@ class AppointmentsController < ApplicationController
     def appointment_params
       params.require(:appointment).permit(:user_id, :checke_at, :interface_document_ids, :range)
     end
+
+    # def delay_appointment_params
+    #   params.require(:appointment).permit(:user_id, :checke_at, :interface_document_ids, :range, :aasm_state)
+    # end
 end

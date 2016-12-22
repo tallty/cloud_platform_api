@@ -16,7 +16,7 @@ class AppointmentItem < ApplicationRecord
   belongs_to :appointment
 
   # virtual attribute
-  attr_accessor :keyword, :appointment_item_ids
+  attr_accessor :keyword, :item_ids
 
   ################ aasm ####################
   aasm do
@@ -44,6 +44,8 @@ class AppointmentItem < ApplicationRecord
     AppointmentItem.all.where( aasm_state: keyword)
   }
 
+  #到期
+  scope :expire, ->{ where("self.end_time + 7.day >= ?",Time.zone.today)}
   #开始时间
   def start_time
   	self.appointment.start_time

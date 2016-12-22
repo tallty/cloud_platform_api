@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :appointment_items, only: [:index, :show] do 
     collection do
       get :list
+      get :expire_list
+    end
+    member do
+      post :delay
     end
   end
   resources :appointments, only: [:index, :show, :create] do
@@ -12,7 +16,6 @@ Rails.application.routes.draw do
   resources :interface_documents, only: [:index, :show] do
     resources :statis_infos
   end
-
   ################### devise_for ####################
   devise_for :admins
   devise_for :users
