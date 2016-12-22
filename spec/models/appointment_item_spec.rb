@@ -8,6 +8,8 @@
 #  aasm_state            :string
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  checke_at             :date
+#  range                 :integer
 #
 
 require 'rails_helper'
