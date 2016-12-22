@@ -24,7 +24,7 @@ class AppointmentItemsController < ApplicationController
   def expire_list
     page = params[:page] || 1
     per_page = params[:per_page] || 20
-    @appointment_items = current_user.appointment_items.expire.paginate(page: page, per_page: per_page)
+    @appointment_items = current_user.appointment_items.paginate(page: page, per_page: per_page)
     respond_with(@appointment_items, template:"appointment_items/index", status: 200)
   end
 
@@ -34,17 +34,18 @@ class AppointmentItemsController < ApplicationController
  
   #申请延时
   def delay
-    _ids = params[:item_ids]
+  # p  _ids = params[:item_ids]
+    _ids = [1,2] #用于测试
     if _ids.present?
       _ids.each do |item_id|
         @appointment_item = AppointmentItem.find(item_id)
-        @appointment_item.update(range: "checking")
+        @appointment_item.update(range: item_params[:range], aasm_state: "checking")
       end
       #返回最后一个对象，用于测试看结果
       respond_with(@appointment_item, template:"appointment_items/show", status: 201)
     else
-      @error = "没有需要审核的 申请项 !"
-      respond_with(@error) 
+      @error = "没有需要延时的 申请接口 !"
+      respond_with(@error, template:"error") 
     end
   end
 
@@ -52,4 +53,9 @@ class AppointmentItemsController < ApplicationController
     def set_appointment_item
       @appointment_item = AppointmentItem.find(params[:id])
     end
+   
+    def item_params
+      params.require(:appointment_item).permit(:range, :aasm_state)
+    end
+
 end

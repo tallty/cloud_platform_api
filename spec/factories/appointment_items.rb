@@ -17,5 +17,6 @@ FactoryGirl.define do
   	sequence(:interface_document_id) { |n| "#{n}" }
   	sequence(:appointment_id) { |n| "#{n}" }
     aasm_state "checking"
+    range "three_month"
   end
 end

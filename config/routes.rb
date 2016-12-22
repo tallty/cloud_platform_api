@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get :expire_list
     end
     member do
-      post :delay
+      put :delay
     end
   end
   resources :appointments, only: [:index, :show, :create] do
