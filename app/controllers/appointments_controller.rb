@@ -24,9 +24,9 @@ class AppointmentsController < ApplicationController
       _ids = [1, 2, 3]#测试
       if _ids.present?
         _ids.each do |_id|
-          @item = @appointment.appointment_items.new
-          @item.appointment_id = @appointment.id
-          @item.interface_document_id = _id
+          @item = @appointment.appointment_items.create(appointment_id: @appointment.id, interface_document_id: _id)
+          # @item.appointment_id = @appointment.id
+          # @item.interface_document_id = _id
           @item.save
         end 
         respond_with(@appointment)
