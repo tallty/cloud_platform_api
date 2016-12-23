@@ -36,6 +36,7 @@ class User < ApplicationRecord
   has_many :appointment_items, through: :appointments
   has_many :statis_infos, dependent: :destroy
   has_one :user_info, dependent: :destroy
+  has_many :records, dependent: :destroy
  
   validates_uniqueness_of :phone
   validates_presence_of :phone

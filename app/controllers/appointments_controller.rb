@@ -28,6 +28,10 @@ class AppointmentsController < ApplicationController
           # @item.appointment_id = @appointment.id
           # @item.interface_document_id = _id
           @item.save
+          
+          #记录用户申请的接口
+          @record = current_user.records.create(user_id: current_user.id, interface_document_id: _id)
+          @record.save
         end 
         respond_with(@appointment)
       else
