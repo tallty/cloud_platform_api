@@ -42,6 +42,8 @@ class User < ApplicationRecord
   validates_presence_of :phone
   validate :sms_token_validate, on: :create
 
+  after_create :create_appkey_or_appid
+
   delegate :nickname, :sex, :name, to: :user_info, allow_nil: true
 
   def info
@@ -94,5 +96,13 @@ class User < ApplicationRecord
       elsif sms_token_obj.try(:token) != sms_token 
         self.errors.add(:sms_token, "验证码不正确，请重试")
       end
+    end
+
+    #生成appkey和appid
+    def create_appkey_or_appid
+      chars =  ('1'..'9').to_a + ('a'..'z').to_a + ('A'..'Z').to_a
+      self.appid = Array.new(20).collect{chars[rand(chars.size - 1)]}.join 
+      self.appkey = Array.new(30).collect{chars[rand(chars.size - 1)]}.join
+      self.save
     end
 end
