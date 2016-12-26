@@ -17,6 +17,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  authentication_token   :string(30)
+#  appkey                 :string
+#  appid                  :string
 #
 
 FactoryGirl.define do

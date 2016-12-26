@@ -23,16 +23,7 @@ class AppointmentsController < ApplicationController
       # _ids = appointment_params[:interface_document_ids].split(",")#接收接口集合
       _ids = [1, 2, 3]#测试
       if _ids.present?
-        _ids.each do |_id|
-          @item = @appointment.appointment_items.create(appointment_id: @appointment.id, interface_document_id: _id)
-          # @item.appointment_id = @appointment.id
-          # @item.interface_document_id = _id
-          @item.save
-          
-          #记录用户申请的接口
-          @record = current_user.records.create(user_id: current_user.id, interface_document_id: _id)
-          @record.save
-        end 
+        @appointment.create_items(_ids, @appointment.id)
         respond_with(@appointment)
       else
         @error = "请选择 要申请 的接口文档 ！"

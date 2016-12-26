@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223152531) do
+ActiveRecord::Schema.define(version: 20161226091145) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                             default: "", null: false
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(version: 20161223152531) do
     t.integer  "frequency",   default: 0
   end
 
+  create_table "interface_documents_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "interface_document_id"
+    t.index ["interface_document_id"], name: "index_interface_documents_users_on_interface_document_id"
+    t.index ["user_id"], name: "index_interface_documents_users_on_user_id"
+  end
+
   create_table "records", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "interface_document_id"
@@ -85,6 +92,15 @@ ActiveRecord::Schema.define(version: 20161223152531) do
     t.datetime "updated_at",            null: false
     t.index ["interface_document_id"], name: "index_statis_infos_on_interface_document_id"
     t.index ["user_id"], name: "index_statis_infos_on_user_id"
+  end
+
+  create_table "user_documents", id: false, force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "interface_document_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["interface_document_id"], name: "index_user_documents_on_interface_document_id"
+    t.index ["user_id"], name: "index_user_documents_on_user_id"
   end
 
   create_table "user_infos", force: :cascade do |t|
@@ -113,6 +129,8 @@ ActiveRecord::Schema.define(version: 20161223152531) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
     t.string   "authentication_token",   limit: 30
+    t.string   "appkey"
+    t.string   "appid"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["phone"], name: "index_users_on_phone", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -17,6 +17,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  authentication_token   :string(30)
+#  appkey                 :string
+#  appid                  :string
 #
 
 class User < ApplicationRecord
@@ -32,12 +34,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:phone]
 
-  has_many :appointments, dependent: :destroy
-  has_many :appointment_items, through: :appointments
-  has_many :statis_infos, dependent: :destroy
+  has_many :appointments, dependent: :destroy # 申请
+  has_many :appointment_items, through: :appointments# 申请项
+  has_many :statis_infos, dependent: :destroy # 访问接口统计
   has_one :user_info, dependent: :destroy
-  has_many :records, dependent: :destroy
- 
+  has_and_belongs_to_many :interface_documents
+
   validates_uniqueness_of :phone
   validates_presence_of :phone
   validate :sms_token_validate, on: :create

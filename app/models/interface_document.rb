@@ -14,7 +14,7 @@
 class InterfaceDocument < ApplicationRecord
   has_many :appointment_items, dependent: :destroy
   has_many :statis_infos, dependent: :destroy
-
+  has_and_belongs_to_many :users
   ############# 创建统计信息 #################
   def ceate_statis_info (user_id, interface_document_id)
   	_statis_info = self.statis_infos.create!(

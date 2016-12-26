@@ -19,8 +19,8 @@ appointments = Appointment.create!([
 								   ])
 AppointmentItem.destroy_all
 appointment_items = AppointmentItem.create!([
-											  { appointment_id: 1, interface_document_id: 1 }, 
-											  { interface_document_id: 1, appointment_id: 1 }
+											  { appointment_id: 1, interface_document_id: 1 ,range: 'one_month',}, 
+											  { interface_document_id: 1, appointment_id: 1 ,range: 'two_month',}
 											 ])
 
 StatisInfo.destroy_all

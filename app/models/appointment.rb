@@ -86,4 +86,12 @@ class Appointment < ApplicationRecord
   def range_alias
     I18n.t :"appointment_range.#{range}"
   end
+
+  #批量创建申请项
+  def create_items(ids, appointment_id)
+    ids.each do |id|
+      _item = self.appointment_items.create(appointment_id: appointment_id, interface_document_id: id)
+      _item.save
+    end   
+  end
 end
