@@ -5,7 +5,6 @@ class CreateUserInfos < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :nickname
       t.string :address
-      t.integer :sex
 
       t.timestamps
     end

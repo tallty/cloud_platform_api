@@ -35,13 +35,11 @@ resource "用户信息相关接口api" do
     end
 
     parameter :nickname, "公司名称", require: false, scope: :user_info
-    parameter :sex, "性别【男: male, 女: female】", require: false, scope: :user_info
     parameter :name, "联系人姓名", require: false, scope: :user_info
     parameter :address, "联系地址", require: false, scope: :user_info
 
 
     let(:nickname) { user_info_attrs[:nickname] }
-    let(:sex) { user_info_attrs[:sex] }
     let(:name) { user_info_attrs[:name] }
     let(:address) { user_info_attrs[:address] }
 

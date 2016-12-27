@@ -7,7 +7,6 @@
 #  name       :string
 #  nickname   :string
 #  address    :string
-#  sex        :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -18,6 +17,5 @@ FactoryGirl.define do
     name "张三丰"
     nickname "上海气象下属公司"
     address "上海松江区XX路XX号"
-    sex "male"
   end
 end

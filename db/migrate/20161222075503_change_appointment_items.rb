@@ -1,4 +1,4 @@
-class ChangePappointmentItems < ActiveRecord::Migration[5.0]
+class ChangeAppointmentItems < ActiveRecord::Migration[5.0]
   def change
   	change_table :appointment_items do |t|
       t.date :checke_at
@@ -6,3 +6,4 @@ class ChangePappointmentItems < ActiveRecord::Migration[5.0]
     end
   end
 end
+

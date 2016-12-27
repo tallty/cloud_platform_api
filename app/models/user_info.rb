@@ -7,7 +7,6 @@
 #  name       :string
 #  nickname   :string
 #  address    :string
-#  sex        :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -17,10 +16,4 @@ class UserInfo < ApplicationRecord
   belongs_to :user
 
   delegate :phone, to: :user
-
-  enum sex: [:male, :female]
-
-  def sex_alias
-    sex == "male" ? "男" : "女"
-  end
 end
