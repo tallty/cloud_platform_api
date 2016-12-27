@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226091145) do
+ActiveRecord::Schema.define(version: 20161227091443) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                             default: "", null: false
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 20161226091145) do
     t.integer  "interface_document_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.date     "end_time"
+    t.string   "range"
     t.index ["interface_document_id"], name: "index_records_on_interface_document_id"
     t.index ["user_id"], name: "index_records_on_user_id"
   end

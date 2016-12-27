@@ -27,6 +27,8 @@ FactoryGirl.define do
     password "abcd.1234"
     sms_token "1981"
     authentication_token "qwertyuiop"
-    email "13813813811@example.com"
+
+    appid "dSivOBxBRU6MJk4RY6sE" 
+    appkey "FAtIStyhxtV5hH7DHECpF19XAfsYCS"
   end
 end

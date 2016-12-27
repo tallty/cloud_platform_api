@@ -1,4 +1,5 @@
 json.extract! user_info, :id, :name, :nickname, :address, :created_at, :updated_at
 json.phone user_info.user.try(:phone)
-json.email user_info.user.try(:email)
+json.appid user_info.user.try(:appid)
+json.appkey user_info.user.try(:appkey)
 json.url user_info_url(user_info, format: :json)

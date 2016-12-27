@@ -53,6 +53,16 @@ class AppointmentItem < ApplicationRecord
     end
   end
 
+  def check_accept
+    self.accept!
+    _record = Record.create(
+                            user_id: self.user_id,
+                            interface_document_id: self.interface_document_id,
+                            range: self.range
+                            )
+    _record.save
+  end
+
   #获取审核通过的时间
   def update_item_checke_at
     self.update(checke_at: Time.zone.today)

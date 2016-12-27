@@ -12,15 +12,17 @@
 #
 
 class InterfaceDocument < ApplicationRecord
-  has_many :appointment_items, dependent: :destroy
-  has_many :statis_infos, dependent: :destroy
-  has_and_belongs_to_many :users
+  has_many :appointment_items    
+  has_many :statis_infos    
+  has_many :records    # 申请过的接口记录
+  has_many :users, through: :records
+
   ############# 创建统计信息 #################
   def ceate_statis_info (user_id, interface_document_id)
   	_statis_info = self.statis_infos.create!(
-  	  user_id: user_id, 
-  	  interface_document_id:interface_document_id
-  	)
+  	                                          user_id: user_id, 
+  	                                          interface_document_id:interface_document_id
+  	                                        )
   	_statis_info.save!
   end
  

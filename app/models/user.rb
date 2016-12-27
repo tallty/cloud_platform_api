@@ -37,16 +37,18 @@ class User < ApplicationRecord
   has_many :appointments, dependent: :destroy # 申请
   has_many :appointment_items, through: :appointments# 申请项
   has_many :statis_infos, dependent: :destroy # 访问接口统计
+  has_many :records, dependent: :destroy# 申请过的接口记录
+  has_many :interface_documents, through: :records
   has_one :user_info, dependent: :destroy
-  has_and_belongs_to_many :interface_documents
+
 
   validates_uniqueness_of :phone
   validates_presence_of :phone
-  # validate :sms_token_validate, on: :create
+  validate :sms_token_validate, on: :create
 
   after_create :create_appkey_or_appid
 
-  delegate :nickname, :sex, :name, to: :user_info, allow_nil: true
+  delegate :nickname, :address, :name, to: :user_info, allow_nil: true
 
   def info
     self.user_info || self.create_user_info
@@ -64,7 +66,7 @@ class User < ApplicationRecord
   def email_required?
     false
   end
-  
+
   def email_changed?
     false
   end

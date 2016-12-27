@@ -7,6 +7,7 @@
 #  name       :string
 #  nickname   :string
 #  address    :string
+#  sex        :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
