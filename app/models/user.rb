@@ -42,7 +42,7 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :phone
   validates_presence_of :phone
-  validate :sms_token_validate, on: :create
+  # validate :sms_token_validate, on: :create
 
   after_create :create_appkey_or_appid
 
