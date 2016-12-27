@@ -4,7 +4,7 @@ environment 'production'
 threads 2, 128
 workers 2
 
-app_name = "conference_appoint_api"
+app_name = "cloud_platform_api"
 application_path = "/home/deploy/#{app_name}"
 directory application_path
 
