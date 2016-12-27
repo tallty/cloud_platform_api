@@ -61,7 +61,7 @@ class User < ApplicationRecord
   end
 
   # user phone as the authentication key, so email is not required default
-  def email_required?
+  def email_changed?
     false
   end
 
