@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
   
-  resources :records
-  resources :appointment_items, only: [:index, :show] do 
+  resources :records, only: [:index, :show] do
     collection do
       get :list
-      get :expire_list
-    end
-    member do
-      put :delay
     end
   end
+  resources :appointment_items, only: [:index, :show]
   resources :appointments, only: [:index, :show, :create] do
     resources :appointment_items, only: [:index, :show]
   end

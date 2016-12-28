@@ -18,11 +18,12 @@ resource "用户申请 接口文档 相关的API " do
     parameter :interface_document_ids, "申请的接口集合", require: true, scope: :appointment
     parameter :range, "申请使用的时限{one_month: 0,
                                     two_month: 1,
-                                    three_month: 3,
-                                    six_month: 4,
-                                    one_year: 5,
-                                    two_year: 6,
-                                    three_year: 7
+                                    three_month: 2,
+                                    six_month: 3,
+                                    one_year: 4,
+                                    two_year: 5,
+                                    three_year: 6,
+                                    aways: 7
                                     }", require: true, scope: :appointment
     
 

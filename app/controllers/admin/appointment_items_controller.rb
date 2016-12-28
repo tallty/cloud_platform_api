@@ -22,7 +22,7 @@ class Admin::AppointmentItemsController < ApplicationController
     if _ids.present?
       _ids.each do |item_id|
         @admin_appointment_item = AppointmentItem.find_by(id: item_id)
-        @admin_appointment_item.accept!
+        @admin_appointment_item.check_accept
       end
       #返回最后一个对象，用于测试看结果
       respond_with(@admin_appointment_item, template:"admin/appointment_items/show", status: 201)
@@ -37,7 +37,7 @@ class Admin::AppointmentItemsController < ApplicationController
     if _ids.present?
       _ids.each do |item_id|
         @admin_appointment_item = AppointmentItem.find_by(id: item_id)
-        @admin_appointment_item.accept!
+        @admin_appointment_item.refuse!
       end
       #返回最后一个对象，用于测试看结果
       respond_with(@admin_appointment_item, template:"admin/appointment_items/show", status: 201)

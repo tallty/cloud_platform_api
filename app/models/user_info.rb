@@ -10,6 +10,7 @@
 #  sex        :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  email      :string
 #
 
 class UserInfo < ApplicationRecord

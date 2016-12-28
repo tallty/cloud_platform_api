@@ -7,7 +7,7 @@
 #  interface_document_id :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
-#  end_time              :date
+#  end_time              :string
 #  range                 :string
 #
 

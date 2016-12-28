@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227091443) do
+ActiveRecord::Schema.define(version: 20161227154656) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                             default: "", null: false
@@ -37,8 +37,7 @@ ActiveRecord::Schema.define(version: 20161227091443) do
     t.string   "aasm_state"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.date     "checke_at"
-    t.integer  "range"
+    t.string   "range"
     t.index ["appointment_id"], name: "index_appointment_items_on_appointment_id"
     t.index ["interface_document_id"], name: "index_appointment_items_on_interface_document_id"
   end
@@ -49,7 +48,6 @@ ActiveRecord::Schema.define(version: 20161227091443) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "range"
-    t.date     "checke_at"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
@@ -74,7 +72,7 @@ ActiveRecord::Schema.define(version: 20161227091443) do
     t.integer  "interface_document_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.date     "end_time"
+    t.string   "end_time"
     t.string   "range"
     t.index ["interface_document_id"], name: "index_records_on_interface_document_id"
     t.index ["user_id"], name: "index_records_on_user_id"
@@ -113,6 +111,7 @@ ActiveRecord::Schema.define(version: 20161227091443) do
     t.integer  "sex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
     t.index ["user_id"], name: "index_user_infos_on_user_id"
   end
 

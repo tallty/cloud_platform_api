@@ -8,7 +8,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  range      :integer
-#  checke_at  :date
 #
 
 FactoryGirl.define do
@@ -16,6 +15,5 @@ FactoryGirl.define do
     sequence(:user_id) { |n| "#{n}" }
     aasm_state "checking"
     range "one_month"
-    checke_at "#{Time.zone.now}"
   end
 end

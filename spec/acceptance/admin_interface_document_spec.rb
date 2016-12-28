@@ -3,6 +3,7 @@ require 'acceptance_helper'
 resource "管理员对 接口文档 相关的API " do
   header "Accept", "application/json"
 
+  ############### create ################################
   post '/admin/interface_documents' do
     admin_attrs = FactoryGirl.attributes_for(:admin)
     interface_document_attrs = FactoryGirl.attributes_for(:interface_document)

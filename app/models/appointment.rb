@@ -8,7 +8,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  range      :integer
-#  checke_at  :date
 #
 
 class Appointment < ApplicationRecord
@@ -50,26 +49,30 @@ class Appointment < ApplicationRecord
     Appointment.all.where( aasm_state: keyword)
   }
 
-  ################## scope ###################
-  # scope :avail_time, -> {where(" slef.end_time >= ?", "#{Time.zone.today}")}
-  # scope :get_user, -> (user_id) { where(user_id: user_id) }
-  # scope :item_state, -> {where(aasm_state: 'checking')}
-
   #待审核的数量
   def checke_count
     self.appointment_items.where(aasm_state: 'checking').count
   end
 
+  def appoint_time#申请时间
+    self.created_at.to_date
+  end
+
+  def company_name#公司名称
+    self.user.try(:nickname)
+  end
+
   ################ enum ######################
   #申请使用时限
-  enum range: {
+   enum range: {
     one_month: 0,
     two_month: 1,
-    three_month: 3,
-    six_month: 4,
-    one_year: 5,
-    two_year: 6,
-    three_year: 7
+    three_month: 2,
+    six_month: 3,
+    one_year: 4,
+    two_year: 5,
+    three_year: 6,
+    always: 7
   }
 
   Range = {
@@ -79,7 +82,8 @@ class Appointment < ApplicationRecord
     six_month: "六个月",
     one_year: "一年",
     two_year: "两年",
-    three_year: "三年"
+    three_year: "三年",
+    always: "永久"
   }
 
   #时间期限的别名

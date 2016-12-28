@@ -13,41 +13,26 @@ class AppointmentItemsController < ApplicationController
     respond_with(@appointment_items)
   end
 
-  def list#用户申请过的接口列表
-    page = params[:page] || 1
-    per_page = params[:per_page] || 20
-    @appointment_items = current_user.appointment_items.paginate(page: page, per_page: per_page)
-    respond_with(@appointment_items, template:"appointment_items/index", status: 200)
-  end
-
-  #快到期的接口列表 
-  def expire_list
-    page = params[:page] || 1
-    per_page = params[:per_page] || 20
-    @appointment_items = current_user.appointment_items.keyword("expiring").paginate(page: page, per_page: per_page)
-    respond_with(@appointment_items, template:"appointment_items/index", status: 200)
-  end
-
   def show
     respond_with(@appointment_item)
   end
  
   #申请延时
-  def delay
-  # p  _ids = params[:item_ids]
-    _ids = [1,2] #用于测试
-    if _ids.present?
-      _ids.each do |item_id|
-        @appointment_item = AppointmentItem.find(item_id)
-        @appointment_item.update(range: item_params[:range], aasm_state: "checking")
-      end
-      #返回最后一个对象，用于测试看结果
-      respond_with(@appointment_item, template:"appointment_items/show", status: 201)
-    else
-      @error = "没有需要延时的 申请接口 !"
-      respond_with(@error, template:"error") 
-    end
-  end
+  # def delay
+  # # p  _ids = params[:item_ids]
+  #   _ids = [1,2] #用于测试
+  #   if _ids.present?
+  #     _ids.each do |item_id|
+  #       @appointment_item = AppointmentItem.find(item_id)
+  #       @appointment_item.update(range: item_params[:range], aasm_state: "checking")
+  #     end
+  #     #返回最后一个对象，用于测试看结果
+  #     respond_with(@appointment_item, template:"appointment_items/show", status: 201)
+  #   else
+  #     @error = "没有需要延时的 申请接口 !"
+  #     respond_with(@error, template:"error") 
+  #   end
+  # end
 
   private
     def set_appointment_item

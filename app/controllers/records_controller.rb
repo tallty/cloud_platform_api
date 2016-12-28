@@ -4,11 +4,20 @@ class RecordsController < ApplicationController
 
   respond_to :json
 
+  #申请过的
   def index
     page = params[:page] || 1
     per_page = params[:per_page] || 15
     @records = current_user.records.paginate(page: page, per_page:per_page)
     respond_with(@records)
+  end
+
+  #即将到期
+  def list 
+    page = params[:page] || 1
+    per_page = params[:per_page] || 15
+    @records = current_user.records.will_delay.paginate(page: page, per_page: per_page)
+    respond_with(@records, template: "records/index", status: 200)
   end
 
   def show

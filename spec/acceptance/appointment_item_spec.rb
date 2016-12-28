@@ -51,78 +51,43 @@ resource "用户 对接口申请项 相关的API " do
         expect(status).to eq(200)
       end
     end
-
-    ##################### list ########################
-    get '/appointment_items/list' do
-
-      parameter :page, "当前页", required: false
-      parameter :per_page, "每页的数量", required: false
-
-      let(:page) {1}
-      let(:per_page) {15}
-      
-      example "用户 查看申请过(包括'可用true'和'不可用false',is_available=?)的接口列表 成功" do
-        do_request
-        puts response_body
-        expect(status).to eq(200)
-      end
-    end
-
-    ##################### expire_list ########################
-    get '/appointment_items/expire_list' do
-      before do
-        @appointment_items << create_list(:appointment_item, 2, appointment: @appointments.first, interface_document: @interface_document, aasm_state: "expiring")
-      end
-
-      parameter :page, "当前页", required: false
-      parameter :per_page, "每页的数量", required: false
-
-      let(:page) {1}
-      let(:per_page) {15}
-      
-      example "用户 查看'快到期'的接口列表 成功" do
-        do_request
-        puts response_body
-        expect(status).to eq(200)
-      end
-    end
   end
 
-  ##################### delay ########################
-  put '/appointment_items/:id/delay' do
-    user_attrs = FactoryGirl.attributes_for(:user)
-    appointment_item_attrs = FactoryGirl.attributes_for(:appointment_item)
+  # ##################### delay ########################
+  # put '/appointment_items/:id/delay' do
+  #   user_attrs = FactoryGirl.attributes_for(:user)
+  #   appointment_item_attrs = FactoryGirl.attributes_for(:appointment_item)
 
-    header "X-User-Token", user_attrs[:authentication_token]
-    header "X-User-Phone", user_attrs[:phone]
+  #   header "X-User-Token", user_attrs[:authentication_token]
+  #   header "X-User-Phone", user_attrs[:phone]
 
-    before do
-      @user = create(:user)
-      @interface_document = create(:interface_document)
-      @appointment = create(:appointment)
-      @appointment_items = create_list(:appointment_item, 2, appointment: @appointment, interface_document: @interface_document)
-    end
+  #   before do
+  #     @user = create(:user)
+  #     @interface_document = create(:interface_document)
+  #     @appointment = create(:appointment)
+  #     @appointment_items = create_list(:appointment_item, 2, appointment: @appointment, interface_document: @interface_document)
+  #   end
 
-    parameter :item_ids, "延期的接口集合", require: true, scope: :appointment_item
-    parameter :range, "申请延期的时限{one_month: 0,
-                                    two_month: 1,
-                                    three_month: 3,
-                                    six_month: 4,
-                                    one_year: 5,
-                                    two_year: 6,
-                                    three_year: 7
-                                    }", require: true, scope: :appointment_item
+  #   parameter :item_ids, "延期的接口集合", require: true, scope: :appointment_item
+  #   parameter :range, "申请延期的时限{one_month: 0,
+  #                                   two_month: 1,
+  #                                   three_month: 3,
+  #                                   six_month: 4,
+  #                                   one_year: 5,
+  #                                   two_year: 6,
+  #                                   three_year: 7
+  #                                   }", require: true, scope: :appointment_item
     
 
-    let(:item_ids) { [@appointment_items.first.id, 
-                                    @appointment_items.last.id] 
-                                  }
-    let(:range) {appointment_item_attrs[:range]}
+  #   let(:item_ids) { [@appointment_items.first.id, 
+  #                                   @appointment_items.last.id] 
+  #                                 }
+  #   let(:range) {appointment_item_attrs[:range]}
 
-    example "用户提交 延期 申请成功" do
-      do_request
-      puts response_body
-      expect(status).to eq(201)
-    end
-  end
+  #   example "用户提交 延期 申请成功" do
+  #     do_request
+  #     puts response_body
+  #     expect(status).to eq(201)
+  #   end
+  # end
 end
