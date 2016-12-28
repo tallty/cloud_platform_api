@@ -70,7 +70,7 @@ gem 'devise-i18n'
  # AASM - State machines for Ruby classes (plain Ruby, ActiveRecord, Mongoid, MongoMapper)
    # Read more: https://github.com/aasm/aasm
 gem 'aasm'
-# SMS
+# SMS ,Read more https://github.com/saberma/china_sms
 gem 'china_sms'
 # Simple, but flexible HTTP client library, with support for multiple backends.
 # Read more: https://github.com/lostisland/faraday
