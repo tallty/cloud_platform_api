@@ -1,0 +1,1 @@
+json.partial! "admin/manager_apis/admin_manager_api", admin_manager_api: @admin_manager_api

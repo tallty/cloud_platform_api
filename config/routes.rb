@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   ################### admin #########################
   namespace :admin do
+    resources :manager_apis, only: [:index, :show]
     resources :manager_accounts, only: [:index, :show, :destroy]
   	resources :appointments, only: [:index, :show] do
       resources :appointment_items, only: [:index, :show]do

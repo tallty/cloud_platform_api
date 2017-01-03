@@ -7,8 +7,8 @@
 #  interface_document_id :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
-#  end_time              :string
 #  range                 :string
+#  end_time              :date
 #
 
 FactoryGirl.define do
