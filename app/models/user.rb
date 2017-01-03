@@ -94,6 +94,20 @@ class User < ApplicationRecord
     user
   end
 
+  #注册时间
+  def sign_time
+    self.created_at.strftime("%Y-%m-%d %H-%M-%S")
+  end
+
+  #申请的接口数量
+  def api_count
+    self.records.count
+  end
+  #即将到期的接口数 
+  def will_count
+    self.records.will_delay.count
+  end
+
   private
     def sms_token_validate
       return if sms_token == "1981"
