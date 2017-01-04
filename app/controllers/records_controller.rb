@@ -30,7 +30,7 @@ class RecordsController < ApplicationController
         @interface_document.ceate_statis_info(current_user.id, @interface_document.id)#创建统计信息
         respond_with(@record)
       else
-        @error = "current_user not present !"
+        @error = "current_user not present ! {'code':100001,'msg':'鉴权失败'}"
         respond_with(@error,template: 'error', status: 200)
       end
     else
