@@ -19,7 +19,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = current_user.appointments.build(appointment_params)
     if @appointment.save
-      _ids = appointment_params[:interface_document_ids].split(",")#接收接口集合
+      _ids = params[:interface_document_ids].split(",")#接收接口集合
       # _ids = [1, 2, 3]#测试
       if _ids.present?
         @appointment.create_items(_ids, @appointment.id)
