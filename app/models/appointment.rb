@@ -20,16 +20,13 @@ class Appointment < ApplicationRecord
 
   ################ validates ###############
   validate :update_appointment_state
-  validates_presence_of :user_id, on: :create, message: "user_id不能为空"
-  validates_presence_of :range, on: :create, message: "range不能为空"
-
   ################ aasm ####################
   aasm do
   	state :checking, initial: true
   	state :used
 
   	event :accept do
-      transitions from: :checking, to: :used, :after => :update_appointment_checke_at
+      transitions from: :checking, to: :used
     end
   end
   
@@ -94,7 +91,7 @@ class Appointment < ApplicationRecord
   #批量创建申请项
   def create_items(ids, appointment_id)
     ids.each do |id|
-      _item = self.appointment_items.create(appointment_id: appointment_id, interface_document_id: id)
+      _item = self.appointment_items.create(appointment_id: appointment_id, interface_document_id: id, range: self.range)
       _item.save
     end   
   end
