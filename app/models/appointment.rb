@@ -18,8 +18,6 @@ class Appointment < ApplicationRecord
   # virtual attribute
   attr_accessor :interface_document_ids, :keyword
 
-  ################ validates ###############
-  validate :update_appointment_state
   ################ aasm ####################
   aasm do
   	state :checking, initial: true
@@ -32,12 +30,6 @@ class Appointment < ApplicationRecord
   
   def state
     I18n.t :"appointment_aasm_state.#{aasm_state}"
-  end
-
-  #当申请的所有接口 审核过了改变状态
-  def update_appointment_state
-    _items = self.appointment_items.where(aasm_state: 'checking')
-    self.accept! if _items.nil?
   end
   
   #搜索

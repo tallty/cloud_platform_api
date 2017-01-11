@@ -31,11 +31,11 @@ class AppointmentItem < ApplicationRecord
   	state :used
 
   	event :accept do
-      transitions from: :checking, to: :used
+      transitions from: :checking, to: :used, :after => :update_appointment_state
     end
 
     event :refuse do
-      transitions from: :checking, to: :unused
+      transitions from: :checking, to: :unused, :after => :update_appointment_state
     end
   end
 
@@ -52,6 +52,12 @@ class AppointmentItem < ApplicationRecord
   #状态别名
   def state
     I18n.t :"appointment_aasm_state.#{aasm_state}"
+  end
+
+  #当申请的所有接口 审核过了改变状态
+  def update_appointment_state
+    _items = AppointmentItem.all.where(aasm_state: 'checking')
+    self.appointment.accept! if _items.nil?
   end
 
   #搜索
