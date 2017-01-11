@@ -27,8 +27,8 @@ resource "用户申请 接口文档 相关的API " do
                                     }", require: true, scope: :appointment
     
 
-    let(:interface_document_ids) { [@interface_documents.first.id, 
-                                    @interface_documents.last.id] 
+    let(:interface_document_ids) { "#{[@interface_documents.first.id, 
+                                    @interface_documents.last.id]}" 
                                   }
     let(:range) {appointment_attrs[:range]}
 

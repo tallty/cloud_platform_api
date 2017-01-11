@@ -4,5 +4,5 @@ json.url appointment_item_url(appointment_item, format: :json)
 
 json.interface_document do
   @interface_document = appointment_item.interface_document 
-  json.partial! "interface_documents/interface_document", interface_document: @interface_document
+  # json.partial! "interface_documents/interface_document", interface_document: @interface_document
 end
