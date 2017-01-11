@@ -56,13 +56,13 @@ class AppointmentItem < ApplicationRecord
 
   #当申请的所有接口 审核过了改变状态
   def update_appointment_state
-    _items = AppointmentItem.all.where(aasm_state: 'checking')
-    self.appointment.accept! if _items.nil?
+    _items = self.appointment.appointment_items.where(aasm_state: 'checking')
+    self.appointment.accept! unless _items.present?
   end
 
   #搜索
   scope :keyword, -> (keyword) {
-    return all if keyword.nil?
+    return all if keyword.blank?
     AppointmentItem.all.where( aasm_state: keyword)
   }
        
@@ -82,8 +82,6 @@ class AppointmentItem < ApplicationRecord
   
   #拒绝时间
   def refuse_time
-    _items = AppointmentItem.where(aasm_state: "unused")
-    _item = _items.find_by(id: self.id) if _items.present?
-    self.updated_at.to_date if _item.present?
+    self.updated_at.to_date if self.aasm_state == "unused"
   end
 end

@@ -34,7 +34,7 @@ class Appointment < ApplicationRecord
   
   #搜索
   scope :keyword, -> (keyword) {
-    return all if keyword.nil?
+    return all if keyword.blank?
     Appointment.all.where( aasm_state: keyword)
   }
 
