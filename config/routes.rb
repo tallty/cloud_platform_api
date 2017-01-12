@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  
+
   resources :records, only: [:index, :show] do
     collection do
       get :list
+      get 'aaa'
     end
   end
   resources :appointment_items, only: [:index, :show]

@@ -1,0 +1,177 @@
+{
+  "resources": [
+    {
+      "name": "QPF雷达回波",
+      "examples": [
+        {
+          "description": "QPF",
+          "link": "qpf雷达回波/qpf.json",
+          "groups": "all",
+          "route": "/api/v1/qpfs/locate",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "世界城市预报",
+      "examples": [
+        {
+          "description": "世界城市预报",
+          "link": "世界城市预报/世界城市预报.json",
+          "groups": "all",
+          "route": "/api/v1/world_forecasts/query",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "天气预报",
+      "examples": [
+        {
+          "description": "上海当天天气预报",
+          "link": "天气预报/上海当天天气预报.json",
+          "groups": "all",
+          "route": "/api/v1/weather_forecasts/today",
+          "method": "get"
+        },
+        {
+          "description": "根据坐标匹配城市查询",
+          "link": "天气预报/根据坐标匹配城市查询.json",
+          "groups": "all",
+          "route": "/api/v1/weather_forecasts/locate",
+          "method": "get"
+        },
+        {
+          "description": "根据城市名称查询",
+          "link": "天气预报/根据城市名称查询.json",
+          "groups": "all",
+          "route": "/api/v1/weather_forecasts/query",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "天气预警",
+      "examples": [
+        {
+          "description": "上海区县预警查询",
+          "link": "天气预警/上海区县预警查询.json",
+          "groups": "all",
+          "route": "/api/v1/warnings/district",
+          "method": "get"
+        },
+        {
+          "description": "上海市实时预警查询",
+          "link": "天气预警/上海市实时预警查询.json",
+          "groups": "all",
+          "route": "/api/v1/warnings/city",
+          "method": "get"
+        },
+        {
+          "description": "上海社区预警查询",
+          "link": "天气预警/上海社区预警查询.json",
+          "groups": "all",
+          "route": "/api/v1/warnings/community",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "格点数据",
+      "examples": [
+        {
+          "description": "24小时格点预报",
+          "link": "格点数据/24小时格点预报.json",
+          "groups": "all",
+          "route": "/api/v1/grid_forecasts",
+          "method": "get"
+        },
+        {
+          "description": "500米精细化实况",
+          "link": "格点数据/500米精细化实况.json",
+          "groups": "all",
+          "route": "/api/v1/grid_lives/locate",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "气象报告",
+      "examples": [
+        {
+          "description": "短时预报查询",
+          "link": "气象报告/短时预报查询.json",
+          "groups": "all",
+          "route": "/api/v1/weather_reports/three_hour",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "空气质量数据",
+      "examples": [
+        {
+          "description": "上海空气质量实况",
+          "link": "空气质量数据/上海空气质量实况.json",
+          "groups": "all",
+          "route": "/api/v1/aqi",
+          "method": "get"
+        },
+        {
+          "description": "上海空气质量预报",
+          "link": "空气质量数据/上海空气质量预报.json",
+          "groups": "all",
+          "route": "/api/v1/aqi/forecast",
+          "method": "get"
+        },
+        {
+          "description": "上海过去12小时空气质量实况",
+          "link": "空气质量数据/上海过去12小时空气质量实况.json",
+          "groups": "all",
+          "route": "/api/v1/aqi/history",
+          "method": "get"
+        },
+        {
+          "description": "全国空气质量实况",
+          "link": "空气质量数据/全国空气质量实况.json",
+          "groups": "all",
+          "route": "/api/v1/aqi/query",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "自动站",
+      "examples": [
+        {
+          "description": "上海10区县主站实时数据",
+          "link": "自动站/上海10区县主站实时数据.json",
+          "groups": "all",
+          "route": "/api/v1/auto_stations/master",
+          "method": "get"
+        },
+        {
+          "description": "上海自动站实时数据[10分钟间隔]",
+          "link": "自动站/上海自动站实时数据[10分钟间隔].json",
+          "groups": "all",
+          "route": "/api/v1/auto_stations",
+          "method": "get"
+        },
+        {
+          "description": "上海自动站实时数据[5分钟间隔]",
+          "link": "自动站/上海自动站实时数据[5分钟间隔].json",
+          "groups": "all",
+          "route": "/api/v1/stable_stations",
+          "method": "get"
+        },
+        {
+          "description": "定位城市最近小时数据",
+          "link": "自动站/定位城市最近小时数据.json",
+          "groups": "all",
+          "route": "/api/v1/auto_stations/locate_nation_wide",
+          "method": "get"
+        }
+      ]
+    }
+  ]
+}

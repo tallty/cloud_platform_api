@@ -3,7 +3,10 @@ class RecordsController < ApplicationController
   before_action :set_record, only: [:show]
 
   respond_to :json
-
+  def aaa
+    @aaa = DataJson.get
+    respond_with @aaa, template: '/aaa'
+  end
   #申请过的
   def index
     page = params[:page] || 1
