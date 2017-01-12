@@ -31,6 +31,18 @@ class InterfaceDocumentsController < ApplicationController
     respond_with(@interface_document)
   end
 
+  #接口文档信息列表
+  def list
+    @date_list = DataJson.get_list
+    respond_with @date_list, template: '/date'
+  end
+  #接口文档详情
+  def details
+    url = "qpf雷达回波/qpf.json" #params[:url]
+    @date_details = DataJson.get_details(url)
+    respond_with @date_details, template: '/date'
+  end
+
   # def show
   #  #访问接口的权限
   #  @appointments = @interface_document.appointments.get_user(current_user.id)#获取接口对应的所有申请。

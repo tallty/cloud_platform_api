@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   end
 
   resources :interface_documents, only: [:index, :show] do
+    collection do 
+      get :list
+      get :details
+    end
     resources :statis_infos
   end
   ################### devise_for ####################
