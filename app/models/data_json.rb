@@ -5,18 +5,17 @@ class DataJson
 		require 'net/http'
 		require 'net/https' 
 	    require 'json' 
-	    url = "http://139.196.38.11:5555/date_api/" + "#{url}"
-	    url1 = url.strip.force_encoding("UTF-8")
-	    response = Net::HTTP.get_response(URI(url1)) #RestClient.get(url1)
+	    url ="http://139.196.38.11:5555/date_api/" + "#{url}"
+	    response = Net::HTTP.get_response(URI(URI.escape(url))) #RestClient.get(url1)
 	    JSON.parse(response.body.force_encoding("UTF-8"))
     end
 
     #指导接口列表
     def self.get_list
-    	# require 'uri'
-		# require 'net/http'
-		# require 'net/https' 
-	    # require 'json' 
+    	require 'uri'
+		require 'net/http'
+		require 'net/https' 
+	    require 'json' 
 	    response = Net::HTTP.get_response(URI('http://139.196.38.11:5555/date_api/index.json')) 
 	    JSON.parse(response.body.force_encoding("UTF-8"))
     end

@@ -38,7 +38,7 @@ class InterfaceDocumentsController < ApplicationController
   end
   #接口文档详情
   def details
-    url = "qpf雷达回波/qpf.json" #params[:url]
+    url = params[:url] #|| "qpf雷达回波/qpf.json"
     @date_details = DataJson.get_details(url)
     respond_with @date_details, template: '/date'
   end
