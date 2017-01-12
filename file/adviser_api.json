@@ -1,6 +1,710 @@
 {
 	"apis":[
 		{
+		  "resource": "QPF雷达回波",
+		  "http_method": "GET",
+		  "route": "/api/v1/qpfs/locate",
+		  "description": "QPF",
+		  "explanation": null,
+		  "parameters": [
+		    {
+		      "required": true,
+		      "name": "appid",
+		      "description": "用户id"
+		    },
+		    {
+		      "required": true,
+		      "name": "appkey",
+		      "description": "用户key"
+		    },
+		    {
+		      "required": true,
+		      "name": "lon",
+		      "description": "经度"
+		    },
+		    {
+		      "required": true,
+		      "name": "lat",
+		      "description": "纬度"
+		    }
+		  ],
+		  "response_fields": [
+		    {
+		      "name": "code",
+		      "description": "接口调用返回码"
+		    },
+		    {
+		      "name": "msg",
+		      "description": "返回消息提示"
+		    },
+		    {
+		      "name": "data",
+		      "description": "返回数据正文"
+		    }
+		  ],
+		  "requests": [
+		    {
+		      "request_method": "GET",
+		      "request_path": "/api/v1/qpfs/locate?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&lon=121.834&lat=30.123",
+		      "request_body": null,
+		      "request_headers": {
+		        "Accept": "application/json",
+		        "Content-Type": "application/json",
+		        "Host": "http://61.152.122.112:8080",
+		        "Cookie": ""
+		      },
+		      "request_query_parameters": {
+		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
+		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		        "lon": "121.834",
+		        "lat": "30.123"
+		      },
+		      "request_content_type": "application/json",
+		      "response_status": 200,
+		      "response_status_text": "OK",
+		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
+		      "response_headers": {
+		        "X-Frame-Options": "SAMEORIGIN",
+		        "X-XSS-Protection": "1; mode=block",
+		        "X-Content-Type-Options": "nosniff",
+		        "Content-Type": "application/json; charset=utf-8",
+		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
+		        "Cache-Control": "max-age=0, private, must-revalidate",
+		        "X-Request-Id": "3e125acf-85c8-442b-b6e6-0c194607dace",
+		        "X-Runtime": "0.042486",
+		        "Vary": "Origin",
+		        "X-Rack-CORS": "preflight-hit; no-origin",
+		        "Content-Length": "36"
+		      },
+		      "response_content_type": "application/json; charset=utf-8",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/qpfs/locate?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&lon=121.834&lat=30.123\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
+		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\nlon: 121.834\nlat: 30.123",
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 3e125acf-85c8-442b-b6e6-0c194607dace\nX-Runtime: 0.042486\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		    }
+		  ]
+		},
+
+		{
+		  "resource": "世界城市预报",
+		  "http_method": "GET",
+		  "route": "/api/v1/world_forecasts/query",
+		  "description": "世界城市预报",
+		  "explanation": null,
+		  "parameters": [
+		    {
+		      "required": true,
+		      "name": "appid",
+		      "description": "用户id"
+		    },
+		    {
+		      "required": true,
+		      "name": "appkey",
+		      "description": "用户key"
+		    },
+		    {
+		      "required": true,
+		      "name": "city_name",
+		      "description": "城市名称"
+		    }
+		  ],
+		  "response_fields": [
+		    {
+		      "name": "code",
+		      "description": "接口调用返回码"
+		    },
+		    {
+		      "name": "msg",
+		      "description": "返回消息提示"
+		    },
+		    {
+		      "name": "data",
+		      "description": "返回数据正文"
+		    },
+		    {
+		      "name": "publishtime",
+		      "description": "预报日期"
+		    },
+		    {
+		      "name": "weather",
+		      "description": "天气现象"
+		    },
+		    {
+		      "name": "ltemp",
+		      "description": "最低温度"
+		    },
+		    {
+		      "name": "htemp",
+		      "description": "最高温度"
+		    }
+		  ],
+		  "requests": [
+		    {
+		      "request_method": "GET",
+		      "request_path": "/api/v1/world_forecasts/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E4%B8%9C%E4%BA%AC",
+		      "request_body": null,
+		      "request_headers": {
+		        "Accept": "application/json",
+		        "Content-Type": "application/json",
+		        "Host": "http://61.152.122.112:8080",
+		        "Cookie": ""
+		      },
+		      "request_query_parameters": {
+		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
+		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		        "city_name": "东京"
+		      },
+		      "request_content_type": "application/json",
+		      "response_status": 200,
+		      "response_status_text": "OK",
+		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
+		      "response_headers": {
+		        "X-Frame-Options": "SAMEORIGIN",
+		        "X-XSS-Protection": "1; mode=block",
+		        "X-Content-Type-Options": "nosniff",
+		        "Content-Type": "application/json; charset=utf-8",
+		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
+		        "Cache-Control": "max-age=0, private, must-revalidate",
+		        "X-Request-Id": "bce178d5-51d6-4874-ac53-f38cd8a6292f",
+		        "X-Runtime": "0.073275",
+		        "Vary": "Origin",
+		        "X-Rack-CORS": "preflight-hit; no-origin",
+		        "Content-Length": "36"
+		      },
+		      "response_content_type": "application/json; charset=utf-8",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/world_forecasts/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E4%B8%9C%E4%BA%AC\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
+		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\ncity_name: 东京",
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: bce178d5-51d6-4874-ac53-f38cd8a6292f\nX-Runtime: 0.073275\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		    }
+		  ]
+		},
+
+        {
+		  "resource": "天气预报",
+		  "http_method": "GET",
+		  "route": "/api/v1/weather_forecasts/today",
+		  "description": "上海当天天气预报",
+		  "explanation": null,
+		  "parameters": [
+		    {
+		      "required": true,
+		      "name": "appid",
+		      "description": "用户id"
+		    },
+		    {
+		      "required": true,
+		      "name": "appkey",
+		      "description": "用户key"
+		    }
+		  ],
+		  "response_fields": [
+		    {
+		      "name": "code",
+		      "description": "接口调用返回码"
+		    },
+		    {
+		      "name": "msg",
+		      "description": "返回消息提示"
+		    },
+		    {
+		      "name": "data",
+		      "description": "返回数据正文"
+		    },
+		    {
+		      "name": "datatime",
+		      "description": "预报日期"
+		    },
+		    {
+		      "name": "tempe",
+		      "description": "温度"
+		    },
+		    {
+		      "name": "direction",
+		      "description": "风向"
+		    },
+		    {
+		      "name": "speed",
+		      "description": "风速"
+		    },
+		    {
+		      "name": "weather",
+		      "description": "天气现象"
+		    },
+		    {
+		      "name": "weathpic",
+		      "description": "天气现象(图片)"
+		    }
+		  ],
+		  "requests": [
+		    {
+		      "request_method": "GET",
+		      "request_path": "/api/v1/weather_forecasts/today?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		      "request_body": null,
+		      "request_headers": {
+		        "Accept": "application/json",
+		        "Content-Type": "application/json",
+		        "Host": "http://61.152.122.112:8080",
+		        "Cookie": ""
+		      },
+		      "request_query_parameters": {
+		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
+		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"
+		      },
+		      "request_content_type": "application/json",
+		      "response_status": 200,
+		      "response_status_text": "OK",
+		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
+		      "response_headers": {
+		        "X-Frame-Options": "SAMEORIGIN",
+		        "X-XSS-Protection": "1; mode=block",
+		        "X-Content-Type-Options": "nosniff",
+		        "Content-Type": "application/json; charset=utf-8",
+		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
+		        "Cache-Control": "max-age=0, private, must-revalidate",
+		        "X-Request-Id": "8e60b1b4-62f3-44ad-bb84-4a7c32912fda",
+		        "X-Runtime": "0.032034",
+		        "Vary": "Origin",
+		        "X-Rack-CORS": "preflight-hit; no-origin",
+		        "Content-Length": "36"
+		      },
+		      "response_content_type": "application/json; charset=utf-8",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/weather_forecasts/today?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
+		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 8e60b1b4-62f3-44ad-bb84-4a7c32912fda\nX-Runtime: 0.032034\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		    }
+		  ]
+		},
+
+		{
+		  "resource": "天气预报",
+		  "http_method": "GET",
+		  "route": "/api/v1/weather_forecasts/locate",
+		  "description": "根据坐标匹配城市查询",
+		  "explanation": null,
+		  "parameters": [
+		    {
+		      "required": true,
+		      "name": "appid",
+		      "description": "用户id"
+		    },
+		    {
+		      "required": true,
+		      "name": "appkey",
+		      "description": "用户key"
+		    },
+		    {
+		      "required": true,
+		      "name": "lon",
+		      "description": "经度"
+		    },
+		    {
+		      "required": true,
+		      "name": "lat",
+		      "description": "纬度"
+		    }
+		  ],
+		  "response_fields": [
+		    {
+		      "name": "code",
+		      "description": "接口调用返回码"
+		    },
+		    {
+		      "name": "msg",
+		      "description": "返回消息提示"
+		    },
+		    {
+		      "name": "data",
+		      "description": "返回数据正文"
+		    }
+		  ],
+		  "requests": [
+		    {
+		      "request_method": "GET",
+		      "request_path": "/api/v1/weather_forecasts/locate?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&lon=115.834&lat=28.123",
+		      "request_body": null,
+		      "request_headers": {
+		        "Accept": "application/json",
+		        "Content-Type": "application/json",
+		        "Host": "http://61.152.122.112:8080",
+		        "Cookie": ""
+		      },
+		      "request_query_parameters": {
+		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
+		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		        "lon": "115.834",
+		        "lat": "28.123"
+		      },
+		      "request_content_type": "application/json",
+		      "response_status": 200,
+		      "response_status_text": "OK",
+		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
+		      "response_headers": {
+		        "X-Frame-Options": "SAMEORIGIN",
+		        "X-XSS-Protection": "1; mode=block",
+                "X-Content-Type-Options": "nosniff",
+		        "Content-Type": "application/json; charset=utf-8",
+		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
+		        "Cache-Control": "max-age=0, private, must-revalidate",
+		        "X-Request-Id": "3d07bd63-fac1-4c23-8277-976a2362349c",
+		        "X-Runtime": "0.061448",
+		        "Vary": "Origin",
+		        "X-Rack-CORS": "preflight-hit; no-origin",
+		        "Content-Length": "36"
+		      },
+		      "response_content_type": "application/json; charset=utf-8",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/weather_forecasts/locate?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&lon=115.834&lat=28.123\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
+		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\nlon: 115.834\nlat: 28.123",
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 3d07bd63-fac1-4c23-8277-976a2362349c\nX-Runtime: 0.061448\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		    }
+		  ]
+		},
+
+		{
+		  "resource": "天气预报",
+		  "http_method": "GET",
+		  "route": "/api/v1/weather_forecasts/query",
+		  "description": "根据城市名称查询",
+		  "explanation": null,
+		  "parameters": [
+		    {
+		      "required": true,
+		      "name": "appid",
+		      "description": "用户id"
+		    },
+		    {
+		      "required": true,
+		      "name": "appkey",
+		      "description": "用户key"
+		    },
+		    {
+		      "required": true,
+		      "name": "city_name",
+		      "description": "城市名称"
+		    }
+		  ],
+		  "response_fields": [
+		    {
+		      "name": "code",
+		      "description": "接口调用返回码"
+		    },
+		    {
+		      "name": "msg",
+		      "description": "返回消息提示"
+		    },
+		    {
+		      "name": "data",
+		      "description": "返回数据正文"
+		    },
+		    {
+		      "name": "report_date",
+		      "description": "发布日期"
+		    },
+		    {
+		      "name": "city_name",
+		      "description": "城市名称"
+		    },
+		    {
+		      "name": "datatime",
+		      "description": "预报日期"
+		    },
+		    {
+		      "name": "tempe",
+		      "description": "温度"
+		    },
+		    {
+		      "name": "direction",
+		      "description": "风向"
+		    },
+		    {
+		      "name": "speed",
+		      "description": "风速"
+		    },
+		    {
+		      "name": "weather",
+		      "description": "天气现象"
+		    },
+		    {
+		      "name": "weathpic",
+		      "description": "天气现象(图片)"
+		    }
+		  ],
+		  "requests": [
+		    {
+		      "request_method": "GET",
+		      "request_path": "/api/v1/weather_forecasts/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E5%8C%97%E4%BA%AC",
+		      "request_body": null,
+		      "request_headers": {
+		        "Accept": "application/json",
+		        "Content-Type": "application/json",
+		        "Host": "http://61.152.122.112:8080",
+		        "Cookie": ""
+		      },
+		      "request_query_parameters": {
+		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
+		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		        "city_name": "北京"
+		      },
+		      "request_content_type": "application/json",
+		      "response_status": 200,
+		      "response_status_text": "OK",
+		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
+		      "response_headers": {
+		        "X-Frame-Options": "SAMEORIGIN",
+		        "X-XSS-Protection": "1; mode=block",
+		        "X-Content-Type-Options": "nosniff",
+		        "Content-Type": "application/json; charset=utf-8",
+		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
+		        "Cache-Control": "max-age=0, private, must-revalidate",
+		        "X-Request-Id": "8f34cfbe-a794-4a34-b81a-0c783cfc93f1",
+		        "X-Runtime": "0.026792",
+		        "Vary": "Origin",
+		        "X-Rack-CORS": "preflight-hit; no-origin",
+		        "Content-Length": "36"
+		      },
+		      "response_content_type": "application/json; charset=utf-8",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/weather_forecasts/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E5%8C%97%E4%BA%AC\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
+		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\ncity_name: 北京",
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 8f34cfbe-a794-4a34-b81a-0c783cfc93f1\nX-Runtime: 0.026792\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		    }
+		  ]
+		},
+
+		{
+		  "resource": "天气预警",
+		  "http_method": "GET",
+		  "route": "/api/v1/warnings/district",
+		  "description": "上海区县预警查询",
+		  "explanation": null,
+		  "parameters": [
+		    {
+		      "required": true,
+		      "name": "appid",
+		      "description": "用户id"
+		    },
+		    {
+		      "required": true,
+		      "name": "appkey",
+		      "description": "用户key"
+		    },
+		    {
+		      "required": true,
+		      "name": "unit",
+		      "description": "区县名称"
+		    }
+		  ],
+		  "response_fields": [
+		    {
+		      "name": "code",
+		      "description": "接口调用返回码"
+		    },
+		    {
+		      "name": "msg",
+		      "description": "返回消息提示"
+		    },
+		    {
+		      "name": "data",
+		      "description": "返回数据正文"
+		    }
+		  ],
+		  "requests": [
+		    {
+		      "request_method": "GET",
+		      "request_path": "/api/v1/warnings/district?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&unit=%E9%87%91%E5%B1%B1",
+		      "request_body": null,
+		      "request_headers": {
+		        "Accept": "application/json",
+		        "Content-Type": "application/json",
+		        "Host": "http://61.152.122.112:8080",
+		        "Cookie": ""
+		      },
+		      "request_query_parameters": {
+		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
+		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		        "unit": "金山"
+		      },
+		      "request_content_type": "application/json",
+		      "response_status": 200,
+		      "response_status_text": "OK",
+		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
+		      "response_headers": {
+		        "X-Frame-Options": "SAMEORIGIN",
+		        "X-XSS-Protection": "1; mode=block",
+		        "X-Content-Type-Options": "nosniff",
+		        "Content-Type": "application/json; charset=utf-8",
+		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
+		        "Cache-Control": "max-age=0, private, must-revalidate",
+		        "X-Request-Id": "5badc9ea-4575-4e65-b3d9-3e07f722cc5e",
+		        "X-Runtime": "0.039378",
+		        "Vary": "Origin",
+		        "X-Rack-CORS": "preflight-hit; no-origin",
+		        "Content-Length": "36"
+		      },
+		      "response_content_type": "application/json; charset=utf-8",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/warnings/district?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&unit=%E9%87%91%E5%B1%B1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
+		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\nunit: 金山",
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 5badc9ea-4575-4e65-b3d9-3e07f722cc5e\nX-Runtime: 0.039378\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		    }
+		  ]
+		},
+
+		{
+		  "resource": "天气预警",
+		  "http_method": "GET",
+		  "route": "/api/v1/warnings/city",
+		  "description": "上海市实时预警查询",
+		  "explanation": null,
+		  "parameters": [
+		    {
+		      "required": true,
+		      "name": "appid",
+		      "description": "用户id"
+		    },
+		    {
+		      "required": true,
+		      "name": "appkey",
+		      "description": "用户key"
+		    }
+		  ],
+		  "response_fields": [
+		    {
+		      "name": "code",
+		      "description": "接口调用返回码"
+		    },
+		    {
+		      "name": "msg",
+		      "description": "返回消息提示"
+		    },
+		    {
+		      "name": "data",
+		      "description": "返回数据正文"
+		    }
+		  ],
+		  "requests": [
+		    {
+		      "request_method": "GET",
+		      "request_path": "/api/v1/warnings/city?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		      "request_body": null,
+		      "request_headers": {
+		        "Accept": "application/json",
+		        "Content-Type": "application/json",
+		        "Host": "http://61.152.122.112:8080",
+		        "Cookie": ""
+		      },
+		      "request_query_parameters": {
+		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
+		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"
+		      },
+		      "request_content_type": "application/json",
+		      "response_status": 200,
+		      "response_status_text": "OK",
+		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
+		      "response_headers": {
+		        "X-Frame-Options": "SAMEORIGIN",
+		        "X-XSS-Protection": "1; mode=block",
+		        "X-Content-Type-Options": "nosniff",
+		        "Content-Type": "application/json; charset=utf-8",
+		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
+		        "Cache-Control": "max-age=0, private, must-revalidate",
+		        "X-Request-Id": "2af024f9-484f-4251-9e68-0f24d2d8a82f",
+		        "X-Runtime": "0.039033",
+		        "Vary": "Origin",
+		        "X-Rack-CORS": "preflight-hit; no-origin",
+		        "Content-Length": "36"
+		      },
+		      "response_content_type": "application/json; charset=utf-8",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/warnings/city?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
+		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 2af024f9-484f-4251-9e68-0f24d2d8a82f\nX-Runtime: 0.039033\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		    }
+		  ]
+		},
+
+		{
+		  "resource": "天气预警",
+		  "http_method": "GET",
+		  "route": "/api/v1/warnings/community",
+		  "description": "上海社区预警查询",
+		  "explanation": null,
+		  "parameters": [
+		    {
+		      "required": true,
+		      "name": "appid",
+		      "description": "用户id"
+		    },
+		    {
+		      "required": true,
+		      "name": "appkey",
+		      "description": "用户key"
+		    },
+		    {
+		      "required": true,
+		      "name": "unit",
+		      "description": "社区名称"
+		    }
+		  ],
+		  "response_fields": [
+		    {
+		      "name": "code",
+		      "description": "接口调用返回码"
+		    },
+		    {
+		      "name": "msg",
+		      "description": "返回消息提示"
+		    },
+		    {
+		      "name": "data",
+		      "description": "返回数据正文"
+		    }
+		  ],
+		  "requests": [
+		    {
+		      "request_method": "GET",
+		      "request_path": "/api/v1/warnings/community?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&unit=%E4%BA%94%E8%A7%92%E5%9C%BA%E8%A1%97%E9%81%93",
+		      "request_body": null,
+		      "request_headers": {
+		        "Accept": "application/json",
+		        "Content-Type": "application/json",
+		        "Host": "http://61.152.122.112:8080",
+		        "Cookie": ""
+		      },
+		      "request_query_parameters": {
+		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
+		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		        "unit": "五角场街道"
+		      },
+		      "request_content_type": "application/json",
+		      "response_status": 200,
+		      "response_status_text": "OK",
+		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
+		      "response_headers": {
+		        "X-Frame-Options": "SAMEORIGIN",
+		        "X-XSS-Protection": "1; mode=block",
+		        "X-Content-Type-Options": "nosniff",
+		        "Content-Type": "application/json; charset=utf-8",
+		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
+		        "Cache-Control": "max-age=0, private, must-revalidate",
+		        "X-Request-Id": "9d08f739-e6fb-42d3-a6ce-2dfb569d7243",
+		        "X-Runtime": "0.058976",
+		        "Vary": "Origin",
+		        "X-Rack-CORS": "preflight-hit; no-origin",
+		        "Content-Length": "36"
+		      },
+		      "response_content_type": "application/json; charset=utf-8",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/warnings/community?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&unit=%E4%BA%94%E8%A7%92%E5%9C%BA%E8%A1%97%E9%81%93\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
+		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\nunit: 五角场街道",
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 9d08f739-e6fb-42d3-a6ce-2dfb569d7243\nX-Runtime: 0.058976\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		    }
+		  ]
+		},
+
+		{
 		  "resource": "格点数据",
 		  "http_method": "GET",
 		  "route": "/api/v1/grid_forecasts",
@@ -171,89 +875,10 @@
 		},
 
 		{
-		  "resource": "空气质量数据",
+		  "resource": "气象报告",
 		  "http_method": "GET",
-		  "route": "/api/v1/aqi/query",
-		  "description": "全国空气质量实况",
-		  "explanation": null,
-		  "parameters": [
-		    {
-		      "required": true,
-		      "name": "appid",
-		      "description": "用户id"
-		    },
-		    {
-		      "required": true,
-		      "name": "appkey",
-		      "description": "用户key"
-		    },
-		    {
-		      "required": true,
-		      "name": "city_name",
-		      "description": "城市名称"
-		    }
-		  ],
-		  "response_fields": [
-		    {
-		      "name": "code",
-		      "description": "接口调用返回码"
-		    },
-		    {
-		      "name": "msg",
-		      "description": "返回消息提示"
-		    },
-		    {
-		      "name": "data",
-		      "description": "返回数据正文"
-		    }
-		  ],
-		  "requests": [
-		    {
-		      "request_method": "GET",
-		      "request_path": "/api/v1/aqi/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E5%8C%97%E4%BA%AC",
-		      "request_body": null,
-		      "request_headers": {
-		        "Accept": "application/json",
-		        "Content-Type": "application/json",
-		        "Host": "http://61.152.122.112:8080",
-		        "Cookie": ""
-		      },
-		      "request_query_parameters": {
-		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
-		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		        "city_name": "北京"
-		      },
-		      "request_content_type": "application/json",
-		      "response_status": 200,
-		      "response_status_text": "OK",
-		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
-		      "response_headers": {
-		        "X-Frame-Options": "SAMEORIGIN",
-		        "X-XSS-Protection": "1; mode=block",
-		        "X-Content-Type-Options": "nosniff",
-		        "Content-Type": "application/json; charset=utf-8",
-		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
-		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "dacbfbb8-06cd-4fbe-a4a4-7d849c696a5f",
-		        "X-Runtime": "0.169206",
-		        "Vary": "Origin",
-		        "X-Rack-CORS": "preflight-hit; no-origin",
-		        "Content-Length": "36"
-		      },
-		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/aqi/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E5%8C%97%E4%BA%AC\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
-		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
-		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\ncity_name: 北京",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: dacbfbb8-06cd-4fbe-a4a4-7d849c696a5f\nX-Runtime: 0.169206\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
-		    }
-		  ]
-		},
-
-		{
-		  "resource": "空气质量数据",
-		  "http_method": "GET",
-		  "route": "/api/v1/aqi/history",
-		  "description": "上海过去12小时空气质量实况",
+		  "route": "/api/v1/weather_reports/three_hour",
+		  "description": "短时预报查询",
 		  "explanation": null,
 		  "parameters": [
 		    {
@@ -284,7 +909,7 @@
 		  "requests": [
 		    {
 		      "request_method": "GET",
-		      "request_path": "/api/v1/aqi/history?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		      "request_path": "/api/v1/weather_reports/three_hour?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
 		      "request_body": null,
 		      "request_headers": {
 		        "Accept": "application/json",
@@ -307,17 +932,17 @@
 		        "Content-Type": "application/json; charset=utf-8",
 		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
 		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "98e1ab40-dd22-4d7a-9ea0-dbf3f4e1f5db",
-		        "X-Runtime": "0.021193",
+		        "X-Request-Id": "0cb723c2-cc36-4b3a-a3eb-801767168d46",
+		        "X-Runtime": "0.053244",
 		        "Vary": "Origin",
 		        "X-Rack-CORS": "preflight-hit; no-origin",
 		        "Content-Length": "36"
 		      },
 		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/aqi/history?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/weather_reports/three_hour?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
 		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
 		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 98e1ab40-dd22-4d7a-9ea0-dbf3f4e1f5db\nX-Runtime: 0.021193\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 0cb723c2-cc36-4b3a-a3eb-801767168d46\nX-Runtime: 0.053244\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
 		    }
 		  ]
 		},
@@ -469,10 +1094,10 @@
 		},
 
 		{
-		  "resource": "气象报告",
+		  "resource": "空气质量数据",
 		  "http_method": "GET",
-		  "route": "/api/v1/weather_reports/three_hour",
-		  "description": "短时预报查询",
+		  "route": "/api/v1/aqi/history",
+		  "description": "上海过去12小时空气质量实况",
 		  "explanation": null,
 		  "parameters": [
 		    {
@@ -503,7 +1128,7 @@
 		  "requests": [
 		    {
 		      "request_method": "GET",
-		      "request_path": "/api/v1/weather_reports/three_hour?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		      "request_path": "/api/v1/aqi/history?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
 		      "request_body": null,
 		      "request_headers": {
 		        "Accept": "application/json",
@@ -526,26 +1151,26 @@
 		        "Content-Type": "application/json; charset=utf-8",
 		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
 		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "0cb723c2-cc36-4b3a-a3eb-801767168d46",
-		        "X-Runtime": "0.053244",
+		        "X-Request-Id": "98e1ab40-dd22-4d7a-9ea0-dbf3f4e1f5db",
+		        "X-Runtime": "0.021193",
 		        "Vary": "Origin",
 		        "X-Rack-CORS": "preflight-hit; no-origin",
 		        "Content-Length": "36"
 		      },
 		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/weather_reports/three_hour?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/aqi/history?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
 		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
 		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 0cb723c2-cc36-4b3a-a3eb-801767168d46\nX-Runtime: 0.053244\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 98e1ab40-dd22-4d7a-9ea0-dbf3f4e1f5db\nX-Runtime: 0.021193\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
 		    }
 		  ]
 		},
 
 		{
-		  "resource": "世界城市预报",
+		  "resource": "空气质量数据",
 		  "http_method": "GET",
-		  "route": "/api/v1/world_forecasts/query",
-		  "description": "世界城市预报",
+		  "route": "/api/v1/aqi/query",
+		  "description": "全国空气质量实况",
 		  "explanation": null,
 		  "parameters": [
 		    {
@@ -576,139 +1201,12 @@
 		    {
 		      "name": "data",
 		      "description": "返回数据正文"
-		    },
-		    {
-		      "name": "publishtime",
-		      "description": "预报日期"
-		    },
-		    {
-		      "name": "weather",
-		      "description": "天气现象"
-		    },
-		    {
-		      "name": "ltemp",
-		      "description": "最低温度"
-		    },
-		    {
-		      "name": "htemp",
-		      "description": "最高温度"
 		    }
 		  ],
 		  "requests": [
 		    {
 		      "request_method": "GET",
-		      "request_path": "/api/v1/world_forecasts/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E4%B8%9C%E4%BA%AC",
-		      "request_body": null,
-		      "request_headers": {
-		        "Accept": "application/json",
-		        "Content-Type": "application/json",
-		        "Host": "http://61.152.122.112:8080",
-		        "Cookie": ""
-		      },
-		      "request_query_parameters": {
-		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
-		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		        "city_name": "东京"
-		      },
-		      "request_content_type": "application/json",
-		      "response_status": 200,
-		      "response_status_text": "OK",
-		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
-		      "response_headers": {
-		        "X-Frame-Options": "SAMEORIGIN",
-		        "X-XSS-Protection": "1; mode=block",
-		        "X-Content-Type-Options": "nosniff",
-		        "Content-Type": "application/json; charset=utf-8",
-		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
-		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "bce178d5-51d6-4874-ac53-f38cd8a6292f",
-		        "X-Runtime": "0.073275",
-		        "Vary": "Origin",
-		        "X-Rack-CORS": "preflight-hit; no-origin",
-		        "Content-Length": "36"
-		      },
-		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/world_forecasts/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E4%B8%9C%E4%BA%AC\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
-		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
-		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\ncity_name: 东京",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: bce178d5-51d6-4874-ac53-f38cd8a6292f\nX-Runtime: 0.073275\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
-		    }
-		  ]
-		},
-
-		{
-		  "resource": "天气预报",
-		  "http_method": "GET",
-		  "route": "/api/v1/weather_forecasts/query",
-		  "description": "根据城市名称查询",
-		  "explanation": null,
-		  "parameters": [
-		    {
-		      "required": true,
-		      "name": "appid",
-		      "description": "用户id"
-		    },
-		    {
-		      "required": true,
-		      "name": "appkey",
-		      "description": "用户key"
-		    },
-		    {
-		      "required": true,
-		      "name": "city_name",
-		      "description": "城市名称"
-		    }
-		  ],
-		  "response_fields": [
-		    {
-		      "name": "code",
-		      "description": "接口调用返回码"
-		    },
-		    {
-		      "name": "msg",
-		      "description": "返回消息提示"
-		    },
-		    {
-		      "name": "data",
-		      "description": "返回数据正文"
-		    },
-		    {
-		      "name": "report_date",
-		      "description": "发布日期"
-		    },
-		    {
-		      "name": "city_name",
-		      "description": "城市名称"
-		    },
-		    {
-		      "name": "datatime",
-		      "description": "预报日期"
-		    },
-		    {
-		      "name": "tempe",
-		      "description": "温度"
-		    },
-		    {
-		      "name": "direction",
-		      "description": "风向"
-		    },
-		    {
-		      "name": "speed",
-		      "description": "风速"
-		    },
-		    {
-		      "name": "weather",
-		      "description": "天气现象"
-		    },
-		    {
-		      "name": "weathpic",
-		      "description": "天气现象(图片)"
-		    }
-		  ],
-		  "requests": [
-		    {
-		      "request_method": "GET",
-		      "request_path": "/api/v1/weather_forecasts/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E5%8C%97%E4%BA%AC",
+		      "request_path": "/api/v1/aqi/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E5%8C%97%E4%BA%AC",
 		      "request_body": null,
 		      "request_headers": {
 		        "Accept": "application/json",
@@ -732,111 +1230,28 @@
 		        "Content-Type": "application/json; charset=utf-8",
 		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
 		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "8f34cfbe-a794-4a34-b81a-0c783cfc93f1",
-		        "X-Runtime": "0.026792",
+		        "X-Request-Id": "dacbfbb8-06cd-4fbe-a4a4-7d849c696a5f",
+		        "X-Runtime": "0.169206",
 		        "Vary": "Origin",
 		        "X-Rack-CORS": "preflight-hit; no-origin",
 		        "Content-Length": "36"
 		      },
 		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/weather_forecasts/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E5%8C%97%E4%BA%AC\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/aqi/query?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&city_name=%E5%8C%97%E4%BA%AC\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
 		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
 		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\ncity_name: 北京",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 8f34cfbe-a794-4a34-b81a-0c783cfc93f1\nX-Runtime: 0.026792\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: dacbfbb8-06cd-4fbe-a4a4-7d849c696a5f\nX-Runtime: 0.169206\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
 		    }
 		  ]
 		},
 
-		{
-		  "resource": "天气预报",
-		  "http_method": "GET",
-		  "route": "/api/v1/weather_forecasts/locate",
-		  "description": "根据坐标匹配城市查询",
-		  "explanation": null,
-		  "parameters": [
-		    {
-		      "required": true,
-		      "name": "appid",
-		      "description": "用户id"
-		    },
-		    {
-		      "required": true,
-		      "name": "appkey",
-		      "description": "用户key"
-		    },
-		    {
-		      "required": true,
-		      "name": "lon",
-		      "description": "经度"
-		    },
-		    {
-		      "required": true,
-		      "name": "lat",
-		      "description": "纬度"
-		    }
-		  ],
-		  "response_fields": [
-		    {
-		      "name": "code",
-		      "description": "接口调用返回码"
-		    },
-		    {
-		      "name": "msg",
-		      "description": "返回消息提示"
-		    },
-		    {
-		      "name": "data",
-		      "description": "返回数据正文"
-		    }
-		  ],
-		  "requests": [
-		    {
-		      "request_method": "GET",
-		      "request_path": "/api/v1/weather_forecasts/locate?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&lon=115.834&lat=28.123",
-		      "request_body": null,
-		      "request_headers": {
-		        "Accept": "application/json",
-		        "Content-Type": "application/json",
-		        "Host": "http://61.152.122.112:8080",
-		        "Cookie": ""
-		      },
-		      "request_query_parameters": {
-		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
-		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		        "lon": "115.834",
-		        "lat": "28.123"
-		      },
-		      "request_content_type": "application/json",
-		      "response_status": 200,
-		      "response_status_text": "OK",
-		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
-		      "response_headers": {
-		        "X-Frame-Options": "SAMEORIGIN",
-		        "X-XSS-Protection": "1; mode=block",
-		        "X-Content-Type-Options": "nosniff",
-		        "Content-Type": "application/json; charset=utf-8",
-		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
-		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "3d07bd63-fac1-4c23-8277-976a2362349c",
-		        "X-Runtime": "0.061448",
-		        "Vary": "Origin",
-		        "X-Rack-CORS": "preflight-hit; no-origin",
-		        "Content-Length": "36"
-		      },
-		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/weather_forecasts/locate?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&lon=115.834&lat=28.123\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
-		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
-		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\nlon: 115.834\nlat: 28.123",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 3d07bd63-fac1-4c23-8277-976a2362349c\nX-Runtime: 0.061448\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
-		    }
-		  ]
-		},
+
 
 		{
-		  "resource": "天气预报",
+		  "resource": "自动站",
 		  "http_method": "GET",
-		  "route": "/api/v1/weather_forecasts/today",
-		  "description": "上海当天天气预报",
+		  "route": "/api/v1/auto_stations/master",
+		  "description": "上海10区县主站实时数据",
 		  "explanation": null,
 		  "parameters": [
 		    {
@@ -862,36 +1277,12 @@
 		    {
 		      "name": "data",
 		      "description": "返回数据正文"
-		    },
-		    {
-		      "name": "datatime",
-		      "description": "预报日期"
-		    },
-		    {
-		      "name": "tempe",
-		      "description": "温度"
-		    },
-		    {
-		      "name": "direction",
-		      "description": "风向"
-		    },
-		    {
-		      "name": "speed",
-		      "description": "风速"
-		    },
-		    {
-		      "name": "weather",
-		      "description": "天气现象"
-		    },
-		    {
-		      "name": "weathpic",
-		      "description": "天气现象(图片)"
 		    }
 		  ],
 		  "requests": [
 		    {
 		      "request_method": "GET",
-		      "request_path": "/api/v1/weather_forecasts/today?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		      "request_path": "/api/v1/auto_stations/master?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
 		      "request_body": null,
 		      "request_headers": {
 		        "Accept": "application/json",
@@ -914,184 +1305,26 @@
 		        "Content-Type": "application/json; charset=utf-8",
 		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
 		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "8e60b1b4-62f3-44ad-bb84-4a7c32912fda",
-		        "X-Runtime": "0.032034",
+		        "X-Request-Id": "a7d8d451-fc13-47eb-b9f4-fd194ca8d3f6",
+		        "X-Runtime": "0.021260",
 		        "Vary": "Origin",
 		        "X-Rack-CORS": "preflight-hit; no-origin",
 		        "Content-Length": "36"
 		      },
 		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/weather_forecasts/today?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/auto_stations/master?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
 		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
 		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 8e60b1b4-62f3-44ad-bb84-4a7c32912fda\nX-Runtime: 0.032034\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: a7d8d451-fc13-47eb-b9f4-fd194ca8d3f6\nX-Runtime: 0.021260\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
 		    }
 		  ]
 		},
 
 		{
-		  "resource": "天气预警",
+		  "resource": "自动站",
 		  "http_method": "GET",
-		  "route": "/api/v1/warnings/district",
-		  "description": "上海区县预警查询",
-		  "explanation": null,
-		  "parameters": [
-		    {
-		      "required": true,
-		      "name": "appid",
-		      "description": "用户id"
-		    },
-		    {
-		      "required": true,
-		      "name": "appkey",
-		      "description": "用户key"
-		    },
-		    {
-		      "required": true,
-		      "name": "unit",
-		      "description": "区县名称"
-		    }
-		  ],
-		  "response_fields": [
-		    {
-		      "name": "code",
-		      "description": "接口调用返回码"
-		    },
-		    {
-		      "name": "msg",
-		      "description": "返回消息提示"
-		    },
-		    {
-		      "name": "data",
-		      "description": "返回数据正文"
-		    }
-		  ],
-		  "requests": [
-		    {
-		      "request_method": "GET",
-		      "request_path": "/api/v1/warnings/district?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&unit=%E9%87%91%E5%B1%B1",
-		      "request_body": null,
-		      "request_headers": {
-		        "Accept": "application/json",
-		        "Content-Type": "application/json",
-		        "Host": "http://61.152.122.112:8080",
-		        "Cookie": ""
-		      },
-		      "request_query_parameters": {
-		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
-		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		        "unit": "金山"
-		      },
-		      "request_content_type": "application/json",
-		      "response_status": 200,
-		      "response_status_text": "OK",
-		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
-		      "response_headers": {
-		        "X-Frame-Options": "SAMEORIGIN",
-		        "X-XSS-Protection": "1; mode=block",
-		        "X-Content-Type-Options": "nosniff",
-		        "Content-Type": "application/json; charset=utf-8",
-		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
-		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "5badc9ea-4575-4e65-b3d9-3e07f722cc5e",
-		        "X-Runtime": "0.039378",
-		        "Vary": "Origin",
-		        "X-Rack-CORS": "preflight-hit; no-origin",
-		        "Content-Length": "36"
-		      },
-		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/warnings/district?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&unit=%E9%87%91%E5%B1%B1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
-		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
-		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\nunit: 金山",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 5badc9ea-4575-4e65-b3d9-3e07f722cc5e\nX-Runtime: 0.039378\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
-		    }
-		  ]
-		},
-
-		{
-		  "resource": "天气预警",
-		  "http_method": "GET",
-		  "route": "/api/v1/warnings/community",
-		  "description": "上海社区预警查询",
-		  "explanation": null,
-		  "parameters": [
-		    {
-		      "required": true,
-		      "name": "appid",
-		      "description": "用户id"
-		    },
-		    {
-		      "required": true,
-		      "name": "appkey",
-		      "description": "用户key"
-		    },
-		    {
-		      "required": true,
-		      "name": "unit",
-		      "description": "社区名称"
-		    }
-		  ],
-		  "response_fields": [
-		    {
-		      "name": "code",
-		      "description": "接口调用返回码"
-		    },
-		    {
-		      "name": "msg",
-		      "description": "返回消息提示"
-		    },
-		    {
-		      "name": "data",
-		      "description": "返回数据正文"
-		    }
-		  ],
-		  "requests": [
-		    {
-		      "request_method": "GET",
-		      "request_path": "/api/v1/warnings/community?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&unit=%E4%BA%94%E8%A7%92%E5%9C%BA%E8%A1%97%E9%81%93",
-		      "request_body": null,
-		      "request_headers": {
-		        "Accept": "application/json",
-		        "Content-Type": "application/json",
-		        "Host": "http://61.152.122.112:8080",
-		        "Cookie": ""
-		      },
-		      "request_query_parameters": {
-		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
-		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		        "unit": "五角场街道"
-		      },
-		      "request_content_type": "application/json",
-		      "response_status": 200,
-		      "response_status_text": "OK",
-		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
-		      "response_headers": {
-		        "X-Frame-Options": "SAMEORIGIN",
-		        "X-XSS-Protection": "1; mode=block",
-		        "X-Content-Type-Options": "nosniff",
-		        "Content-Type": "application/json; charset=utf-8",
-		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
-		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "9d08f739-e6fb-42d3-a6ce-2dfb569d7243",
-		        "X-Runtime": "0.058976",
-		        "Vary": "Origin",
-		        "X-Rack-CORS": "preflight-hit; no-origin",
-		        "Content-Length": "36"
-		      },
-		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/warnings/community?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&unit=%E4%BA%94%E8%A7%92%E5%9C%BA%E8%A1%97%E9%81%93\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
-		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
-		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\nunit: 五角场街道",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 9d08f739-e6fb-42d3-a6ce-2dfb569d7243\nX-Runtime: 0.058976\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
-		    }
-		  ]
-		},
-
-		{
-		  "resource": "天气预警",
-		  "http_method": "GET",
-		  "route": "/api/v1/warnings/city",
-		  "description": "上海市实时预警查询",
+		  "route": "/api/v1/auto_stations",
+		  "description": "上海自动站实时数据[10分钟间隔]",
 		  "explanation": null,
 		  "parameters": [
 		    {
@@ -1122,7 +1355,7 @@
 		  "requests": [
 		    {
 		      "request_method": "GET",
-		      "request_path": "/api/v1/warnings/city?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		      "request_path": "/api/v1/auto_stations?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
 		      "request_body": null,
 		      "request_headers": {
 		        "Accept": "application/json",
@@ -1145,17 +1378,90 @@
 		        "Content-Type": "application/json; charset=utf-8",
 		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
 		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "2af024f9-484f-4251-9e68-0f24d2d8a82f",
-		        "X-Runtime": "0.039033",
+		        "X-Request-Id": "ed539bff-8bfe-462b-a8f1-fdbeadd202f9",
+		        "X-Runtime": "0.058049",
 		        "Vary": "Origin",
 		        "X-Rack-CORS": "preflight-hit; no-origin",
 		        "Content-Length": "36"
 		      },
 		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/warnings/city?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/auto_stations?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
 		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
 		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 2af024f9-484f-4251-9e68-0f24d2d8a82f\nX-Runtime: 0.039033\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: ed539bff-8bfe-462b-a8f1-fdbeadd202f9\nX-Runtime: 0.058049\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
+		    }
+		  ]
+		},
+
+		{
+		  "resource": "自动站",
+		  "http_method": "GET",
+		  "route": "/api/v1/stable_stations",
+		  "description": "上海自动站实时数据[5分钟间隔]",
+		  "explanation": null,
+		  "parameters": [
+		    {
+		      "required": true,
+		      "name": "appid",
+		      "description": "用户id"
+		    },
+		    {
+		      "required": true,
+		      "name": "appkey",
+		      "description": "用户key"
+		    }
+		  ],
+		  "response_fields": [
+		    {
+		      "name": "code",
+		      "description": "接口调用返回码"
+		    },
+		    {
+		      "name": "msg",
+		      "description": "返回消息提示"
+		    },
+		    {
+		      "name": "data",
+		      "description": "返回数据正文"
+		    }
+		  ],
+		  "requests": [
+		    {
+		      "request_method": "GET",
+		      "request_path": "/api/v1/stable_stations?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		      "request_body": null,
+		      "request_headers": {
+		        "Accept": "application/json",
+		        "Content-Type": "application/json",
+		        "Host": "http://61.152.122.112:8080",
+		        "Cookie": ""
+		      },
+		      "request_query_parameters": {
+		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
+		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"
+		      },
+		      "request_content_type": "application/json",
+		      "response_status": 200,
+		      "response_status_text": "OK",
+		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
+		      "response_headers": {
+		        "X-Frame-Options": "SAMEORIGIN",
+		        "X-XSS-Protection": "1; mode=block",
+		        "X-Content-Type-Options": "nosniff",
+		        "Content-Type": "application/json; charset=utf-8",
+		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
+		        "Cache-Control": "max-age=0, private, must-revalidate",
+		        "X-Request-Id": "d022b302-7f09-4fcb-9de0-935cac25ef15",
+		        "X-Runtime": "0.048348",
+		        "Vary": "Origin",
+		        "X-Rack-CORS": "preflight-hit; no-origin",
+		        "Content-Length": "36"
+		      },
+		      "response_content_type": "application/json; charset=utf-8",
+		      "curl": "curl \"http://61.152.122.112:8080/api/v1/stable_stations?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
+		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
+		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
+		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: d022b302-7f09-4fcb-9de0-935cac25ef15\nX-Runtime: 0.048348\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
 		    }
 		  ]
 		},
@@ -1243,310 +1549,7 @@
 		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 1006ee54-63a3-43aa-92d4-34c2fdf1ba04\nX-Runtime: 0.032712\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
 		    }
 		  ]
-		},
+		}  
 
-		{
-		  "resource": "自动站",
-		  "http_method": "GET",
-		  "route": "/api/v1/auto_stations/master",
-		  "description": "上海10区县主站实时数据",
-		  "explanation": null,
-		  "parameters": [
-		    {
-		      "required": true,
-		      "name": "appid",
-		      "description": "用户id"
-		    },
-		    {
-		      "required": true,
-		      "name": "appkey",
-		      "description": "用户key"
-		    }
-		  ],
-		  "response_fields": [
-		    {
-		      "name": "code",
-		      "description": "接口调用返回码"
-		    },
-		    {
-		      "name": "msg",
-		      "description": "返回消息提示"
-		    },
-		    {
-		      "name": "data",
-		      "description": "返回数据正文"
-		    }
-		  ],
-		  "requests": [
-		    {
-		      "request_method": "GET",
-		      "request_path": "/api/v1/auto_stations/master?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		      "request_body": null,
-		      "request_headers": {
-		        "Accept": "application/json",
-		        "Content-Type": "application/json",
-		        "Host": "http://61.152.122.112:8080",
-		        "Cookie": ""
-		      },
-		      "request_query_parameters": {
-		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
-		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"
-		      },
-		      "request_content_type": "application/json",
-		      "response_status": 200,
-		      "response_status_text": "OK",
-		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
-		      "response_headers": {
-		        "X-Frame-Options": "SAMEORIGIN",
-		        "X-XSS-Protection": "1; mode=block",
-		        "X-Content-Type-Options": "nosniff",
-		        "Content-Type": "application/json; charset=utf-8",
-		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
-		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "a7d8d451-fc13-47eb-b9f4-fd194ca8d3f6",
-		        "X-Runtime": "0.021260",
-		        "Vary": "Origin",
-		        "X-Rack-CORS": "preflight-hit; no-origin",
-		        "Content-Length": "36"
-		      },
-		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/auto_stations/master?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
-		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
-		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: a7d8d451-fc13-47eb-b9f4-fd194ca8d3f6\nX-Runtime: 0.021260\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
-		    }
-		  ]
-		},
-
-		{
-		  "resource": "自动站",
-		  "http_method": "GET",
-		  "route": "/api/v1/stable_stations",
-		  "description": "上海自动站实时数据[5分钟间隔]",
-		  "explanation": null,
-		  "parameters": [
-		    {
-		      "required": true,
-		      "name": "appid",
-		      "description": "用户id"
-		    },
-		    {
-		      "required": true,
-		      "name": "appkey",
-		      "description": "用户key"
-		    }
-		  ],
-		  "response_fields": [
-		    {
-		      "name": "code",
-		      "description": "接口调用返回码"
-		    },
-		    {
-		      "name": "msg",
-		      "description": "返回消息提示"
-		    },
-		    {
-		      "name": "data",
-		      "description": "返回数据正文"
-		    }
-		  ],
-		  "requests": [
-		    {
-		      "request_method": "GET",
-		      "request_path": "/api/v1/stable_stations?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		      "request_body": null,
-		      "request_headers": {
-		        "Accept": "application/json",
-		        "Content-Type": "application/json",
-		        "Host": "http://61.152.122.112:8080",
-		        "Cookie": ""
-		      },
-		      "request_query_parameters": {
-		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
-		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"
-		      },
-		      "request_content_type": "application/json",
-		      "response_status": 200,
-		      "response_status_text": "OK",
-		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
-		      "response_headers": {
-		        "X-Frame-Options": "SAMEORIGIN",
-		        "X-XSS-Protection": "1; mode=block",
-		        "X-Content-Type-Options": "nosniff",
-		        "Content-Type": "application/json; charset=utf-8",
-		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
-		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "d022b302-7f09-4fcb-9de0-935cac25ef15",
-		        "X-Runtime": "0.048348",
-		        "Vary": "Origin",
-		        "X-Rack-CORS": "preflight-hit; no-origin",
-		        "Content-Length": "36"
-		      },
-		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/stable_stations?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
-		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
-		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: d022b302-7f09-4fcb-9de0-935cac25ef15\nX-Runtime: 0.048348\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
-		    }
-		  ]
-		},
-
-		{
-		  "resource": "自动站",
-		  "http_method": "GET",
-		  "route": "/api/v1/auto_stations",
-		  "description": "上海自动站实时数据[10分钟间隔]",
-		  "explanation": null,
-		  "parameters": [
-		    {
-		      "required": true,
-		      "name": "appid",
-		      "description": "用户id"
-		    },
-		    {
-		      "required": true,
-		      "name": "appkey",
-		      "description": "用户key"
-		    }
-		  ],
-		  "response_fields": [
-		    {
-		      "name": "code",
-		      "description": "接口调用返回码"
-		    },
-		    {
-		      "name": "msg",
-		      "description": "返回消息提示"
-		    },
-		    {
-		      "name": "data",
-		      "description": "返回数据正文"
-		    }
-		  ],
-		  "requests": [
-		    {
-		      "request_method": "GET",
-		      "request_path": "/api/v1/auto_stations?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		      "request_body": null,
-		      "request_headers": {
-		        "Accept": "application/json",
-		        "Content-Type": "application/json",
-		        "Host": "http://61.152.122.112:8080",
-		        "Cookie": ""
-		      },
-		      "request_query_parameters": {
-		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
-		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"
-		      },
-		      "request_content_type": "application/json",
-		      "response_status": 200,
-		      "response_status_text": "OK",
-		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
-		      "response_headers": {
-		        "X-Frame-Options": "SAMEORIGIN",
-		        "X-XSS-Protection": "1; mode=block",
-		        "X-Content-Type-Options": "nosniff",
-		        "Content-Type": "application/json; charset=utf-8",
-		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
-		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "ed539bff-8bfe-462b-a8f1-fdbeadd202f9",
-		        "X-Runtime": "0.058049",
-		        "Vary": "Origin",
-		        "X-Rack-CORS": "preflight-hit; no-origin",
-		        "Content-Length": "36"
-		      },
-		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/auto_stations?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
-		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
-		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: ed539bff-8bfe-462b-a8f1-fdbeadd202f9\nX-Runtime: 0.058049\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
-		    }
-		  ]
-		},
-
-		{
-		  "resource": "QPF雷达回波",
-		  "http_method": "GET",
-		  "route": "/api/v1/qpfs/locate",
-		  "description": "QPF",
-		  "explanation": null,
-		  "parameters": [
-		    {
-		      "required": true,
-		      "name": "appid",
-		      "description": "用户id"
-		    },
-		    {
-		      "required": true,
-		      "name": "appkey",
-		      "description": "用户key"
-		    },
-		    {
-		      "required": true,
-		      "name": "lon",
-		      "description": "经度"
-		    },
-		    {
-		      "required": true,
-		      "name": "lat",
-		      "description": "纬度"
-		    }
-		  ],
-		  "response_fields": [
-		    {
-		      "name": "code",
-		      "description": "接口调用返回码"
-		    },
-		    {
-		      "name": "msg",
-		      "description": "返回消息提示"
-		    },
-		    {
-		      "name": "data",
-		      "description": "返回数据正文"
-		    }
-		  ],
-		  "requests": [
-		    {
-		      "request_method": "GET",
-		      "request_path": "/api/v1/qpfs/locate?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&lon=121.834&lat=30.123",
-		      "request_body": null,
-		      "request_headers": {
-		        "Accept": "application/json",
-		        "Content-Type": "application/json",
-		        "Host": "http://61.152.122.112:8080",
-		        "Cookie": ""
-		      },
-		      "request_query_parameters": {
-		        "appid": "bFLKk0uV7IZvzcBoWJ1j",
-		        "appkey": "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe",
-		        "lon": "121.834",
-		        "lat": "30.123"
-		      },
-		      "request_content_type": "application/json",
-		      "response_status": 200,
-		      "response_status_text": "OK",
-		      "response_body": "{\n  \"code\": 100001,\n  \"msg\": \"鉴权失败\"\n}",
-		      "response_headers": {
-		        "X-Frame-Options": "SAMEORIGIN",
-		        "X-XSS-Protection": "1; mode=block",
-		        "X-Content-Type-Options": "nosniff",
-		        "Content-Type": "application/json; charset=utf-8",
-		        "ETag": "W/\"03a287efdec06ca74f0ea6541c742731\"",
-		        "Cache-Control": "max-age=0, private, must-revalidate",
-		        "X-Request-Id": "3e125acf-85c8-442b-b6e6-0c194607dace",
-		        "X-Runtime": "0.042486",
-		        "Vary": "Origin",
-		        "X-Rack-CORS": "preflight-hit; no-origin",
-		        "Content-Length": "36"
-		      },
-		      "response_content_type": "application/json; charset=utf-8",
-		      "curl": "curl \"http://61.152.122.112:8080/api/v1/qpfs/locate?appid=bFLKk0uV7IZvzcBoWJ1j&appkey=mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe&lon=121.834&lat=30.123\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: http://61.152.122.112:8080\" \\\n\t-H \"Cookie: \"",
-		      "request_headers_text": "Accept: application/json\nContent-Type: application/json\nHost: http://61.152.122.112:8080\nCookie: ",
-		      "request_query_parameters_text": "appid: bFLKk0uV7IZvzcBoWJ1j\nappkey: mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe\nlon: 121.834\nlat: 30.123",
-		      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: W/\"03a287efdec06ca74f0ea6541c742731\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 3e125acf-85c8-442b-b6e6-0c194607dace\nX-Runtime: 0.042486\nVary: Origin\nX-Rack-CORS: preflight-hit; no-origin\nContent-Length: 36"
-		    }
-		  ]
-		}
 	]
 }
