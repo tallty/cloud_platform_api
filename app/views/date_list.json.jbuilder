@@ -1,0 +1,1 @@
+json.date_list @date_list

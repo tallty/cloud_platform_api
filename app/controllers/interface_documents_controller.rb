@@ -12,35 +12,44 @@ class InterfaceDocumentsController < ApplicationController
   end
 
   def show
-    # _appid = params[:appid]
-    # _appkey = params[:appkey]
-    # if _appid.present? && _appkey.present?
-    #   _user = User.find_by(appkey: _appkey, appid:_appid)
-    #   if _user.present?
-    #     @interface_document.update(frequency: @interface_document.frequency + 1) #记录访问次数
-    #     @interface_document.ceate_statis_info(current_user.id, @interface_document.id)#创建统计信息
-    #     respond_with(@interface_document)
-    #   else
-    #     @error = "current_user not present !"
-    #     respond_with(@error,template: 'error', status: 200)
-    #   end
-    # else
-    #   @error = "appid  or appkey not present !"
-    #   respond_with(@error,template: 'error', status: 200)
-    # end
     respond_with(@interface_document)
   end
 
   #接口文档信息列表
   def list
     @date_list = DataJson.get_list
-    respond_with @date_list, template: '/date'
+    respond_with @date_list, template: '/date_list'
   end
   #接口文档详情
   def details
-    url = params[:url] #|| "qpf雷达回波/qpf.json"
+    url = params[:url] || "qpf雷达回波/qpf.json"
     @date_details = DataJson.get_details(url)
-    respond_with @date_details, template: '/date'
+    respond_with @date_details, template: '/date_details'
+  end
+
+  #接口数据
+  def api_date  
+  	 _appid = params[:appid]
+     _appkey = params[:appkey]
+     _id = params[:keyword].to_i || 0
+     if _appid.present? && _appkey.present?
+       _user = User.find_by(appkey: _appkey, appid:_appid)
+       if _user.present?
+       	 _user.interface_documents.find(_id)
+	     @api_dates = DataJson.get_data(_id)
+	    
+
+         @interface_document.update(frequency: @interface_document.frequency + 1) #记录访问次数
+         @interface_document.ceate_statis_info(current_user.id, @interface_document.id)#创建统计信息
+         respond_with @api_dates, template: '/api_dates'
+       else
+         @error = "current_user not present !"
+         respond_with(@error,template: 'error', status: 200)
+       end
+     else
+       @error = "appid  or appkey not present !"
+       respond_with(@error,template: 'error', status: 200)
+     end
   end
 
   # def show
