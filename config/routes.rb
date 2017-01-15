@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :apis do
+    get :api_date
+  end
   resources :records, only: [:index, :show] do
     collection do
       get :list
@@ -14,7 +17,6 @@ Rails.application.routes.draw do
     collection do 
       get :list
       get :details
-      get :api_date
     end
     resources :statis_infos
   end

@@ -26,32 +26,7 @@ class InterfaceDocumentsController < ApplicationController
     @date_details = DataJson.get_details(url)
     respond_with @date_details, template: '/date_details'
   end
-
-  #接口数据
-  def api_date  
-  	 _appid = params[:appid]
-     _appkey = params[:appkey]
-     _id = params[:keyword].to_i || 0
-     if _appid.present? && _appkey.present?
-       _user = User.find_by(appkey: _appkey, appid:_appid)
-       if _user.present?
-       	 _user.interface_documents.find(_id)
-	     @api_dates = DataJson.get_data(_id)
-	    
-
-         @interface_document.update(frequency: @interface_document.frequency + 1) #记录访问次数
-         @interface_document.ceate_statis_info(current_user.id, @interface_document.id)#创建统计信息
-         respond_with @api_dates, template: '/api_dates'
-       else
-         @error = "current_user not present !"
-         respond_with(@error,template: 'error', status: 200)
-       end
-     else
-       @error = "appid  or appkey not present !"
-       respond_with(@error,template: 'error', status: 200)
-     end
-  end
-
+  
   # def show
   #  #访问接口的权限
   #  @appointments = @interface_document.appointments.get_user(current_user.id)#获取接口对应的所有申请。
