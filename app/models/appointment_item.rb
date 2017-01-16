@@ -41,12 +41,17 @@ class AppointmentItem < ApplicationRecord
 
   def check_accept
     self.accept!
-    _record = Record.create(
+    _record = Record.where(user_id: self.appointment.user_id, interface_document_id: self.interface_document_id)
+    if _record.present? 
+      _record.update(range: self.range)
+    else
+      _record = Record.create(
                             user_id: self.appointment.user_id,
                             interface_document_id: self.interface_document_id,
                             range: self.range
                             )
-    _record.save
+      _record.save
+    end
   end
 
   #状态别名

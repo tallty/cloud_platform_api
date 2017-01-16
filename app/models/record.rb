@@ -16,6 +16,7 @@ class Record < ApplicationRecord
   belongs_to :interface_document
 
   after_create :create_end_time
+  after_update :update_end_time
 
   ################# validate ##############
   validates_presence_of :range, on: :create, message: "range不能为空"
@@ -53,10 +54,41 @@ class Record < ApplicationRecord
     self.save
   end
 
+  #处理到期时间
+  def manager_end_time start_time
+    case self.range
+    when "one_month"
+     self.end_time = start_time + 1.month
+    when "two_month"
+     self.end_time = start_time + 2.month
+    when "three_month"
+     self.end_time = start_time + 3.month
+    when "six_month"
+     self.end_time = start_time + 6.month
+    when "one_year"
+     self.end_time = start_time + 1.year
+    when "two_year"
+     self.end_time = start_time + 2.year
+    when "three_year"
+     self.end_time = start_time + 3.year
+    when "always"
+     self.end_time = "永久"
+    end
+  end
+
+  #延期时更新到期时间
+  def update_end_time
+    if self.end_time < Time.zone.today
+      self.manager_end_time(Time.zone.today)
+    else
+      self.manager_end_time(self.end_time)
+    end
+  end
   #接口状态（正常或者过期）
   def state
     Time.zone.tomorrow > self.end_time  if self.end_time.present?
   end
-
-  scope :will_delay, ->{ where("end_time > ? and end_time < ?", Time.zone.today - 7.day, Time.zone.tomorrow)}
+  
+  #即将到期
+  scope :will_delay, ->{ where("end_time > ? and end_time < ?", Time.zone.today, Time.zone.today + 7.days)}
 end

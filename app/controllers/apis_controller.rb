@@ -12,7 +12,7 @@ class ApisController < ApplicationController
       @user = User.find_by(appkey: _appkey, appid:_appid)
       if @user.present?
         @interface_document = @user.interface_documents.find_by(api_type: _api_type)
-        if @interface_document.present?
+        if @interface_document.present? && @interface_document.records.find_by(user_id:@user.id).end_time > Time.zone.now - 1.days
           appid = "bFLKk0uV7IZvzcBoWJ1j"
           appkey = "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"
           url = "#{@interface_document.site}appid=#{appid}&appkey=#{appkey}"
