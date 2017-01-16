@@ -82,9 +82,12 @@ class Appointment < ApplicationRecord
 
   #批量创建申请项
   def create_items(ids, appointment_id)
-    ids.each do |id|
-      _item = self.appointment_items.create(appointment_id: appointment_id, interface_document_id: id, range: self.range)
-      _item.save
-    end   
+    ActiveRecord::Base.transaction do
+      ids.each do |id|
+        _item = self.appointment_items.create(appointment_id: appointment_id, interface_document_id: id, range: self.range)
+        @api = InterfaceDocument.find(id)
+        raise "#{@api.title}这条接口申请失败！，" unless _item.save 
+      end   
+    end  
   end
 end
