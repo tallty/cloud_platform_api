@@ -86,7 +86,7 @@ class Record < ApplicationRecord
   end
   #接口状态（正常或者过期）
   def state
-    Time.zone.tomorrow > self.end_time  if self.end_time.present?
+    Time.zone.today < self.end_time  if self.end_time.present?
   end
   
   #即将到期
