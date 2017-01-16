@@ -5,9 +5,9 @@ class ApisController < ApplicationController
 
   #用户调用天气接口数据
   def api_date
+    _api_type = params[:api_type]
     _appid = params[:appid]
     _appkey = params[:appkey]
-    _api_type = params[:api_type]
     if _appid.present? && _appkey.present?
       @user = User.find_by(appkey: _appkey, appid:_appid)
       if @user.present?

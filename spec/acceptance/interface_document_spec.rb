@@ -137,7 +137,7 @@ resource "用户 调用接口 " do
         let(:city_name) {""}
         let(:unit) {""}
 
-        example "appid or appkey not present !" do
+        example "当前用户的appid or appkey 不存在 !" do
           do_request
           puts response_body
           expect(status).to eq(422)
