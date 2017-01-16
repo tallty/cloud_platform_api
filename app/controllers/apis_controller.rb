@@ -11,7 +11,7 @@ class ApisController < ApplicationController
     if _appid.present? && _appkey.present?
       @user = User.find_by(appkey: _appkey, appid:_appid)
       if @user.present?
-        @interface_document = current_user.interface_documents.find_by(api_type: _api_type)
+        @interface_document = @user.interface_documents.find_by(api_type: _api_type)
         if @interface_document.present?
           appid = "bFLKk0uV7IZvzcBoWJ1j"
           appkey = "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"

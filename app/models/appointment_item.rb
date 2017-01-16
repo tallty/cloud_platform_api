@@ -71,7 +71,7 @@ class AppointmentItem < ApplicationRecord
   	I18n.t :"appointment_range.#{range}"
   end
 
-  def appointment_time#开始时间
+  def appointment_time#申请时间
     self.created_at.to_date 
   end
 
