@@ -27,39 +27,59 @@ class InterfaceDocument < ApplicationRecord
   	_statis_info.save!
   end
  
-  ############### 排名情况 ###################
+  ############################################ 排名情况 ######################################
   def total_rank#总的排名
   	self.class.where("frequency > ?", self.frequency).count + 1
   end
 
   def year_rank#年排名
-  	self.class.where("frequency > ?", self.year_frequency).count + 1
+    count = 1
+    InterfaceDocument.all.each do |api|
+      count = count + 1 if api.year_frequency > self.year_frequency
+    end
+    count 
   end
 
   def month_rank#月排名
-  	self.class.where("frequency > ?", self.month_frequency).count + 1
+  	count = 1
+    InterfaceDocument.all.each do |api|
+      count = count + 1 if api.month_frequency > self.month_frequency
+    end
+    count 
   end
 
   def week_rank#周排名
-  	self.class.where("frequency > ?", self.week_frequency).count + 1
+  	count = 1
+    InterfaceDocument.all.each do |api|
+      count = count + 1 if api.week_frequency > self.week_frequency
+    end
+    count 
   end
 
   def day_rank#日排名
-  	self.class.where("frequency > ?", self.day_frequency).count + 1
+  	count = 1
+    InterfaceDocument.all.each do |api|
+      count = count + 1 if api.day_frequency > self.day_frequency
+    end
+    count 
   end
 
-  def hour_rank#日排名
-  	self.class.where("frequency > ?", self.hour_frequency).count + 1
+  def hour_rank#小时排名
+  	count = 1
+    InterfaceDocument.all.each do |api|
+      count = count + 1 if api.hour_frequency > self.hour_frequency
+    end
+    count 
   end
 
-  ############### 访问情况 ###################
+  ############################################ 访问量情况 ########################################
   def total_frequency#总访问量
   	self.frequency
   end
 
   def hour_frequency#时访问量
     if self.statis_infos.present?
-      self.statis_infos.where("created_at > ?", Time.zone.now - 1.hour).count
+       self.statis_infos.where("created_at > ?", Time.zone.now - 1.hour).count
     else
       0
     end
@@ -67,15 +87,15 @@ class InterfaceDocument < ApplicationRecord
 
   def day_frequency#天访问量
     if self.statis_infos.present?
-      self.statis_infos.where("created_at > ?", Time.zone.now.midnight).count
+      self.statis_infos.where("created_at > ?", Time.zone.now.midnight).count #从当日0点0份分0秒到现在
     else
       0
     end
   end
 
-  def week_frequency#周访问量
+  def week_frequency#周访问量 #####
     if self.statis_infos.present?
-      self.statis_infos.where("created_at > ?", Time.zone.now.midnight - 6.day).count
+      self.statis_infos.where("created_at > ?", Time.zone.now - Time.zone.now.wday.days).count #从本周的周一到现在
     else
       0
     end
@@ -83,7 +103,7 @@ class InterfaceDocument < ApplicationRecord
 
   def month_frequency#月访问量55
     if self.statis_infos.present?
-      self.statis_infos.where("created_at > ?",Time.zone.now.midnight - 1.month).count
+      self.statis_infos.where("created_at > ?", Time.zone.now - Time.zone.now.day.days).count #从本月的1号到现在
     else
       0
     end
@@ -91,7 +111,7 @@ class InterfaceDocument < ApplicationRecord
 
   def year_frequency#年访问量
     if self.statis_infos.present?
-      self.statis_infos.where("created_at > ?", Time.zone.now.midnight - 1.year).count    
+      self.statis_infos.where("created_at > ?",  Time.zone.now - Time.zone.now.yday.days).count  #从本年的1月1号到现在  
     else
       0
     end
