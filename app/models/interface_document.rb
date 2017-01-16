@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  frequency   :integer          default(0)
+#  api_type    :string
 #
 
 class InterfaceDocument < ApplicationRecord
