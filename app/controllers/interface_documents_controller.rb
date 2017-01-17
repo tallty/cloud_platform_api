@@ -1,5 +1,5 @@
 class InterfaceDocumentsController < ApplicationController
-  acts_as_token_authentication_handler_for User, only: [:show] 
+  acts_as_token_authentication_handler_for User, only: [:list, :details] 
   before_action :set_interface_document, only: [:show]
 
   respond_to :json

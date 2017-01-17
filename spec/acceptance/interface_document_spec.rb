@@ -27,14 +27,6 @@ resource "用户查看 接口文档 相关的API " do
 
     ##################### show ########################
     get 'interface_documents/:id' do
-      user_attrs = FactoryGirl.attributes_for(:user)
-
-      header "X-User-Token", user_attrs[:authentication_token]
-      header "X-User-Phone", user_attrs[:phone]
-
-      before do
-        @user = create(:user)
-      end
     
       let(:id) { @interface_documents.first.id }
 
@@ -47,14 +39,14 @@ resource "用户查看 接口文档 相关的API " do
   end
   ##################### date list ########################
     get '/interface_documents/list' do
-      # user_attrs = FactoryGirl.attributes_for(:user)
+      user_attrs = FactoryGirl.attributes_for(:user)
 
-      # header "X-User-Token", user_attrs[:authentication_token]
-      # header "X-User-Phone", user_attrs[:phone]
+      header "X-User-Token", user_attrs[:authentication_token]
+      header "X-User-Phone", user_attrs[:phone]
 
-      # before do
-      #   @user = create(:user)
-      # end
+      before do
+        @user = create(:user)
+      end
 
       example "查看指导接口 列表" do
         do_request
@@ -65,14 +57,14 @@ resource "用户查看 接口文档 相关的API " do
 
     ##################### date details ########################
     get '/interface_documents/details' do
-      # user_attrs = FactoryGirl.attributes_for(:user)
+      user_attrs = FactoryGirl.attributes_for(:user)
 
-      # header "X-User-Token", user_attrs[:authentication_token]
-      # header "X-User-Phone", user_attrs[:phone]
+      header "X-User-Token", user_attrs[:authentication_token]
+      header "X-User-Phone", user_attrs[:phone]
 
-      # before do
-      #   @user = create(:user)
-      # end
+      before do
+        @user = create(:user)
+      end
       
       parameter :url, "接口url(如:'qpf雷达回波/qpf.json')", required: false
 
