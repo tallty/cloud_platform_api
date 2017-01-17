@@ -51,33 +51,40 @@ class Appointment < ApplicationRecord
     self.user.try(:nickname)
   end
 
-  ################ enum ######################
-  #申请使用时限
-   enum range: {
-    one_month: 0,
-    two_month: 1,
-    three_month: 2,
-    six_month: 3,
-    one_year: 4,
-    two_year: 5,
-    three_year: 6,
-    always: 7
-  }
+  # ################ enum ######################
+  # #申请使用时限
+  #  enum range: {
+  #   one_month: 0,
+  #   two_month: 1,
+  #   three_month: 2,
+  #   six_month: 3,
+  #   one_year: 4,
+  #   two_year: 5,
+  #   three_year: 6,
+  #   always: 7
+  # }
 
-  Range = {
-    one_month: "一个月",
-    two_month: "两个月",
-    three_month: "三个月",
-    six_month: "六个月",
-    one_year: "一年",
-    two_year: "两年",
-    three_year: "三年",
-    always: "永久"
-  }
+  # Range = {
+  #   one_month: "一个月",
+  #   two_month: "两个月",
+  #   three_month: "三个月",
+  #   six_month: "六个月",
+  #   one_year: "一年",
+  #   two_year: "两年",
+  #   three_year: "三年",
+  #   always: "永久"
+  # }
 
   #时间期限的别名
   def range_alias
-    I18n.t :"appointment_range.#{range}"
+    _number = self.range.to_i / 12 
+    if _number >= 1
+      "#{_number}年"
+    elsif _number == 0
+      "永久使用"
+    else 
+      "#{self.range}个月"
+    end
   end
 
   #批量创建申请项

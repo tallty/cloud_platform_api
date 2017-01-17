@@ -15,6 +15,6 @@ FactoryGirl.define do
   factory :record do
     sequence(:interface_document_id) { |n| "#{n}" }
   	sequence(:user_id) { |n| "#{n}" }
-  	range "three_month"
+  	range "6"
   end
 end

@@ -31,7 +31,7 @@ class AppointmentItem < ApplicationRecord
   	state :used
 
   	event :accept do
-      transitions from: :checking, to: :used, :after => :update_appointment_state
+      transitions from: :checking, to: :used, :after => :create_recod
     end
 
     event :refuse do
@@ -39,11 +39,13 @@ class AppointmentItem < ApplicationRecord
     end
   end
 
-  def check_accept
-    self.accept!
-    _record = Record.where(user_id: self.appointment.user_id, interface_document_id: self.interface_document_id)
+  def create_recod
+    _record = Record.where(user_id: self.appointment.user_id).find_by(interface_document_id: self.interface_document_id)
     if _record.present? 
-      _record.update(range: self.range)
+      if _record.range.to_i > 0 #第一次申请了永久，之后再申请就不改变使用时限（有可能出现的情况）
+        _range = _record.range.to_i + self.range.to_i 
+        _record.update(range: _range)
+      end
     else
       _record = Record.create(
                             user_id: self.appointment.user_id,
@@ -52,6 +54,7 @@ class AppointmentItem < ApplicationRecord
                             )
       _record.save
     end
+    self.update_appointment_state #当申请全部审核了就改变appointment的状态
   end
 
   #状态别名
@@ -73,7 +76,14 @@ class AppointmentItem < ApplicationRecord
        
   #申请使用时限
   def range_alias 
-  	I18n.t :"appointment_range.#{range}"
+  	_number = self.range.to_i / 12 
+    if _number >= 1
+      "#{_number}年"
+    elsif _number == 0
+      "永久使用"
+    else 
+      "#{self.range}个月"
+    end
   end
 
   def appointment_time#申请时间

@@ -14,6 +14,7 @@ FactoryGirl.define do
   factory :appointment do
     sequence(:user_id) { |n| "#{n}" }
     aasm_state "checking"
-    range "one_month"
+    # range "one_month"
+    range 12
   end
 end

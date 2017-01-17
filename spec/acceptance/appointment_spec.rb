@@ -16,14 +16,7 @@ resource "用户申请 接口文档 相关的API " do
     end
 
     parameter :interface_document_ids, "申请的接口集合", require: true, scope: :appointment
-    parameter :range, "申请使用的时限{one_month: 0,
-                                    two_month: 1,
-                                    three_month: 2,
-                                    six_month: 3,
-                                    one_year: 4,
-                                    two_year: 5,
-                                    three_year: 6,
-                                    aways: 7
+    parameter :range, "申请使用的时限{integer类型，0：永久， 1: 一个月， 12：一年
                                     }", require: true, scope: :appointment
     
 

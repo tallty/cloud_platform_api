@@ -13,7 +13,7 @@ resource "用户查看 申请接口记录 相关的API " do
     before do
       @user = create(:user)
       @interface_document = create(:interface_document)
-      @records = create_list(:record, 2, user: @user, interface_document: @interface_document, range: "one_month")
+      @records = create_list(:record, 2, user: @user, interface_document: @interface_document, range: "15")
       @records << create_list(:record, 2, user: @user, interface_document: @interface_document, end_time: Time.zone.today)
     end
    
