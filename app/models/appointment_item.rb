@@ -78,9 +78,15 @@ class AppointmentItem < ApplicationRecord
   def range_alias 
   	_number = self.range.to_i / 12 
     if _number >= 1
-      "#{_number}年"
-    elsif _number == 0
-      "永久使用"
+      if self.range.to_i % 12 == 0
+        "#{_number}年"
+      else
+        year = _number.to_i #年
+        month = self.range.to_i % 12
+        "#{year}年 零 #{month}个月"
+      end 
+    elsif _number == 0 && self.range.to_i % 12 == 0
+      "永久"
     else 
       "#{self.range}个月"
     end

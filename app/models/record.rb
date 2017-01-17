@@ -34,8 +34,8 @@ class Record < ApplicationRecord
         month = self.range.to_i % 12
         "#{year}年 零 #{month}个月"
       end 
-    elsif _number == 0
-      "永久使用"
+    elsif _number == 0 && self.range.to_i % 12 == 0
+      "永久"
     else 
       "#{self.range}个月"
     end
