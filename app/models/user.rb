@@ -108,6 +108,9 @@ class User < ApplicationRecord
     self.records.will_delay.count
   end
 
+  #检查用户----暂时没使用。
+  scope :check_app, ->(appkey, appid){ find_by(appkey: appkey, appid: appid) }
+
   private
     def sms_token_validate
       return if sms_token == "1981"

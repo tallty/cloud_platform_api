@@ -5,28 +5,13 @@ class ApisController < ApplicationController
 
   #用户调用天气接口数据
   def api_date
-    _api_type = params[:api_type]
-    _appid = params[:appid]
-    _appkey = params[:appkey]
-    if _appid.present? && _appkey.present?
-      @user = User.find_by(appkey: _appkey, appid:_appid)
+    if params[:appid].present? && params[:appkey].present?
+      @user = User.find_by(appkey: params[:appkey], appid: params[:appid])#准备把find_by封装成scope：check_app，但是结果出错。
       if @user.present?
-        @interface_document = @user.interface_documents.find_by(api_type: _api_type)
-        if @interface_document.present? && @interface_document.records.find_by(user_id:@user.id).end_time > Time.zone.now - 1.days
-        #   appid = "bFLKk0uV7IZvzcBoWJ1j"
-        #   appkey = "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"
-        #   url = "#{@interface_document.site}appid=#{appid}&appkey=#{appkey}"
-        #   params.each do |key, value| 
-        #     url << "&" << key << "=" << value if key == "lon" || key == "lat" || key == "city_name" || key == "unit"
-        #   end
-        #   @api_dates = DataJson.get_data(url) 
-        #   if @api_dates.present?
-        #     @interface_document.update(frequency: @interface_document.frequency + 1) #记录访问次数
-        #     @interface_document.ceate_statis_info(@user.id, @interface_document.id)#创建统计信息
-        #   end
-        #   respond_with @api_dates, template: '/api_dates, status: 200'
-        @api_dates = RequestData.get_data(params, @interface_document)
-        if @api_dates.present?
+        @interface_document = @user.interface_documents.check_api_type(params[:api_type]) if params[:api_type].present?
+        if @interface_document.present? && @interface_document.records.check_user(@user.id).state #申请的接口存在并且有效
+          @api_dates = RequestData.get_data(params, @interface_document)
+          if @api_dates.present?
             RequestData.create_statis_info(@interface_document, @user.id)
           end
           respond_with @api_dates, template: '/api_dates, status: 200'
@@ -39,7 +24,5 @@ class ApisController < ApplicationController
       @error = "appid  or appkey not present !"
       respond_with(@error,template: 'error', status: 422)
     end
- 
- 
   end
 end

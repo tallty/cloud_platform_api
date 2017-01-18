@@ -113,7 +113,7 @@ class Record < ApplicationRecord
   scope :will_delay, ->{ where("end_time > ? and end_time < ?", Time.zone.today, Time.zone.today + 7.days)}
   scope :find_user, ->(user_id){ where(user_id: user_id) }
   scope :find_interface, ->(document_id){find_by(interface_document_id: document_id)}
-
+  scope :check_user, ->(user_id){ find_by(user_id: user_id) }
   #延期record
   def self.delay_record record, range
     if record.present? && record.range.to_i > 0  #延期之前的申请不是 “永久”  

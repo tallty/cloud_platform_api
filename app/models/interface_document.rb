@@ -26,6 +26,9 @@ class InterfaceDocument < ApplicationRecord
   	                                        )
   	_statis_info.save!
   end
+
+  #检测接口
+  scope :check_api_type, ->(type){ find_by(api_type: type) }
  
   ############################################ 排名情况 ######################################
   def total_rank#总的排名
