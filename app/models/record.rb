@@ -106,10 +106,33 @@ class Record < ApplicationRecord
   
   #接口状态（正常或者过期）
   def state
-    Time.zone.today < self.end_time + 1.days  if self.end_time.present?
-    1 > 0 if self.end_time == nil #当申请时间为 ”永久“ 时
+    self.end_time.blank? || Time.zone.today < self.end_time + 1.days
   end
   
   #即将到期
   scope :will_delay, ->{ where("end_time > ? and end_time < ?", Time.zone.today, Time.zone.today + 7.days)}
+  scope :find_user, ->(user_id){ where(user_id: user_id) }
+  scope :find_interface, ->(document_id){find_by(interface_document_id: document_id)}
+
+  #延期record
+  def self.delay_record record, range
+    if record.present? && record.range.to_i > 0  #延期之前的申请不是 “永久”  
+      if record.end_time < Time.zone.today #延期时已经过期了 
+        record.update(range: range, created_at: Time.zone.today)#改变使用时限和开始时间
+      else
+        _range = record.range.to_i + range.to_i 
+        record.update(range: _range)
+      end
+    end  
+  end
+
+  #新建record
+  def self.create_record user_id, document_id, range
+    _record = Record.create(
+                            user_id: user_id,
+                            interface_document_id: document_id,
+                            range: range
+                            )
+    _record.save
+  end
 end

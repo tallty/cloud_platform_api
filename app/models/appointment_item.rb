@@ -31,7 +31,7 @@ class AppointmentItem < ApplicationRecord
   	state :used
 
   	event :accept do
-      transitions from: :checking, to: :used, :after => :create_recod
+      transitions from: :checking, to: :used, :after => :operate_record
     end
 
     event :refuse do
@@ -39,20 +39,18 @@ class AppointmentItem < ApplicationRecord
     end
   end
 
-  def create_recod
-    _record = Record.where(user_id: self.appointment.user_id).find_by(interface_document_id: self.interface_document_id)
+  #审核后操作record
+  def operate_record
+    #参数
+    _user_id = self.appointment.user_id
+    _document_id = self.interface_document_id
+    _range = self.range
+    _record = Record.find_user(_user_id).find_interface(_document_id)
+
     if _record.present? 
-      if _record.range.to_i > 0 #第一次申请了永久，之后再申请就不改变使用时限（有可能出现的情况）
-        _range = _record.range.to_i + self.range.to_i 
-        _record.update(range: _range)
-      end
+      Record.delay_record(_record, _range)#之前申请过就延期
     else
-      _record = Record.create(
-                            user_id: self.appointment.user_id,
-                            interface_document_id: self.interface_document_id,
-                            range: self.range
-                            )
-      _record.save
+      Record.create_record(_user_id, _document_id, _range)#新建
     end
     self.update_appointment_state #当申请全部审核了就改变appointment的状态
   end
@@ -64,7 +62,7 @@ class AppointmentItem < ApplicationRecord
 
   #当申请的所有接口 审核过了改变状态
   def update_appointment_state
-    _items = self.appointment.appointment_items.where(aasm_state: 'checking')
+    _items = self.appointment.appointment_items.check_state
     self.appointment.accept! unless _items.present?
   end
 
@@ -73,6 +71,8 @@ class AppointmentItem < ApplicationRecord
     return all if keyword.blank?
     AppointmentItem.all.where( aasm_state: keyword)
   }
+  #检查状态
+  scope :check_state, ->{ where(aasm_state: 'checking') }
        
   #申请使用时限
   def range_alias 

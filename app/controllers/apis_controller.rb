@@ -13,16 +13,21 @@ class ApisController < ApplicationController
       if @user.present?
         @interface_document = @user.interface_documents.find_by(api_type: _api_type)
         if @interface_document.present? && @interface_document.records.find_by(user_id:@user.id).end_time > Time.zone.now - 1.days
-          appid = "bFLKk0uV7IZvzcBoWJ1j"
-          appkey = "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"
-          url = "#{@interface_document.site}appid=#{appid}&appkey=#{appkey}"
-          params.each do |key, value| 
-            url << "&" << key << "=" << value if key == "lon" || key == "lat" || key == "city_name" || key == "unit"
-          end
-          @api_dates = DataJson.get_data(url) 
-          if @api_dates.present?
-            @interface_document.update(frequency: @interface_document.frequency + 1) #记录访问次数
-            @interface_document.ceate_statis_info(@user.id, @interface_document.id)#创建统计信息
+        #   appid = "bFLKk0uV7IZvzcBoWJ1j"
+        #   appkey = "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"
+        #   url = "#{@interface_document.site}appid=#{appid}&appkey=#{appkey}"
+        #   params.each do |key, value| 
+        #     url << "&" << key << "=" << value if key == "lon" || key == "lat" || key == "city_name" || key == "unit"
+        #   end
+        #   @api_dates = DataJson.get_data(url) 
+        #   if @api_dates.present?
+        #     @interface_document.update(frequency: @interface_document.frequency + 1) #记录访问次数
+        #     @interface_document.ceate_statis_info(@user.id, @interface_document.id)#创建统计信息
+        #   end
+        #   respond_with @api_dates, template: '/api_dates, status: 200'
+        @api_dates = RequestData.get_data(params, @interface_document)
+        if @api_dates.present?
+            RequestData.create_statis_info(@interface_document, @user.id)
           end
           respond_with @api_dates, template: '/api_dates, status: 200'
         end
@@ -30,9 +35,11 @@ class ApisController < ApplicationController
         @error = "current_user not present !"
         respond_with(@error,template: 'error', status: 422)
       end
-   else
+    else
       @error = "appid  or appkey not present !"
       respond_with(@error,template: 'error', status: 422)
-   end
+    end
+ 
+ 
   end
 end
