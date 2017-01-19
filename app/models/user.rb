@@ -44,6 +44,7 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :phone
   validates_presence_of :phone
+  validates_format_of :phone, :message => "输入的手机号格式不正确", :with => /(1[3|4|5|7|8][0-9]\d{8})/
   # validate :sms_token_validate, on: :create
 
   after_create :create_appkey_or_appid
