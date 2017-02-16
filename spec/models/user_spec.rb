@@ -19,6 +19,8 @@
 #  authentication_token   :string(30)
 #  appkey                 :string
 #  appid                  :string
+#  company_name           :string
+#  name                   :string
 #
 
 require 'rails_helper'

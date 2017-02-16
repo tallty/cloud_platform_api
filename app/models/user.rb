@@ -19,6 +19,8 @@
 #  authentication_token   :string(30)
 #  appkey                 :string
 #  appid                  :string
+#  company_name           :string
+#  name                   :string
 #
 
 class User < ApplicationRecord
@@ -46,10 +48,14 @@ class User < ApplicationRecord
   validates_presence_of :phone
   validates_format_of :phone, :message => "输入的手机号格式不正确", :with => /(1[3|4|5|7|8][0-9]\d{8})/
   # validate :sms_token_validate, on: :create
+  
+  # validates_presence_of :company_name, on: :create, message: "company_name不能为空"
+  # validates_presence_of :name, on: :create, message: "name不能为空"
+  # validates_presence_of :email, on: :create, message: "email不能为空"
 
   after_create :create_appkey_or_appid
 
-  delegate :nickname, :address, :name, to: :user_info, allow_nil: true
+  delegate :nickname, :address, to: :user_info, allow_nil: true
 
   def info
     self.user_info || self.create_user_info

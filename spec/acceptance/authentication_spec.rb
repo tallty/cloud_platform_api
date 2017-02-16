@@ -7,9 +7,17 @@ resource "用户注册登录" do
     parameter :phone, "用户注册的手机号码", required: true, scope: :user
     parameter :password, "用户注册的密码", required: true, scope: :user
     # parameter :sms_token, "用户注册的短消息验证码", required: true, scope: :user
+    
+    parameter :email, "联系人邮箱（必填）", required: true, scope: :user
+    parameter :name, "联系人姓名（必填）", required: true, scope: :user
+    parameter :company_name, "公司名称（必填）", required: true, scope: :user
 
     user_attrs = FactoryGirl.attributes_for :user
     # sms_attrs = FactoryGirl.attributes_for :sms_token
+    
+    let(:email) { user_attrs[:email] }
+    let(:name) { user_attrs[:name] }
+    let(:company_name) { user_attrs[:company_name] }
 
     describe "用户注册成功" do
       # let(:phone) { sms_attrs[:phone] }

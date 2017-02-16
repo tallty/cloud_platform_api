@@ -19,6 +19,8 @@
 #  authentication_token   :string(30)
 #  appkey                 :string
 #  appid                  :string
+#  company_name           :string
+#  name                   :string
 #
 
 FactoryGirl.define do
@@ -30,5 +32,9 @@ FactoryGirl.define do
 
     appid "dSivOBxBRU6MJk4RY6sE" 
     appkey "FAtIStyhxtV5hH7DHECpF19XAfsYCS"
+
+    company_name "公司名称"
+    email "联系人邮箱"
+    name "联系人姓名"
   end
 end

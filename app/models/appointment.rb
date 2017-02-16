@@ -48,7 +48,7 @@ class Appointment < ApplicationRecord
   end
 
   def company_name#公司名称
-    self.user.try(:nickname)
+    self.user.try(:company_name)
   end
 
   # ################ enum ######################

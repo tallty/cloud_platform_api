@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116002349) do
+ActiveRecord::Schema.define(version: 20170214070219) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                             default: "", null: false
@@ -133,6 +133,8 @@ ActiveRecord::Schema.define(version: 20170116002349) do
     t.string   "authentication_token",   limit: 30
     t.string   "appkey"
     t.string   "appid"
+    t.string   "company_name"
+    t.string   "name"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["phone"], name: "index_users_on_phone", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
