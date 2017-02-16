@@ -34,8 +34,8 @@ statis_infos = StatisInfo.create!([
 
 UserInfo.destroy_all
 user_infos = UserInfo.create!([
-							  { name: "张三丰", user_id: 1, nickname: "上海气象下属公司", address: "上海松江区路XX号", sex: "male" }, 
-							  { name: "张XX", user_id: 2, nickname: "上海气象下属公司XXX", address: "上海松江区XX路XX号", sex: "male"  }
+							  { name: "张三丰", user_id: 1, nickname: "上海气象下属公司", address: "上海松江区路XX号"}, 
+							  { name: "张XX", user_id: 2, nickname: "上海气象下属公司XXX", address: "上海松江区XX路XX号"}
 							 ])
 
 InterfaceDocument.destroy_all
