@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all 
 User.create!(phone: '13813813811', password: 'qwertyuiop', 
-	         password_confirmation: 'qwertyuiop',authentication_token:'qwertyuiop'
+	         password_confirmation: 'qwertyuiop',authentication_token:'qwertyuiop',
              email: '13813813811@qq.com', name: '测试联系人', company_name: '测试公司'
 	         )
 Admin.destroy_all
