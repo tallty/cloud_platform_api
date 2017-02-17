@@ -30,4 +30,5 @@
 /solr/
 /vendor/*
 /config/database.yml
+/config/puma.rb
 
