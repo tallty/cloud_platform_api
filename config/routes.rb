@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   end
   ################### devise_for ####################
   devise_for :admins
-  devise_for :users
+  devise_for :users, controllers: {
+    # registrations: 'registerable/registrations'
+  }
 
   ################### admin #########################
   namespace :admin do
