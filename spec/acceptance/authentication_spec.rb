@@ -111,4 +111,37 @@ resource "用户注册登录" do
   #     expect(status).to eq(201)
   #   end
   # end
+  post "user_info/reset" do
+    parameter :phone, "手机号", required: true, scope: :user
+    parameter :password, "密码", required: true, scope: :user
+
+    before do
+      @user = create(:user)
+      header "X-User-Token", @user.authentication_token
+      header "X-User-Phone", @user.phone
+    end
+    describe "重置密码成功" do
+
+      let(:phone) { @user.phone }
+      let(:password) { 'hahaha' }
+
+      example "用户重置密码成功" do
+        do_request
+        puts response_body
+        expect(status).to eq(200)
+      end  
+    end
+
+    describe "重置密码失败" do
+      user_attrs = FactoryGirl.attributes_for :user
+      let(:phone) { @user.phone + "**" }
+      let(:password) { user_attrs[:password] }
+
+      example "用户重置密码失败（用户不存在）" do
+        do_request
+        puts response_body
+        expect(status).to eq(422)
+      end
+    end
+  end
 end

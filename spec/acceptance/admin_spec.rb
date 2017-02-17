@@ -54,16 +54,18 @@ resource "管理员 帐号管理 相关接口" do
     end
   end
 
-   describe "管理员端 管理员账号相关接口" do 
+  describe "管理员端 管理员账号相关接口" do 
     admin_attrs = FactoryGirl.attributes_for(:admin)
 
     header "X-Admin-Token", admin_attrs[:authentication_token]
     header "X-Admin-Email", admin_attrs[:email]
+
+    before do
+      @admin = create(:admin)
+      @admin1 = create(:admin1)
+    end
     #################### index #########################
     get '/admin/manager_accounts' do
-      before do
-        @admins = create_list(:admin, 1)
-      end
 
       parameter :page, "当前页", required: false
       parameter :per_page, "每页的数量", required: false
@@ -80,11 +82,8 @@ resource "管理员 帐号管理 相关接口" do
 
     ##################### show ########################
     get '/admin/manager_accounts/:id' do
-      before do
-        @admins = create_list(:admin, 1)
-      end
       
-      let(:id) { @admins.first.id }
+      let(:id) { @admin.id }
 
       example "管理员 查看指定管理员账户 详情成功" do
         do_request
@@ -95,23 +94,66 @@ resource "管理员 帐号管理 相关接口" do
 
     ##################### delete ########################
     delete '/admin/manager_accounts/:id' do
-      # admin_attrs = FactoryGirl.attributes_for(:admin)
-
-      # header "X-Admin-Token", admin_attrs[:authentication_token]
-      # header "X-Admin-Phone", admin_attrs[:email]
-
-      before do
-        # @admin = create(:admin)
-        @admins = create_list(:admin, 1)
-      end
-      
-      let(:id) { @admins.first.id }
-
-      example "管理员 删除指定管理员账户 详情成功" do
+      let(:id) { @admin.id }
+      example "管理员 删除自己成功" do
         do_request
         puts response_body
         expect(status).to eq(204)
       end
+    end
+
+    post '/admin/manager_accounts/destroy_others' do
+      parameter :email, '目标管理员邮箱', required: true, scope: :admin
+
+      describe "删除成功" do
+        let(:email) { @admin1.email }
+        example "管理员 删除其他管理员成功" do
+          do_request
+          puts response_body
+          expect(status).to eq(204)
+        end
+      end
+      describe "删除失败" do
+        let(:email) { @admin.email }
+
+        example "管理员 删除自己失败" do
+          do_request
+          puts response_body
+          expect(status).to eq(422)
+        end
+      end
+    end
+
+    post "/admin/manager_accounts/reset_password" do
+      
+      parameter :email, "管理员账户邮箱", required: true, scope: :admin
+      parameter :password, "密码", required: true, scope: :admin
+
+      describe "重置密码成功" do
+        let(:email) { @admin1.email }
+        let(:password) { "hahaha" }
+
+        example "管理员重置密码成功" do
+          do_request
+          puts response_body
+          expect(status).to eq(200)
+        end  
+      end
+
+      describe "重置密码失败" do
+        describe do
+          admin_attrs = FactoryGirl.attributes_for :admin
+          let(:email) { @admin1.email + @admin.email }
+          let(:password) { admin_attrs[:password] }
+
+          example "管理员重置密码失败（用户不存在" do
+            do_request
+            puts response_body
+            expect(status).to eq(422)
+          end
+        end
+      end
+      
     end
   end
 end
