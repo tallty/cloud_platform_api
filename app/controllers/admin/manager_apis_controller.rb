@@ -1,4 +1,5 @@
 class Admin::ManagerApisController < ApplicationController
+  acts_as_token_authentication_handler_for Admin
   before_action :set_admin_manager_api, only: [:show]
 
   respond_to :json
