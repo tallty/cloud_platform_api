@@ -21,10 +21,10 @@ class Appointment < ApplicationRecord
   ################ aasm ####################
   aasm do
   	state :checking, initial: true
-  	state :used
+  	state :accepted
 
   	event :accept do
-      transitions from: :checking, to: :used
+      transitions from: :checking, to: :accepted
     end
   end
   
@@ -108,4 +108,22 @@ class Appointment < ApplicationRecord
   rescue => error
      error
   end
+
+  def change_appointment_items_state state_for_all=nil, accepted_ids, checking_ids, refused_ids
+
+    ActiveRecord::Base.transaction do
+      # 申请列表 对所有子项操作
+      return nil if state_for_all && self.appointment_items.each {|appointment_item| appointment_item.send("#{state_for_all}!")}
+      # 申请详情 分类操作
+      _ids_info = [[accepted_ids, "accepted"], [checking_ids, "checking"], [refused_ids, "refused"]].map {|item| [ item[0].is_a?(String) ? item[0].split(',').map{|i| i.to_i} : item[0] ? item[0].map { |i| i.to_i } : [], item[1]]}
+      _all_ids = _ids_info.map{|ids, state| ids}.flatten(1)
+      _appointment_items = self.appointment_items
+      raise '数组参数不完整 或 错误' unless   _all_ids.uniq!.nil? && _all_ids.sort == _appointment_items.collect(&:id).sort
+      _ids_info.each {|ids, state| self.appointment_items.where(id: ids).each {|appointment_item| p appointment_item.send("#{state}!") } }
+      return  nil
+    end
+  rescue => error
+    error
+  end
+
 end

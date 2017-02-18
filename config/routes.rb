@@ -37,6 +37,9 @@ Rails.application.routes.draw do
       end
     end
   	resources :appointments, only: [:index, :show] do
+      member do 
+        post :audit
+      end
       resources :appointment_items, only: [:index, :show]do
         member do
           post :accept

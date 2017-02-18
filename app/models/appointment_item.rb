@@ -26,16 +26,16 @@ class AppointmentItem < ApplicationRecord
 
   ################ aasm ####################
   aasm do
-  	state :unused
+  	state :refused
   	state :checking, initial: true
-  	state :used
+  	state :accepted
 
   	event :accept do
-      transitions from: :checking, to: :used, :after => :operate_record
+      transitions from: :checking, to: :accepted, :after => :operate_record
     end
 
     event :refuse do
-      transitions from: :checking, to: :unused, :after => :update_appointment_state
+      transitions from: :checking, to: :refused, :after => :update_appointment_state
     end
   end
 
@@ -103,6 +103,14 @@ class AppointmentItem < ApplicationRecord
   
   #拒绝时间
   def refuse_time
-    self.updated_at.to_date if self.aasm_state == "unused"
+    self.updated_at.to_date if self.aasm_state == "refused"
   end
+  AppointmentItem.aasm.state_machine.states.each do |item|
+
+    define_method "#{item.name}!" do 
+      self.aasm_state = item.name.to_s
+      self.save
+    end
+  end
+  
 end

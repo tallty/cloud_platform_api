@@ -23,7 +23,7 @@ resource "用户 对接口申请项 相关的API " do
     get '/appointments/:appointment_id/appointment_items' do
       let(:appointment_id) { @appointments.first.id }
 
-      parameter :keyword, "申请的状态：(‘checking’待审核，‘used’已授权，‘unused’未授权)", required: false
+      parameter :keyword, "申请的状态：(‘checking’待审核，‘accepted’已授权，‘refused’未授权)", required: false
 
       let(:keyword) {"checking"}
       

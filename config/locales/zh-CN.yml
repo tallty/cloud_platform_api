@@ -2,9 +2,9 @@ zh-CN:
  
     # attributes:
   appointment_aasm_state:
-    unused: "未授权"
+    refused: "未授权"
     checking: "待审核"
-    used: "已授权"
+    accepted: "已授权"
   # appointment_range:
   #   one_month: "一个月"
   #   two_month: "两个月"

@@ -33,11 +33,11 @@ class InterfaceDocumentsController < ApplicationController
   #  if @appointments.present?
   #     @appointment = @appointments.avail_time.first#获取接口对应 没有过期的申请。
   #     if @appointment.present?
-  #       if @appointment.aasm_state == "used"
+  #       if @appointment.aasm_state == "accepted"
   #         @interface_document.update(frequency: @interface_document.frequency + 1) #记录访问次数
   #         @interface_document.ceate_statis_info(current_user.id, @interface_document.id)#创建统计信息
   #         respond_with(@interface_document)
-  #       elsif @appointment.aasm_state == "unused"
+  #       elsif @appointment.aasm_state == "refused"
   #         @error = "您没有访问权限, 您的申请没有通过审核 ！"
   #         respond_with(@error, template: "error")
   #       else

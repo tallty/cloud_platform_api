@@ -50,7 +50,7 @@ resource "用户申请 接口文档 相关的API " do
    
     #################### index #########################
     get 'appointments' do
-      parameter :keyword, "申请的状态：(‘checking’待审核，‘used’已授权，‘unused’未授权)", required: false
+      parameter :keyword, "申请的状态：(‘checking’待审核，‘accepted’已授权，‘refused’未授权)", required: false
 
       let(:keyword) {"checking"}
 
