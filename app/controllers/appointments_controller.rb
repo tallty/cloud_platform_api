@@ -17,22 +17,11 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = current_user.appointments.build(appointment_params)
-    if @appointment.save
-      _ids = appointment_params[:interface_document_ids].split(",")#接收接口集合
-      # _ids = [1, 2, 3]#测试
-      if _ids.present?
-        @appointment.create_items(_ids, @appointment.id)
-        respond_with(@appointment, template: "appointments/show", status: 201)
-      else
-        @error = "请选择 要申请 的接口文档 ！"
-        respond_with(@error, template: "error")
-        @appointment.destroy
-      end   
-    else
-      @error = "接口文档 申请创建 失败 ！"
-      respond_with(@error, template: "error")
-    end
+    _ids = params[:appointment][:interface_document_ids]
+    @appointment = Appointment.create_one(_ids, appointment_params, current_user)
+    @appointment.is_a?(Appointment) ? 
+      respond_with(@appointment, template: "appointments/show", status: 201) : 
+      respond_with(@error = @appointment, template: 'error')
   end
       
   private
@@ -41,6 +30,6 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-      params.require(:appointment).permit(:interface_document_ids, :range)
+      params.require(:appointment).permit(:range)
     end
 end

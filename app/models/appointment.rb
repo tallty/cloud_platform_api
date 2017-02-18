@@ -93,14 +93,19 @@ class Appointment < ApplicationRecord
     end
   end
 
-  #批量创建申请项
-  def create_items(ids, appointment_id)
+  def self.create_one(ids, appointment_params, user)
     ActiveRecord::Base.transaction do
+      raise "range 错误" if appointment_params[:range].to_i < 0
+      _appointment = user.appointments.build(appointment_params)
+      raise "appointment 参数错误" unless _appointment.save
       ids.each do |id|
-        _item = self.appointment_items.create(appointment_id: appointment_id, interface_document_id: id, range: self.range)
-        @api = InterfaceDocument.find(id)
-        raise "#{@api.title}这条接口申请失败！，" unless _item.save 
-      end   
-    end  
+        raise "所选接口不存在" unless _api = InterfaceDocument.find_by_id(id)
+        _item = _appointment.appointment_items.build(interface_document_id: id, range: _appointment.range)
+        raise "#{_api.title}这条接口申请失败！，" unless _item.save 
+      end
+      _appointment 
+    end 
+  rescue => error
+     error
   end
 end
