@@ -66,23 +66,60 @@ resource "管理员对 用户申请 相关的API " do
         end
       end
 
-      describe "申请组 详情页, 设置全部申请为“通过”成功" do 
+      describe "申请组 详情页, 审核编辑 申请项成功" do 
         parameter :accepted_ids, "【申请组 详情页】需转换为 “通过”状态的申请小项 id 数组", required: false
         parameter :checking_ids, "【申请组 详情页】需转换为 “申请中”状态的申请小项 id 数组", required: false
         parameter :refused_ids, "【申请组 详情页】需转换为 “拒绝”状态的申请小项 id 数组， 三种状态数组必须包含该申请组的全部申请小项id 否则报错。", required: false
-        p 'sssss'
+
         let(:state_for_all) { nil }
-        let(:accepted_ids) { [@admin_appointments.first.appointment_items.collect(&:id)]}#first.id] }
-        let(:checking_ids) { []}#[@admin_appointments.first.appointment_items.second.id]}
+        let(:accepted_ids) { [@admin_appointments.first.appointment_items.first.id]}
+        let(:checking_ids) { [@admin_appointments.first.appointment_items.second.id]}
         let(:refused_ids) { [] }
         let(:id) { @admin_appointments.first.id }
 
-        example "管理员 申请组 请为“通过”成功" do
+        example "管理员 申请组详情页中 审核编辑申请项 成功" do
           do_request
           puts response_body
           expect(status).to eq(200)
         end
       end
+
+      describe "申请组 详情页, 审核编辑 申请项失败" do 
+        parameter :accepted_ids, "【申请组 详情页】需转换为 “通过”状态的申请小项 id 数组", required: false
+        parameter :checking_ids, "【申请组 详情页】需转换为 “申请中”状态的申请小项 id 数组", required: false
+        parameter :refused_ids, "【申请组 详情页】需转换为 “拒绝”状态的申请小项 id 数组， 三种状态数组必须包含该申请组的全部申请小项id 否则报错。", required: false
+
+        let(:state_for_all) { nil }
+        let(:accepted_ids) { [@admin_appointments.first.appointment_items.first.id]}
+        let(:checking_ids) { []}
+        let(:refused_ids) { [] }
+        let(:id) { @admin_appointments.first.id }
+
+        example "管理员 申请组详情页 审核编辑申请项 失败（id缺失）" do
+          do_request
+          puts response_body
+          expect(status).to eq(422)
+        end
+      end
+
+      describe "申请组 详情页, 审核编辑 申请项失败" do 
+        parameter :accepted_ids, "【申请组 详情页】需转换为 “通过”状态的申请小项 id 数组", required: false
+        parameter :checking_ids, "【申请组 详情页】需转换为 “申请中”状态的申请小项 id 数组", required: false
+        parameter :refused_ids, "【申请组 详情页】需转换为 “拒绝”状态的申请小项 id 数组， 三种状态数组必须包含该申请组的全部申请小项id 否则报错。", required: false
+
+        let(:state_for_all) { nil }
+        let(:accepted_ids) { [@admin_appointments.first.appointment_items.first.id]}
+        let(:checking_ids) { [@admin_appointments.first.appointment_items.second.id + 100]}
+        let(:refused_ids) { [] }
+        let(:id) { @admin_appointments.first.id }
+
+        example "管理员 申请组详情页 审核编辑申请项 失败（id错误、重复 或 无对应记录）" do
+          do_request
+          puts response_body
+          expect(status).to eq(422)
+        end
+      end
+
 
     end
   end

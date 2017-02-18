@@ -29,6 +29,15 @@ resource "用户申请 接口文档 相关的API " do
       puts response_body
       expect(status).to eq(201)
     end
+
+    describe '用户 提交申请失败' do
+      let(:interface_document_ids) {[-1]}
+      example "用户 提交申请失败" do
+      do_request
+      puts response_body
+      expect(status).to eq(422)
+    end
+    end
   end
 
   ############### before_do ################################

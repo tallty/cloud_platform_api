@@ -21,7 +21,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.create_one(_ids, appointment_params, current_user)
     @appointment.is_a?(Appointment) ? 
       respond_with(@appointment, template: "appointments/show", status: 201) : 
-      respond_with(@error = @appointment, template: 'error')
+      respond_with(@error = @appointment, template: 'error', status: 422)
   end
       
   private

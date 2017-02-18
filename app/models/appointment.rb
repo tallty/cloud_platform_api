@@ -98,6 +98,7 @@ class Appointment < ApplicationRecord
       raise "range 错误" if appointment_params[:range].to_i < 0
       _appointment = user.appointments.build(appointment_params)
       raise "appointment 参数错误" unless _appointment.save
+      ids = ids.split(',').map{|e| e.to_i} if ids.is_a?(String)
       ids.each do |id|
         raise "所选接口不存在" unless _api = InterfaceDocument.find_by_id(id)
         _item = _appointment.appointment_items.build(interface_document_id: id, range: _appointment.range)
