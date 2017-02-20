@@ -42,7 +42,7 @@ class AppointmentItem < ApplicationRecord
   end
 
   #审核后操作record
-  # def operate_record
+  def operate_record
   #   #参数
   #   _user_id = self.appointment.user_id
   #   _document_id = self.interface_document_id
@@ -55,7 +55,7 @@ class AppointmentItem < ApplicationRecord
   #     Record.create_record(_user_id, _document_id, _range)#新建
   #   end
   #   self.update_appointment_state #当申请全部审核了就改变appointment的状态
-  # end
+  end
 
   #状态别名
   def state
