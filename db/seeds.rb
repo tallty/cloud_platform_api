@@ -72,8 +72,8 @@ interface_documents = InterfaceDocument.create!([
 	{ title: '上海过去12小时空气质量实况', description: '获取上海过去12小时空气质量实况数据内容', api_type: 'aqi_history', site: 'http://61.152.122.112:8080/api/v1/aqi/history?' , interface_sort_id: 6},
 	{ title: '全国空气质量实况', description: '根据经纬度获取对应城市的空气质量的数据内容', api_type: 'aqi_query', site: 'http://61.152.122.112:8080/api/v1/aqi/query?' , interface_sort_id: 6}, 
 
-	{ title: '上海10区县主站实时数据', description: '获取上海10区县主站实时数据内容', api_type: 'auto_stations_master', site: 'http://61.152.122.112:8080/api/v1/auto_stations/master?' , interface_sort_id: 7},
-	{ title: '上海自动站实时数据[10分钟间隔]', description: '获取上海自动站每10分钟间隔的实时数据', api_type: 'auto_stations', site: 'http://61.152.122.112:8080/api/v1/auto_stations?' , interface_sort_id: 7},## 
-	{ title: '上海自动站实时数据[5分钟间隔]', description: '获取上海自动站每5分钟间隔的实时数据', api_type: 'stable_stations', site: 'http://61.152.122.112:8080/api/v1/stable_stations?' , interface_sort_id: 7},
-	{ title: '定位城市最近小时数据', description: '根据经纬度获取对应城市最近一小时的自动站的数据内容', api_type: 'auto_stations_locate_nation_wide', site: 'http://61.152.122.112:8080/api/v1/auto_stations/locate_nation_wide?' , interface_sort_id: 7}, 
+	{ title: '上海10区县主站实时数据', description: '获取上海10区县主站实时数据内容', api_type: 'auto_stations_master', site: 'http://61.152.122.112:8080/api/v1/auto_stations/master?' , interface_sort_id: 1},
+	{ title: '上海自动站实时数据[10分钟间隔]', description: '获取上海自动站每10分钟间隔的实时数据', api_type: 'auto_stations', site: 'http://61.152.122.112:8080/api/v1/auto_stations?' , interface_sort_id: 1},## 
+	{ title: '上海自动站实时数据[5分钟间隔]', description: '获取上海自动站每5分钟间隔的实时数据', api_type: 'stable_stations', site: 'http://61.152.122.112:8080/api/v1/stable_stations?' , interface_sort_id: 1},
+	{ title: '定位城市最近小时数据', description: '根据经纬度获取对应城市最近一小时的自动站的数据内容', api_type: 'auto_stations_locate_nation_wide', site: 'http://61.152.122.112:8080/api/v1/auto_stations/locate_nation_wide?' , interface_sort_id: 1}, 
 												])

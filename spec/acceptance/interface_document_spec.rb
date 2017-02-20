@@ -10,8 +10,11 @@ resource "用户查看 接口文档 相关的API " do
   describe 'interface_documents condition is all correct' do
 
     before do
-      @interface_documents = create_list(:interface_document, 2, title: "气象云平台接口")
+      @interface_sorts = create_list(:interface_sort, 2)
+      @interface_documents = create_list(:interface_document, 2, title: "气象云平台接口", interface_sort: @interface_sorts.first) + 
+                              create_list(:interface_document, 1, title: "气象云平台接口", interface_sort: @interface_sorts.second)
       @user = create(:user)
+
       create(:record, user: @user, interface_document: @interface_documents.first, range: 10)
     end
    

@@ -35,6 +35,22 @@ class InterfaceDocument < ApplicationRecord
   def is_using user
     self.users.include?(user)
   end
+
+  def self.index_output interface_documents, interface_sorts, user
+    _output = {}
+    interface_documents.to_a.chunk{|x|x.interface_sort_id}.each do |x| 
+      _output[interface_sorts.find(x[0]).title] = x[1].map do |doc|
+        { 
+          id: doc.id,
+           title: doc.title,
+           description: doc.description,
+           site: doc.site,
+           is_using: doc.is_using(user)
+        }
+      end
+    end
+    _output
+  end
   ############################################ 排名情况 ######################################
   def total_rank#总的排名
   	self.class.where("frequency > ?", self.frequency).count + 1

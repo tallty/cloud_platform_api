@@ -9,6 +9,7 @@ class InterfaceDocumentsController < ApplicationController
     per_page = params[:per_page] || 20
     @interface_documents = InterfaceDocument.all.paginate(page: page, per_page: per_page)
     @user = current_user
+    @interface_sorts = InterfaceSort.all
     respond_with @interface_documents, template: 'interface_documents/index'
   end
 

@@ -10,6 +10,6 @@
 
 FactoryGirl.define do
   factory :interface_sort do
-    title "MyString"
+    sequence(:title) { |n| "分类#{n}" }
   end
 end
