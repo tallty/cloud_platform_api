@@ -14,7 +14,7 @@ resource "管理员 接口管理 相关的API " do
       @admin = create(:admin)
       @user = create(:user)
       @interface_document = create(:interface_document)
-      @records = create_list(:record, 3, user: @user, interface_document: @interface_document, range: "six_month")
+      @records = create_list(:record, 3, user: @user, interface_document: @interface_document, range: 10)
     end
    
     #################### index #########################

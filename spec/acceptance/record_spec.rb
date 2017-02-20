@@ -15,6 +15,7 @@ resource "用户查看 申请接口记录 相关的API " do
       @interface_document = create(:interface_document)
       @records = create_list(:record, 2, user: @user, interface_document: @interface_document, range: "15")
       @records << create_list(:record, 2, user: @user, interface_document: @interface_document, end_time: Time.zone.today)
+      @records << create_list(:record, 2, user: @user, interface_document: @interface_document, end_time: Time.zone.today - 5.day)
     end
    
     #################### index #########################
@@ -46,6 +47,7 @@ resource "用户查看 申请接口记录 相关的API " do
         expect(status).to eq(200)
       end
     end
+
 
     ##################### show ########################
     get '/records/:id' do

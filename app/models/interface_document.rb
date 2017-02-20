@@ -29,7 +29,10 @@ class InterfaceDocument < ApplicationRecord
 
   #检测接口
   scope :check_api_type, ->(type){ find_by(api_type: type) }
- 
+  
+  def is_using user
+    self.users.include?(user)
+  end
   ############################################ 排名情况 ######################################
   def total_rank#总的排名
   	self.class.where("frequency > ?", self.frequency).count + 1

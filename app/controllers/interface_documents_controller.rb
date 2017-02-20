@@ -1,5 +1,5 @@
 class InterfaceDocumentsController < ApplicationController
-  acts_as_token_authentication_handler_for User, only: [:list, :details] 
+  acts_as_token_authentication_handler_for User #, only: [:list, :details] 
   before_action :set_interface_document, only: [:show]
 
   respond_to :json
@@ -8,7 +8,8 @@ class InterfaceDocumentsController < ApplicationController
     page = params[:page] || 1
     per_page = params[:per_page] || 20
     @interface_documents = InterfaceDocument.all.paginate(page: page, per_page: per_page)
-    respond_with(@interface_documents)
+    @user = current_user
+    respond_with @interface_documents, template: 'interface_documents/index'
   end
 
   def show

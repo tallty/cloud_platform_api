@@ -1,4 +1,4 @@
-json.extract! record, :id, :range_alias, :start_time, :end_time, :state, :created_at, :updated_at
+json.extract! record, :id, :range_alias, :start_time, :end_time, :state, :will_delay, :created_at, :updated_at
 json.document record.interface_document.try(:title)
 json.url record_url(record, format: :json)
 

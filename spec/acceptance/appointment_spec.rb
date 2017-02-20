@@ -3,6 +3,7 @@ require 'acceptance_helper'
 resource "用户申请 接口文档 相关的API " do
   header "Accept", "application/json"
   user_attrs = FactoryGirl.attributes_for(:user)
+  
   header "X-User-Token", user_attrs[:authentication_token]
   header "X-User-Phone", user_attrs[:phone]
   before do 

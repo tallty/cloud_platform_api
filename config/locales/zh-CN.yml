@@ -2,7 +2,7 @@ zh-CN:
  
     # attributes:
   appointment_aasm_state:
-    refused: "未授权"
+    refused: "已拒绝"
     checking: "待审核"
     accepted: "已授权"
   # appointment_range:

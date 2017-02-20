@@ -9,7 +9,7 @@
 #  updated_at            :datetime         not null
 #  range                 :string
 #  end_time              :date
-#
+#  
 
 class Record < ApplicationRecord
   belongs_to :user
@@ -109,8 +109,14 @@ class Record < ApplicationRecord
     self.end_time.blank? || Time.zone.today < self.end_time + 1.days
   end
   
+  def will_delay
+    (Time.zone.today + 7.days) > end_time && end_time > Time.zone.today 
+  end
+
   #即将到期
   scope :will_delay, ->{ where("end_time > ? and end_time < ?", Time.zone.today, Time.zone.today + 7.days)}
+  scope :out_of_date, ->{ where("end_time < ?", Time.zone.today)}
+
   scope :find_user, ->(user_id){ where(user_id: user_id) }
   scope :find_interface, ->(document_id){find_by(interface_document_id: document_id)}
   scope :check_user, ->(user_id){ find_by(user_id: user_id) }

@@ -18,6 +18,8 @@ class AppointmentItem < ApplicationRecord
 
   # virtual attribute
   attr_accessor :keyword, :item_ids
+  
+  after_save :update_appointment_state
 
   ################# validate ##############
   validates_presence_of :range, on: :create, message: "range不能为空"

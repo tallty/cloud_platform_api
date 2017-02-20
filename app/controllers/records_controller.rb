@@ -19,6 +19,13 @@ class RecordsController < ApplicationController
     respond_with(@records, template: "records/index", status: 200)
   end
 
+  def out_of_date
+    page = params[:page] || 1
+    per_page = params[:per_page] || 15
+    @records = current_user.records.out_of_date.paginate(page: page, per_page: per_page)
+    respond_with(@records, template: "records/index", status: 200)
+  end
+
   def show
     respond_with(@record)  
   end
