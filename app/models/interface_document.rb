@@ -33,7 +33,7 @@ class InterfaceDocument < ApplicationRecord
   scope :check_api_type, ->(type){ find_by(api_type: type) }
   
   def is_using user
-    self.users.include?(user)
+    self.users.include?(user) || self.appointment_items.where(user: user).keyword('checking').any?
   end
 
   def self.index_output interface_documents, interface_sorts, user
