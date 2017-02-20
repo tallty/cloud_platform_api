@@ -120,6 +120,35 @@ resource "管理员对 用户申请 相关的API " do
         end
       end
 
+    end
+
+    post 'admin/appointments/audit_multi' do 
+      parameter :ids, "操作对象appointments 的 ids 数组", required: true
+      parameter :state_for_all, "目标状态, accepted, checking, refused", required: true
+
+
+      describe "申请组 列表， 批量操作 申请组" do 
+        let(:ids) { @admin_appointments.collect(&:id) }
+        let(:state_for_all) { "accepted" } 
+
+        example "管理员 【申请组 列表】, 批量操作 申请组 成功" do
+          do_request
+          puts response_body
+          expect(status).to eq(200)
+        end
+      end
+
+      describe "申请组 详情页, 审核编辑 申请项失败" do 
+        let(:ids) { [11111111111] }
+        let(:state_for_all) { "accepted" } 
+
+        example "管理员 【申请组 列表】, 批量操作 申请组 失败" do
+          do_request
+          puts response_body
+          expect(status).to eq(422)
+        end
+      end
+
 
     end
   end

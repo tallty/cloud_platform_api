@@ -27,6 +27,13 @@ class Admin::AppointmentsController < ApplicationController
       respond_with(@error, template: 'error', status: 422)
   end
 
+  def audit_multi #ids, state_for_all
+    @admin_appointments = Appointment.change_multi_appointment_all_state(params[:ids], params[:state_for_all])
+    @admin_appointments.is_a?(Appointment::ActiveRecord_Relation) ?
+      respond_with(@admin_appointment, template: 'admin/appointments/appointments') :
+      respond_with(@error = @admin_appointments, template: 'error', status: 422)
+  end
+
   private
     def set_admin_appointment
       @admin_appointment = Appointment.find(params[:id])

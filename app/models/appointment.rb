@@ -110,10 +110,10 @@ class Appointment < ApplicationRecord
      error
   end
 
-  def change_appointment_items_state state_for_all=nil, accepted_ids, checking_ids, refused_ids
-
+  def change_appointment_items_state state_for_all=nil, accepted_ids=nil, checking_ids=nil, refused_ids=nil
     ActiveRecord::Base.transaction do
       # 申请列表 对所有子项操作
+      raise '目标状态参数错误' unless state_for_all.nil? || state_for_all.to_sym.in?(AppointmentItem.aasm.state_machine.states.collect(&:name))
       return nil if state_for_all && self.appointment_items.each {|appointment_item| appointment_item.send("#{state_for_all}!")}
       # 申请详情 分类操作
       _ids_info = [[accepted_ids, "accepted"], [checking_ids, "checking"], [refused_ids, "refused"]].map {|item| [ item[0].is_a?(String) ? item[0].split(',').map{|i| i.to_i} : item[0] ? item[0].map { |i| i.to_i } : [], item[1]]}
@@ -123,6 +123,23 @@ class Appointment < ApplicationRecord
       _ids_info.each {|ids, state| self.appointment_items.where(id: ids).each {|appointment_item| p appointment_item.send("#{state}!") } }
       return  nil
     end
+  rescue => error
+    error
+  end
+
+  def self.change_multi_appointment_all_state ids, state_for_all
+    raise 'ids 缺失' unless ids
+    raise 'state_for_all 缺失或错误' unless state_for_all.is_a?(String) && state_for_all.to_sym.in?(AppointmentItem.aasm.state_machine.states.collect(&:name))
+    ids.split(',') if ids.is_a?(String)
+    ids = ids.map { |e| e.to_i }
+    _appointments = Appointment.keyword('checking')
+    raise 'ids 参数错误' unless ids.is_a?(Array) && _appointments.collect(&:id) | ids == _appointments.collect(&:id)
+    ActiveRecord::Base.transaction do
+      Appointment.where(id: ids).each do |appointment|
+        appointment.change_appointment_items_state(state_for_all)
+      end
+    end
+    return Appointment.where(id: ids)
   rescue => error
     error
   end

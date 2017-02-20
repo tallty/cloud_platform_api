@@ -16,6 +16,14 @@ class AppointmentsController < ApplicationController
     respond_with(@appointment)
   end
 
+  def all_appointment_items
+    page = params[:page] || 1
+    per_page = params[:per_page] || 20
+    _keyword = params[:keyword]
+    @appointment_items = current_user.appointment_items.where(appointment_id: current_user.appointments.keyword(_keyword).collect(&:id)).paginate(page: page, per_page: per_page)
+    respond_with @appointment_items, template: 'appointment_items/index', status: 200
+  end
+
   def create
     _ids = params[:appointment][:interface_document_ids]
     @appointment = Appointment.create_one(_ids, appointment_params, current_user)

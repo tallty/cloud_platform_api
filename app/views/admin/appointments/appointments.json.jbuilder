@@ -1,0 +1,1 @@
+json.admin_appointments @admin_appointments, partial: 'admin/appointments/admin_appointment', as: :admin_appointment

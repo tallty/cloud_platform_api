@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   end
   resources :appointment_items, only: [:index, :show]
   resources :appointments, only: [:index, :show, :create] do
+    collection do 
+      get :all_appointment_items
+    end
     resources :appointment_items, only: [:index, :show]
   end
 
@@ -39,6 +42,9 @@ Rails.application.routes.draw do
   	resources :appointments, only: [:index, :show] do
       member do 
         post :audit
+      end
+      collection do 
+        post :audit_multi
       end
       resources :appointment_items, only: [:index, :show]do
         member do
