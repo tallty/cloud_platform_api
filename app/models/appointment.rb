@@ -51,6 +51,15 @@ class Appointment < ApplicationRecord
     self.user.try(:company_name)
   end
 
+  def create_records
+    self.appointment_items.keyword("accepted").each do |appointment_items|
+       _record = self.user.records.build(
+        interface_document_id: appointment_items.interface_document_id,
+        range: appointment_items.range
+        )
+      _record.save!
+    end
+  end
   # ################ enum ######################
   # #申请使用时限
   #  enum range: {
@@ -120,7 +129,7 @@ class Appointment < ApplicationRecord
       _all_ids = _ids_info.map{|ids, state| ids}.flatten(1)
       _appointment_items = self.appointment_items
       raise '数组参数不完整 或 错误' unless   _all_ids.uniq!.nil? && _all_ids.sort == _appointment_items.collect(&:id).sort
-      _ids_info.each {|ids, state| self.appointment_items.where(id: ids).each {|appointment_item| p appointment_item.send("#{state}!") } }
+      _ids_info.each {|ids, state| self.appointment_items.where(id: ids).each {|appointment_item| appointment_item.send("#{state}!") } }
       return  nil
     end
   rescue => error

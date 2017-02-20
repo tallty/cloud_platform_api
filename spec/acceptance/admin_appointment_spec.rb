@@ -14,7 +14,7 @@ resource "管理员对 用户申请 相关的API " do
       @admin = create(:admin)
       @user = create(:user)
       @interface_document = create(:interface_document)
-      @admin_appointments = create_list(:appointment, 2, user: @user) 
+      p @admin_appointments = create_list(:appointment, 2, user: @user) 
       @admin_appointments.each do |appointment|
         create_list(:appointment_item, 2, appointment: appointment,
                               interface_document: @interface_document)

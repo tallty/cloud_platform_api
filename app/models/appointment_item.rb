@@ -42,20 +42,20 @@ class AppointmentItem < ApplicationRecord
   end
 
   #审核后操作record
-  def operate_record
-    #参数
-    _user_id = self.appointment.user_id
-    _document_id = self.interface_document_id
-    _range = self.range
-    _record = Record.find_user(_user_id).find_interface(_document_id)
+  # def operate_record
+  #   #参数
+  #   _user_id = self.appointment.user_id
+  #   _document_id = self.interface_document_id
+  #   _range = self.range
+  #   _record = Record.find_user(_user_id).find_interface(_document_id)
 
-    if _record.present? 
-      Record.delay_record(_record, _range)#之前申请过就延期
-    else
-      Record.create_record(_user_id, _document_id, _range)#新建
-    end
-    self.update_appointment_state #当申请全部审核了就改变appointment的状态
-  end
+  #   if _record.present? 
+  #     Record.delay_record(_record, _range)#之前申请过就延期
+  #   else
+  #     Record.create_record(_user_id, _document_id, _range)#新建
+  #   end
+  #   self.update_appointment_state #当申请全部审核了就改变appointment的状态
+  # end
 
   #状态别名
   def state
@@ -65,7 +65,7 @@ class AppointmentItem < ApplicationRecord
   #当申请的所有接口 审核过了改变状态
   def update_appointment_state
     _items = self.appointment.appointment_items.check_state
-    _items.present? && self.appointment.accept! && self.operate_record
+    self.appointment.accept! && self.appointment.create_records unless _items.present? 
   end
 
   #搜索
