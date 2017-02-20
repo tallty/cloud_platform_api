@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
 #  phone                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -21,6 +20,7 @@
 #  appid                  :string
 #  company_name           :string
 #  name                   :string
+#  email                  :string
 #
 
 FactoryGirl.define do

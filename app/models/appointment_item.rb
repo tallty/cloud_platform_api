@@ -107,8 +107,8 @@ class AppointmentItem < ApplicationRecord
   def refuse_time
     self.updated_at.to_date if self.aasm_state == "refused"
   end
-  AppointmentItem.aasm.state_machine.states.each do |item|
 
+  AppointmentItem.aasm.state_machine.states.each do |item|
     define_method "#{item.name}!" do 
       self.aasm_state = item.name.to_s
       self.save

@@ -13,6 +13,7 @@
 #
 
 class InterfaceDocument < ApplicationRecord
+  belongs_to :interface_sort
   has_many :appointment_items    
   has_many :statis_infos    
   has_many :records    # 申请过的接口记录

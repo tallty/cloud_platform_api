@@ -39,7 +39,7 @@ class Appointment < ApplicationRecord
   }
 
   #待审核的数量
-  def checke_count
+  def check_count
     self.appointment_items.where(aasm_state: 'checking').count
   end
 
