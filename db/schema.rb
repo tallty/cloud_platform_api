@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220083658) do
+ActiveRecord::Schema.define(version: 20170220101529) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                             default: "", null: false
@@ -55,10 +55,12 @@ ActiveRecord::Schema.define(version: 20170220083658) do
     t.string   "title"
     t.text     "description"
     t.string   "site"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "frequency",   default: 0
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "frequency",         default: 0
     t.string   "api_type"
+    t.integer  "interface_sort_id"
+    t.index ["interface_sort_id"], name: "index_interface_documents_on_interface_sort_id"
   end
 
   create_table "interface_documents_users", id: false, force: :cascade do |t|
