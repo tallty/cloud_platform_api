@@ -13,6 +13,6 @@ class RequestData
   #创建统计信息
 	def self.create_statis_info(interface, user_id)
 		interface.update(frequency: interface.frequency + 1) #记录访问次数
-    interface.ceate_statis_info(user_id, interface.id)#创建统计信息
+    # interface.ceate_statis_info(user_id, interface.id)#创建统计信息
 	end
 end

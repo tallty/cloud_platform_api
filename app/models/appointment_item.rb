@@ -65,7 +65,7 @@ class AppointmentItem < ApplicationRecord
   #当申请的所有接口 审核过了改变状态
   def update_appointment_state
     _items = self.appointment.appointment_items.check_state
-    self.appointment.accept! unless _items.present?
+    _items.present? && self.appointment.accept! && self.operate_record
   end
 
   #搜索
