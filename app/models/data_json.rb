@@ -10,6 +10,7 @@ class DataJson
     response = Net::HTTP.get_response(URI(URI.escape(url))) #RestClient.get(url1)
     JSON.parse(response.body.force_encoding("UTF-8"))
 	end
+	
 
 	LinkHash = {
 		"qpf" => "qpf雷达回波/qpf.json",# 测试api_type
@@ -29,8 +30,8 @@ class DataJson
 		"aqi_history" => "空气质量数据/上海过去12小时空气质量实况.json",
 		"aqi_query" => "空气质量数据/全国空气质量实况.json",
 		"auto_stations_master" => "自动站/上海10区县主站实时数据.json",
-		"auto_stations" => "自动站/上海自动站实时数据[10分钟间隔].json",
-		"stable_stations" => "自动站/上海自动站实时数据[5分钟间隔].json",
+		"auto_stations" => "自动站/上海自动站实时数据_10分钟间隔.json",
+		"stable_stations" => "自动站/上海自动站实时数据_5分钟间隔.json",
 		"auto_stations_locate_nation_wide" => "自动站/定位城市最近小时数据.json"
 	}
 
