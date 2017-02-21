@@ -5,7 +5,8 @@ class RequestData
     appkey = "mXwnhDkYIG6S9iOyqsAW7vPVQ5ZxBe"
     url = "#{interface.site}appid=#{appid}&appkey=#{appkey}"
     params.each do |key, value| 
-      url << "&" << key << "=" << value if key == "lon" || key == "lat" || key == "city_name" || key == "unit"
+      # url << "&" << key << "=" << value if key == "lon" || key == "lat" || key == "city_name" || key == "unit"
+      url << "&" << key << "=" << value if  key.in?(["lon", "lat", "city_name", "unit"]) && value.blank?.!
     end
     @api_dates = DataJson.get_data(url) 
 	end

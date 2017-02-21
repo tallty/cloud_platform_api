@@ -45,7 +45,8 @@ class InterfaceDocument < ApplicationRecord
            title: doc.title,
            description: doc.description,
            site: doc.site,
-           is_using: doc.is_using(user)
+           is_using: doc.is_using(user),
+           interface_sort: doc.interface_sort.title
         }
       end
     end

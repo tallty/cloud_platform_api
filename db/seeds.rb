@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all 
-User.create!(phone: '13813813811', password: 'qwertyuiop', 
+user = User.create!(phone: '13813813811', password: 'qwertyuiop', 
 	         password_confirmation: 'qwertyuiop',authentication_token:'qwertyuiop',
              email: '13813813811@qq.com', name: '测试联系人', company_name: '测试公司'
 	         )
@@ -16,15 +16,16 @@ Admin.create!(email: 'admin@example.com', password: 'password',
 
 Appointment.destroy_all
 appointments = Appointment.create!([
-									{ range: 'one_month', user_id: 1 }, 
-									{ range: 'one_year', user_id: 1 }
+									{ id: 1, range: 'one_month', user_id: 1 }, 
+									{ id: 2, range: 'one_year', user_id: 1 }
 
 								   ])
 AppointmentItem.destroy_all
 appointment_items = AppointmentItem.create!([
-											  { appointment_id: 1, interface_document_id: 1 ,range: 'one_month',}, 
-											  { interface_document_id: 1, appointment_id: 1 ,range: 'two_month',}
+											  { id: 1, appointment_id: 1, interface_document_id: 1 ,range: 'one_month',}, 
+											  { id: 2, interface_document_id: 1, appointment_id: 1 ,range: 'two_month',}
 											 ])
+
 
 StatisInfo.destroy_all
 statis_infos = StatisInfo.create!([
@@ -77,3 +78,7 @@ interface_documents = InterfaceDocument.create!([
 	{ title: '上海自动站实时数据[5分钟间隔]', description: '获取上海自动站每5分钟间隔的实时数据', api_type: 'stable_stations', site: 'http://61.152.122.112:8080/api/v1/stable_stations?' , interface_sort_id: 1},
 	{ title: '定位城市最近小时数据', description: '根据经纬度获取对应城市最近一小时的自动站的数据内容', api_type: 'auto_stations_locate_nation_wide', site: 'http://61.152.122.112:8080/api/v1/auto_stations/locate_nation_wide?' , interface_sort_id: 1}, 
 												])
+Record.destroy_all
+Record.create!([
+	{id: 1, user: user, interface_document: interface_documents.first, range: 10}
+	])
