@@ -44,46 +44,56 @@ resource "用户查看 接口文档 相关的API " do
         expect(status).to eq(200)
       end
     end
+
+    get 'interface_documents/:id/get_detail_json' do 
+      let(:id) { @interface_documents.first.id }
+
+      example "用户查看指定接口的 【文档详情】成功" do
+          do_request
+          puts response_body
+          expect(status).to eq(200)
+        end
+    end
   end
-  ##################### date list ########################
-    get '/interface_documents/list' do
-      user_attrs = FactoryGirl.attributes_for(:user)
+#   ##################### date list ########################
+#     get '/interface_documents/list' do
+#       user_attrs = FactoryGirl.attributes_for(:user)
 
-      header "X-User-Token", user_attrs[:authentication_token]
-      header "X-User-Phone", user_attrs[:phone]
+#       header "X-User-Token", user_attrs[:authentication_token]
+#       header "X-User-Phone", user_attrs[:phone]
 
-      before do
-        @user = create(:user)
-      end
+#       before do
+#         @user = create(:user)
+#       end
 
-      example "查看指导接口 列表" do
-        do_request
-        puts response_body
-        expect(status).to eq(200)
-      end
-    end
+#       example "查看指导接口 列表" do
+#         do_request
+#         puts response_body
+#         expect(status).to eq(200)
+#       end
+#     end
 
-    ##################### date details ########################
-    get '/interface_documents/details' do
-      user_attrs = FactoryGirl.attributes_for(:user)
+#     ##################### date details ########################
+#     get '/interface_documents/details' do
+#       user_attrs = FactoryGirl.attributes_for(:user)
 
-      header "X-User-Token", user_attrs[:authentication_token]
-      header "X-User-Phone", user_attrs[:phone]
+#       header "X-User-Token", user_attrs[:authentication_token]
+#       header "X-User-Phone", user_attrs[:phone]
 
-      before do
-        @user = create(:user)
-      end
+#       before do
+#         @user = create(:user)
+#       end
       
-      parameter :url, "接口url(如:'qpf雷达回波/qpf.json')", required: false
+#       parameter :url, "接口url(如:'qpf雷达回波/qpf.json')", required: false
 
-      let(:url) {"qpf雷达回波/qpf.json"}
+#       let(:url) {"qpf雷达回波/qpf.json"}
 
-      example "查看 指导接口 详情" do
-        do_request
-        puts response_body
-        expect(status).to eq(200)
-      end
-    end
+#       example "查看 指导接口 详情" do
+#         do_request
+#         puts response_body
+#         expect(status).to eq(200)
+#       end
+#     end
 end
 
 resource "用户 调用接口 " do

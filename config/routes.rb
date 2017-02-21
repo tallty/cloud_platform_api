@@ -22,6 +22,9 @@ Rails.application.routes.draw do
       get :list
       get :details
     end
+    member do 
+      get :get_detail_json
+    end
     resources :statis_infos
   end
   ################### devise_for ####################

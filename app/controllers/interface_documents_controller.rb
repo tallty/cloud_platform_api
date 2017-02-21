@@ -1,6 +1,6 @@
 class InterfaceDocumentsController < ApplicationController
   acts_as_token_authentication_handler_for User #, only: [:list, :details] 
-  before_action :set_interface_document, only: [:show]
+  before_action :set_interface_document, only: [:show, :get_detail_json]
 
   respond_to :json
 
@@ -17,17 +17,22 @@ class InterfaceDocumentsController < ApplicationController
     respond_with(@interface_document)
   end
 
-  #接口文档信息列表
-  def list
-    @date_list = DataJson.get_list
-    respond_with @date_list, template: '/date_list'
+  def get_detail_json
+    render :json => DataJson.get_detail_json(@interface_document)
   end
-  #接口文档详情
-  def details
-    url = params[:url] || "qpf雷达回波/qpf.json"
-    @date_details = DataJson.get_details(url)
-    respond_with @date_details, template: '/date_details'
-  end
+
+
+  # #接口文档信息列表
+  # def list
+  #   @date_list = DataJson.get_list
+  #   respond_with @date_list, template: '/date_list'
+  # end
+  # #接口文档详情
+  # def details
+  #   url = params[:url] || "qpf雷达回波/qpf.json"
+  #   @date_details = DataJson.get_details(url)
+  #   respond_with @date_details, template: '/date_details'
+  # end
   
   # def show
   #  #访问接口的权限
