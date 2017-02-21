@@ -51,32 +51,32 @@ resource "管理员对 申请项 相关的API " do
       end
     end
 
-    ##################### check ########################
-    post '/admin/appointments/:appointment_id/appointment_items/:id/accept' do
-      parameter :appointment_item_ids, "审核的id数组", required: false
+    # ##################### check ########################
+    # post '/admin/appointments/:appointment_id/appointment_items/:id/accept' do
+    #   parameter :appointment_item_ids, "审核的id数组", required: false
 
-      let(:appointment_item_ids) { [@admin_appointment_items.first.id, 
-                                    @admin_appointment_items.last.id] }
+    #   let(:appointment_item_ids) { [@admin_appointment_items.first.id, 
+    #                                 @admin_appointment_items.last.id] }
 
-      example "管理员 审批通过 申请项 的请求" do
-        do_request
-        puts response_body
-        expect(status).to eq(201)
-      end
-    end
+    #   example "管理员 审批通过 申请项 的请求" do
+    #     do_request
+    #     puts response_body
+    #     expect(status).to eq(201)
+    #   end
+    # end
 
-    ##################### refuse ########################
-    post '/admin/appointments/:appointment_id/appointment_items/:id/refuse' do
-      parameter :appointment_item_ids, "审核的id数组", required: false
+    # ##################### refuse ########################
+    # post '/admin/appointments/:appointment_id/appointment_items/:id/refuse' do
+    #   parameter :appointment_item_ids, "审核的id数组", required: false
 
-      let(:appointment_item_ids) { [@admin_appointment_items.first.id, 
-                                    @admin_appointment_items.last.id] }  
+    #   let(:appointment_item_ids) { [@admin_appointment_items.first.id, 
+    #                                 @admin_appointment_items.last.id] }  
 
-      example "管理员 审批拒绝 申请项 的请求" do
-        do_request
-        puts response_body
-        expect(status).to eq(201)
-      end
-    end
+    #   example "管理员 审批拒绝 申请项 的请求" do
+    #     do_request
+    #     puts response_body
+    #     expect(status).to eq(201)
+    #   end
+    # end
   end
 end
