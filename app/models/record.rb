@@ -73,7 +73,7 @@ class Record < ApplicationRecord
   scope :find_user, ->(user_id){ where(user_id: user_id) }
   scope :find_interface, ->(document_id){find_by(interface_document_id: document_id)}
   # scope :check_user, ->(user_id){ find_by(user_id: user_id) }
-  scope :check_user, ->(user_id){ where(user_id: user_id).where("end_time >= ?", TIme.now.today)}
+  scope :check_user, ->(user_id){ where(user_id: user_id).where("end_time >= ?", Time.zone.today)}
   #延期record
   def self.delay_record record, range
     record.update!(range: range, created_at: Time.zone.now)
