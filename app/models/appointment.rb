@@ -12,7 +12,7 @@
 
 class Appointment < ApplicationRecord
   include AASM
-  belongs_to :user
+  belongs_to :useadr
   has_many :appointment_items, dependent: :destroy
 
   # virtual attribute
@@ -124,6 +124,7 @@ class Appointment < ApplicationRecord
   end
 
   def change_appointment_items_state state_for_all=nil, accepted_ids=nil, checking_ids=nil, refused_ids=nil
+    raise "禁止对已全部完成审批的申请再次操作" if self.accepted?
     ActiveRecord::Base.transaction do
       # 申请列表 对所有子项操作
       raise '目标状态参数错误' unless state_for_all.nil? || state_for_all.to_sym.in?(AppointmentItem.aasm.state_machine.states.collect(&:name))
@@ -141,6 +142,7 @@ class Appointment < ApplicationRecord
   end
 
   def self.change_multi_appointment_all_state ids, state_for_all
+    raise "禁止对已全部完成审批的申请再次操作" if self.accepted?
     raise 'ids 缺失' unless ids
     raise 'state_for_all 缺失或错误' unless state_for_all.is_a?(String) && state_for_all.to_sym.in?(AppointmentItem.aasm.state_machine.states.collect(&:name))
     ids.split(',') if ids.is_a?(String)
