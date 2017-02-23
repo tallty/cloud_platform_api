@@ -40,30 +40,12 @@ class Record < ApplicationRecord
       "#{self.range}个月"
     end
   end
-
-  def start_time#申请时间
+  #  开始时间
+  def start_time
     self.created_at.to_date
   end
-
-  def manager_end_time#结束时间
-    # case self.range
-    # when "one_month"
-    #  self.end_time = self.start_time + 1.month
-    # when "two_month"
-    #  self.end_time = self.start_time + 2.month
-    # when "three_month"
-    #  self.end_time = self.start_time + 3.month
-    # when "six_month"
-    #  self.end_time = self.start_time + 6.month
-    # when "one_year"
-    #  self.end_time = self.start_time + 1.year
-    # when "two_year"
-    #  self.end_time = self.start_time + 2.year
-    # when "three_year"
-    #  self.end_time = self.start_time + 3.year
-    # when "always"
-    #  self.end_time = "永久"
-    # end
+  # 设置结束时间
+  def manager_end_time
     _number = self.range.to_i
     if _number > 0
       self.end_time = self.start_time + _number.month
@@ -72,37 +54,6 @@ class Record < ApplicationRecord
     end
     self.save
   end
-
-  #处理到期时间
-  # def manager_end_time start_time
-  #   case self.range
-  #   when "one_month"
-  #    self.end_time = start_time + 1.month
-  #   when "two_month"
-  #    self.end_time = start_time + 2.month
-  #   when "three_month"
-  #    self.end_time = start_time + 3.month
-  #   when "six_month"
-  #    self.end_time = start_time + 6.month
-  #   when "one_year"
-  #    self.end_time = start_time + 1.year
-  #   when "two_year"
-  #    self.end_time = start_time + 2.year
-  #   when "three_year"
-  #    self.end_time = start_time + 3.year
-  #   when "always"
-  #    self.end_time = "永久"
-  #   end
-  # end
-
-  # #延期时更新到期时间
-  # def update_end_time
-  #   if self.end_time < Time.zone.today
-  #     self.manager_end_time(Time.zone.today)
-  #   else
-  #     self.manager_end_time(self.end_time)
-  #   end
-  # end
   
   #接口状态（正常或者过期）
   def state
@@ -116,20 +67,16 @@ class Record < ApplicationRecord
   #即将到期
   scope :will_delay, ->{ where("end_time > ? and end_time < ?", Time.zone.today, Time.zone.today + 7.days)}
   scope :out_of_date, ->{ where("end_time < ?", Time.zone.today)}
+  scope :the_same_interface, ->(id){where(interface_document_id: id)}
+  scope :is_using, ->{ where("end_time > ?", Time.zone.now) }
 
   scope :find_user, ->(user_id){ where(user_id: user_id) }
   scope :find_interface, ->(document_id){find_by(interface_document_id: document_id)}
-  scope :check_user, ->(user_id){ find_by(user_id: user_id) }
+  # scope :check_user, ->(user_id){ find_by(user_id: user_id) }
+  scope :check_user, ->(user_id){ where(user_id: user_id).where("end_time >= ?", TIme.now.today)}
   #延期record
   def self.delay_record record, range
-    if record.present? && record.range.to_i > 0  #延期之前的申请不是 “永久”  
-      if record.end_time < Time.zone.today #延期时已经过期了 
-        record.update(range: range, created_at: Time.zone.today)#改变使用时限和开始时间
-      else
-        _range = record.range.to_i + range.to_i 
-        record.update(range: _range)
-      end
-    end  
+    record.update!(range: range, created_at: Time.zone.now)
   end
 
   #新建record

@@ -52,12 +52,16 @@ class Appointment < ApplicationRecord
   end
 
   def create_records
-    self.appointment_items.keyword("accepted").each do |appointment_items|
-       _record = self.user.records.build(
-        interface_document_id: appointment_items.interface_document_id,
-        range: appointment_items.range
-        )
-      _record.save!
+    ActiveRecord::Base.transaction do
+      self.appointment_items.keyword("accepted").each do |appointment_item|
+        _record = self.user.records.the_same_interface(appointment_item.interface_document_id).is_using
+        next if _record.any? && Record.delay_record(_record.first, appointment_item.range) #之前申请过就延期
+        _record = self.user.records.build(
+          interface_document_id: appointment_item.interface_document_id,
+          range: appointment_item.range
+          )
+        _record.save!
+      end
     end
   end
   # ################ enum ######################

@@ -3,6 +3,7 @@ class ApisController < ApplicationController
 
   respond_to :json
 
+  ##### 需要重写
   #用户调用天气接口数据
   def api_date
     if params[:appid].present? && params[:appkey].present?

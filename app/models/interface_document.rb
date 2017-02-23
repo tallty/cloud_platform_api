@@ -33,7 +33,11 @@ class InterfaceDocument < ApplicationRecord
   scope :check_api_type, ->(type){ find_by(api_type: type) }
   
   def is_using user
-    self.users.include?(user) || self.appointment_items.where(appointment: user.appointments).keyword('checking').any?
+    self.users.include?(user) 
+  end
+
+  def is_auditing user
+    self.appointment_items.where(appointment: user.appointments).keyword('checking').any?
   end
 
   def self.index_output interface_documents, interface_sorts, user
@@ -46,6 +50,7 @@ class InterfaceDocument < ApplicationRecord
            description: doc.description,
            site: doc.site,
            is_using: doc.is_using(user),
+           is_auditing: doc.is_auditing(user),
            interface_sort: doc.interface_sort.title
         }
       end
