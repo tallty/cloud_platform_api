@@ -28,7 +28,7 @@ FactoryGirl.define do
     phone "13813813812"
     password "abcd.1234"
     sms_token "1981"
-    authentication_token "qwertyuiop"
+    authentication_token "qwertyuiop988"
 
     appid "dSivOBxBRU6MJk4RY6sE" 
     appkey "FAtIStyhxtV5hH7DHECpF19XAfsYCS"

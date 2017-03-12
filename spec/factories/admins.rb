@@ -22,12 +22,12 @@ FactoryGirl.define do
   factory :admin do
     email "admin@example1.com"
     password "password"
-    authentication_token "qwertyuiop1"
+    authentication_token "qwertyuiop12"
   end
 
   factory :admin1, class: Admin do
     email "admin@example11111.com"
     password "password11111"
-    authentication_token "qwertyuiop111"
+    authentication_token "qwertyuiop1112"
   end
 end
