@@ -6,7 +6,7 @@ class DataJson
 		require 'net/https' 
     require 'json' 
     p 'url==='
-    p url ="http://139.196.38.11:5555/date_api/" + "#{url}"
+    p url = "http://101.37.30.40:2333/date_api/" + "#{url}"
     response = Net::HTTP.get_response(URI(URI.escape(url))) #RestClient.get(url1)
     JSON.parse(response.body.force_encoding("UTF-8"))
 	end
